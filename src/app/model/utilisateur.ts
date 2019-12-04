@@ -1,5 +1,3 @@
-import {Adresse} from './adresse';
-
 export class Utilisateur {
   id: number;
   version: number;
