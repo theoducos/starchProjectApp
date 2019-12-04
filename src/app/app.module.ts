@@ -13,6 +13,8 @@ import { LieuxEvenementComponent } from './lieux-evenement/lieux-evenement.compo
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { IncriptionFormComponent } from './incription-form/incription-form.component';
+import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
 import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
 
 @NgModule({
@@ -27,6 +29,9 @@ import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.componen
     LieuxEvenementComponent,
     UtilisateurComponent,
     OrgaEvenementComponent
+    UtilisateurComponent,
+    IncriptionFormComponent,
+    NouveauLieuFormComponent
   ],
   imports: [
     BrowserModule,
