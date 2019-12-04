@@ -14,6 +14,7 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
+import {EvenementHttpService} from './orga-evenement/evenement.http.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EvenementHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
