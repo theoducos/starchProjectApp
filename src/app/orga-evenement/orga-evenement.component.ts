@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Evenement} from '../model/evenement';
+import {EvenementHttpService} from './evenement.http.service';
 
 @Component({
   selector: 'app-orga-evenement',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrgaEvenementComponent implements OnInit {
 
-  constructor() { }
+
+  evenement: Evenement;
+
+  constructor(private evenementService: EvenementHttpService) { }
+
+  save() {
+    this.evenementService.save(this.evenement);
+  }
 
   ngOnInit() {
   }

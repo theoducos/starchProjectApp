@@ -29,8 +29,7 @@ import {EvenementHttpService} from './orga-evenement/evenement.http.service';
     GroupeComponent,
     LieuxEvenementComponent,
     UtilisateurComponent,
-    OrgaEvenementComponent
-    UtilisateurComponent,
+    OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent
   ],
