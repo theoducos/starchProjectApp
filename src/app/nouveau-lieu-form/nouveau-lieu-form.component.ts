@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Utilisateur} from "../model/utilisateur";
+import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 
 @Component({
   selector: 'app-nouveau-lieu-form',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NouveauLieuFormComponent implements OnInit {
 
-  constructor() { }
+  utilisateur: Utilisateur;
+
+  save() {
+
+    this.utilisateurService.save(this.utilisateur);
+  }
+
+  constructor(private utilisateurService: UtilisateurHttpService) {
+  }
 
   ngOnInit() {
   }
