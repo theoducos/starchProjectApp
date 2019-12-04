@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Utilisateur} from "../model/utilisateur";
 import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 
@@ -10,6 +10,9 @@ import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 export class NouveauLieuFormComponent implements OnInit {
 
   utilisateur: Utilisateur;
+
+  @Output()
+  childEvent = new EventEmitter();
 
   save() {
 
