@@ -13,6 +13,8 @@ import { LieuxEvenementComponent } from './lieux-evenement/lieux-evenement.compo
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { IncriptionFormComponent } from './incription-form/incription-form.component';
+import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {FormsModule} from '@angular/forms';
     FavorisComponent,
     GroupeComponent,
     LieuxEvenementComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    IncriptionFormComponent,
+    NouveauLieuFormComponent
   ],
   imports: [
     BrowserModule,
