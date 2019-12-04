@@ -1,9 +1,9 @@
 enum NomEvenement {
-  footEnSalle = "FOOT_EN_SALLE",
-  escapeGame = "ESCAPE_GAME",
-  bowling = "BOWLING",
-  laserGame = "LASER_GAME",
-  boireUnVerre="BOIRE_UN_VERRE",
-  musee="MUSEE"
+  footEnSalle = "Foot_en_salle",
+  escapeGame = "Escape_game",
+  bowling = "Bowling",
+  laserGame = "Laser_game",
+  boireUnVerre="Boire_un_verre",
+  musee="Musee"
 
 }

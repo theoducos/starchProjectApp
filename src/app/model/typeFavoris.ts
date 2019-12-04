@@ -1,6 +1,6 @@
 
 enum TypeFavoris {
-  lieux= "LIEUX",
-  activite= "ACTIVITE",
+  lieux= "Lieux",
+  activite= "Activite",
 
 }

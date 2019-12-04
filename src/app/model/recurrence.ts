@@ -1,7 +1,7 @@
 enum Recurrence {
-  daily = "DAILY",
-  weekly = "WEEKLY",
-  monthly = "MONTHLY",
-  annually = "ANNUALLY"
+  daily = "Daily",
+  weekly = "Weekly",
+  monthly = "Monthly",
+  annually = "Annually"
 
 }
