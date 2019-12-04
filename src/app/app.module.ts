@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 import { IncriptionFormComponent } from './incription-form/incription-form.component';
 import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
 import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
+import {EvenementHttpService} from './orga-evenement/evenement.http.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EvenementHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
