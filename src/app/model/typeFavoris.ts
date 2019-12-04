@@ -1,5 +1,6 @@
-import {LieuxEvenement} from './lieuxEvenement';
 
 enum TypeFavoris {
+  lieux= "Lieux",
+  activite= "Activite",
 
 }

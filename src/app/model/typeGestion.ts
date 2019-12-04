@@ -1,5 +1,5 @@
 enum TypeGestion {
-  gestionnaire ="GESTIONNAIRE",
-  membre="MEMBRE"
+  gestionnaire ="Gestionnaire",
+  membre="Membre"
 
 }

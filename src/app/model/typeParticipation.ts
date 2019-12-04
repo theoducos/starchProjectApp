@@ -1,6 +1,6 @@
 enum TypeParticipation {
-  participant ="PARTICIPANT",
-  organisateur="ORGANISATEUR",
-  interesse="INTERESSE"
+  participant ="Participant",
+  organisateur="Organisateur",
+  interesse="Interesse"
 
 }

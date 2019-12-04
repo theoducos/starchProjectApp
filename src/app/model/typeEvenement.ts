@@ -1,7 +1,7 @@
 enum TypeEvenement {
-  barRestaurant = "BAR_RESTAURANT",
-  culturel = "CULTUREL",
-  sportif = "SPORTIF",
-  corporate = "CORPORATE"
+  barRestaurant = "Bar_restaurant",
+  culturel = "Culturel",
+  sportif = "Sportif",
+  corporate = "Corporate"
 
 }
