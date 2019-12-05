@@ -38,4 +38,9 @@ export class GroupeHttpService {
     return this.http.get(this.appConfigService.backend + 'groupe/' + id + '/utilisateurs');
   }
 
+  findEvenementsByGroupeId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'groupe/' + id + '/evenements');
+  }
+
+
 }

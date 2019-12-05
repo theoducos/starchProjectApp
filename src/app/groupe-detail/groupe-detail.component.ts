@@ -41,8 +41,6 @@ export class GroupeDetailComponent implements OnInit {
   };
 
   ngOnInit() {
-
-
-  }
+      }
 
 }

@@ -6,6 +6,10 @@
 
     <div class="card-body">
       <div class="form-group">
+        <label for="idd">Id: </label>
+        <input type="text" class="form-control" id="idd" [(ngModel)]="utilisateur.id">
+      </div>
+      <div class="form-group">
         <label for="identifiant">Identifiant: </label>
         <input type="text" class="form-control" id="identifiant" [(ngModel)]="utilisateur.identifiant"
                style="border: 1px solid black">
@@ -47,8 +51,8 @@
   </div>
   <div class="card-footer" style="background: white">
     <div class="btn-group btn-group-lg float-right">
-      <a class="btn" style="background: #0A3FFF">
-        <i class="fa fa-check" (click)="save()" [routerLink]="['']"></i>
+      <a class="btn btn-success">
+        <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
       </a>
       <a class="btn" style="background: #FF9D03">
         <i class="fa fa-undo"></i>

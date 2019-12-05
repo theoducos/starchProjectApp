@@ -11,15 +11,14 @@ import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
 import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
+import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscription', component: IncriptionFormComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
-  {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
@@ -27,8 +26,8 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent}
+  {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
 ];
 
 @NgModule({
