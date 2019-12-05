@@ -10,8 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EvenementDetailComponent implements OnInit {
 
-  @Input('current')
-  evenement: Evenement;
+  evenement: Evenement = new Evenement();
+
   id: number;
 
   @Output()

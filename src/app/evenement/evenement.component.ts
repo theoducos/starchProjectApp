@@ -9,11 +9,10 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
+
 evenement: Evenement =null;
 
   constructor(private evenementService: EvenementHttpService) {
-
-
   }
 
   ngOnInit() {
