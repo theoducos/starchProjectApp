@@ -5,6 +5,7 @@ import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscripti
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {EvenementComponent} from "./evenement/evenement.component";
+import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'evenement', component: EvenementComponent}
+  {path: 'evenement', component: EvenementComponent},
+  {path: 'evenement/:id', component: EvenementDetailComponent}
 ];
 
 

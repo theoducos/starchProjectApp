@@ -21,6 +21,7 @@ import {AppConfigService} from './app-config.service';
 import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
+import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent
+    InscriptionEntrepriseComponent,
+    EvenementDetailComponent
   ],
   imports: [
     BrowserModule,
