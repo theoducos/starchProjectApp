@@ -7,12 +7,11 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UtilisateurHttpService {
 
   private utilisateur: any;
-  private groupes: any;
-  private entreprise: any;
-  private evenements; any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -36,8 +35,12 @@ export class UtilisateurHttpService {
   findGroupeByUtilisateurId(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
   }
-  findEvenementByUtilisateurId(id: number): any {
+
+  findEvenementByUtilisateurId(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/evenements');
+  }
+  findFavorisByUtilisateurId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/favoris');
   }
 
   findEntrepriseByUtilisateurId(id:number): Observable<any>{

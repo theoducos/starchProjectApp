@@ -16,13 +16,15 @@ export class PageProfilUtilisateurComponent implements OnInit {
   utilisateur: Utilisateur = new Utilisateur();
   groupes: any;
   evenements: any;
+  favoris: any;
 
   constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.utilisateurService.findById(params.id).subscribe(resp => {
           this.utilisateur = resp;
           this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
-          console.log(this.utilisateur.id);
+          this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
+          this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
         }
       );
     });

@@ -15,7 +15,6 @@ export class IncriptionFormComponent implements OnInit {
 
 
   save() {
-
     this.utilisateurService.save(this.utilisateur);
   }
 
