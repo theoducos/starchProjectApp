@@ -16,7 +16,7 @@ export class EvenementHttpService {
   }
 
   load() {
-    this.http.get(this.appConfigService.backend + 'evenement').subscribe(resp => this.evenements = resp);
+    this.http.get(this.appConfigService.backend + 'evenement/').subscribe(resp => this.evenements = resp);
   }
 
   findAll(): any {

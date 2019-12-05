@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Evenement} from '../model/evenement';
-import {EvenementHttpService} from './evenement.http.service';
 import {LieuxEvenement} from '../model/lieuxEvenement';
 import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http.service';
+import {EvenementHttpService} from '../evenement/evenement-http.service';
 
 @Component({
   selector: 'app-orga-evenement',
