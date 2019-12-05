@@ -10,8 +10,8 @@ import {Entreprise} from "../model/entreprise";
 })
 export class IncriptionFormComponent implements OnInit {
 
-  utilisateur: Utilisateur;
-  entreprise: Entreprise;
+  utilisateur: Utilisateur = new Utilisateur();
+  entreprise: Entreprise = new Entreprise();
 
 
   save() {

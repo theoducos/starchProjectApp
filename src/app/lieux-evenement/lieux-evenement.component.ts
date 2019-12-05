@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {LieuxEvenement} from "../model/lieuxEvenement";
 
 @Component({
   selector: 'app-lieux-evenement',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LieuxEvenementComponent implements OnInit {
 
-  constructor() { }
+  lieuxEvenement: LieuxEvenement = null;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
