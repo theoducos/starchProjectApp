@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Utilisateur} from "../model/utilisateur";
+import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 
 @Component({
   selector: 'app-inscription-entreprise',
@@ -7,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionEntrepriseComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit() {
   }

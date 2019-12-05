@@ -7,23 +7,28 @@
     <div class="card-body">
       <div class="form-group">
         <label for="nomLieu">Nom de l'établissement: </label>
-        <input type="text" class="form-control" id="nomLieu">
+        <input type="text" class="form-control" id="nomLieu" [(ngModel)]="lieuxEvenement.nomLieu">
       </div>
       <div class="form-group">
         <label for="rue">Rue: </label>
-        <input type="text" class="form-control" id="rue">
+        <input type="text" class="form-control" id="rue" [(ngModel)]="lieuxEvenement.adresse.rue">
+      </div>
+      <div class="form-group">
+        <label for="complement">Complément: </label>
+        <input type="text" class="form-control" id="complement" [(ngModel)]="lieuxEvenement.adresse.complement">
       </div>
       <div class="form-group">
         <label for="codePostal">Code Postal: </label>
-        <input type="text" class="form-control" id="codePostal">
+        <input type="text" class="form-control" id="codePostal" [(ngModel)]="lieuxEvenement.adresse.codePostal">
       </div>
       <div class="form-group">
         <label for="ville">Ville: </label>
-        <input type="text" class="form-control" id="ville">
+        <input type="text" class="form-control" id="ville" [(ngModel)]="lieuxEvenement.adresse.ville">
       </div>
       <div class="form-group">
         <label for="informations">Complément d'informations: </label>
-        <textarea type="text" class="form-control" id="informations"></textarea>
+        <textarea type="text" class="form-control" id="informations"
+                  [(ngModel)]="lieuxEvenement.description"></textarea>
       </div>
     </div>
   </div>

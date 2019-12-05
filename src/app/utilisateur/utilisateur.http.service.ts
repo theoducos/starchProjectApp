@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../model/utilisateur";
-import {AppConfigService} from '../app-config.service';
+import {AppConfigService} from "../app-config.service";
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,8 @@ export class UtilisateurHttpService {
   }
 
   save(utilisateur: Utilisateur) {
-    if (utilisateur.id) {
-      this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
-    } else {
-      this.http.post(this.appConfigService.backend + 'utilisateur/', utilisateur).subscribe(resp => this.load());
-    }
+    this.http.post(this.appConfigService.backend + 'utilisateur/', utilisateur).subscribe(resp => this.load())
+
+    console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
 }

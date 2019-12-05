@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
+import {LieuxEvenement} from "../model/lieuxEvenement";
 
 @Component({
   selector: 'app-lieux-evenement',
@@ -9,8 +10,7 @@ import {AppConfigService} from '../app-config.service';
 })
 export class LieuxEvenementComponent implements OnInit {
 
-  constructor() { }
-
+  lieuxEvenement: LieuxEvenement = null;
 
   ngOnInit() {
   }

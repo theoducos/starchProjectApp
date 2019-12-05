@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Utilisateur} from "../model/utilisateur";
+import {UtilisateurHttpService} from "./utilisateur.http.service";
 
 @Component({
   selector: 'utilisateur',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UtilisateurComponent implements OnInit {
 
-  constructor() { }
+  utilisateur: Utilisateur = null;
+
+  constructor(private utilisateurService: UtilisateurHttpService) {
+  }
 
   ngOnInit() {
   }
+
+
 
 }
