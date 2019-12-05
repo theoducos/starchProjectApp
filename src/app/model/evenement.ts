@@ -1,3 +1,5 @@
+import {LieuxEvenement} from './lieuxEvenement';
+
 export class Evenement {
   id: number;
   version: number;
@@ -10,9 +12,10 @@ export class Evenement {
   typeEvenement: TypeEvenement;
   nomEvenement: NomEvenement;
   StatutOF: boolean;
+  lieuxEvenement: LieuxEvenement;
 
 
-  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, StatutOF?: boolean) {
+  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, StatutOF?: boolean, lieuxEvenement?: LieuxEvenement) {
     this.id = id;
     this.version = version;
     this.titre = titre;
@@ -24,5 +27,6 @@ export class Evenement {
     this.typeEvenement = typeEvenement;
     this.nomEvenement = nomEvenement;
     this.StatutOF = StatutOF;
+    this.lieuxEvenement = lieuxEvenement;
   }
 }
