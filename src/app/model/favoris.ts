@@ -1,6 +1,6 @@
 import {LieuxEvenement} from './lieuxEvenement';
 
-export class EvenementStarch {
+export class Favoris {
   id: number;
   version: number;
   nomActivite: NomEvenement;

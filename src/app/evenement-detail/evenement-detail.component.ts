@@ -12,7 +12,18 @@ export class EvenementDetailComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
 
+  utilisateursInteresses: any;
+
+  utilisateursParticipants: any;
+
+  commentaires: any;
+
+  commentaire: boolean;
+
   id: number;
+
+  participants: boolean = false;
+  interesses: boolean = false;
 
   @Output()
   childEvent = new EventEmitter();
@@ -32,8 +43,23 @@ export class EvenementDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
 
+  listInteresse() {
+    this.participants = false;
+    this.interesses = true;
+    this.evenementService.findUtilisateursInteresses(this.evenement.id).subscribe(resp => this.utilisateursInteresses = resp);
+  }
 
+  listParticipant() {
+    this.interesses = false;
+    this.participants = true;
+    this.evenementService.findUtilisateursParticipants(this.evenement.id).subscribe(resp => this.utilisateursParticipants = resp);
+  }
+
+  listCommentaires(){
+    this.commentaire = true;
+    this.evenementService.findCommentairesByEvenement(this.evenement.id).subscribe(resp => this.commentaires = resp);
   }
 
 }
