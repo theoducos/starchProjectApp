@@ -12,10 +12,12 @@ export class OrgaEvenementComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
 
+
   constructor(private evenementService: EvenementHttpService) { }
 
   save() {
     this.evenementService.save(this.evenement);
+
   }
 
   ngOnInit() {
