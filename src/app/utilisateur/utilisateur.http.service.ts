@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../model/utilisateur";
 import {AppConfigService} from "../app-config.service";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,10 @@ export class UtilisateurHttpService {
 
     console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
+
+  findById(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id);
+  }
+
+
 }
