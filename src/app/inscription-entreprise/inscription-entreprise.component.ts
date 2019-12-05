@@ -19,9 +19,6 @@ export class InscriptionEntrepriseComponent implements OnInit {
   entreprise: Entreprise = new Entreprise();
   utilisateur: Utilisateur = new Utilisateur();
 
-
-
-
   save(){
     this.inscriptionEntrepriseHttpService.save(this.utilisateur);
     this.cancel();

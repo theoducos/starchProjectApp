@@ -8,7 +8,6 @@ import {Entreprise} from '../model/entreprise';
 })
 export class InscriptionEntrepriseHttpService {
 
-
   private utilisateur : any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
