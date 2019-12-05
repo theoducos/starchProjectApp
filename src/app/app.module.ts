@@ -22,6 +22,8 @@ import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
 import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
+import {GroupeDetailComponent} from "./groupe-detail/goupe-detail.component";
+import {PageProfilUtilisateurComponent} from "./page-profil-utilisateur/page-profil-utilisateur.component";
 
 
 @NgModule({
@@ -33,13 +35,15 @@ import {EvenementDetailComponent} from './evenement-detail/evenement-detail.comp
     EvenementStarchComponent,
     FavorisComponent,
     GroupeComponent,
+    GroupeDetailComponent,
     LieuxEvenementComponent,
     UtilisateurComponent,
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
     InscriptionEntrepriseComponent,
-    EvenementDetailComponent
+    EvenementDetailComponent,
+    PageProfilUtilisateurComponent
   ],
 
   imports: [
