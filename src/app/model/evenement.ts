@@ -1,15 +1,15 @@
 export class Evenement {
   id: number;
   version: number;
-titre: string;
-date: Date;
-prix: number;
-nbParticipantMax: number;
-deadline: Date;
-recurrence: Recurrence;
-typeEvenement: TypeEvenement;
-nomEvenement: NomEvenement;
-StatutOF: boolean;
+  titre: string;
+  date: Date;
+  prix: number;
+  nbParticipantMax: number;
+  deadline: Date;
+  recurrence: Recurrence;
+  typeEvenement: TypeEvenement;
+  nomEvenement: NomEvenement;
+  StatutOF: boolean;
 
 
   constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, StatutOF?: boolean) {
