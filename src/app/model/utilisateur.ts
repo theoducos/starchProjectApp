@@ -1,6 +1,7 @@
 import {Groupe} from "./groupe";
 
 import {Entreprise} from './entreprise';
+import {Evenement} from "./evenement";
 
 export class Utilisateur {
   id: number;
@@ -12,10 +13,11 @@ export class Utilisateur {
   telephone: string;
   mdp: string;
   admin: boolean;
-  entreprise : Entreprise
+  entreprise: Entreprise
   groupes: Array<Groupe>;
+  evenements: Array<Evenement>
 
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise,groupes?: Array<Groupe>) {
+  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise, groupes?: Array<Groupe>, evenements?: Array<Evenement>) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -27,6 +29,7 @@ export class Utilisateur {
     this.admin = admin;
     this.entreprise = entreprise
     this.groupes = groupes;
+    this.evenements = evenements;
 
 
   }

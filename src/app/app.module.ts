@@ -24,7 +24,7 @@ import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.
 import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
 import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
-import {GroupeDetailComponent} from "./groupe-detail/goupe-detail.component";
+import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
 
 
 @NgModule({

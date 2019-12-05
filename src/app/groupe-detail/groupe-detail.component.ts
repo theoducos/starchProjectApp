@@ -13,6 +13,7 @@ import {GroupeHttpService} from '../groupe/groupe-http.service';
 export class GroupeDetailComponent implements OnInit {
 
   groupe: Groupe = new Groupe();
+  utilisateurs: any;
 
   id: number;
 
@@ -30,8 +31,14 @@ export class GroupeDetailComponent implements OnInit {
 
   constructor(private groupeService: GroupeHttpService, private route: ActivatedRoute) {
 
-    this.route.params.subscribe(params => {this.groupeService.findById(params.id).subscribe(resp => this.groupe = resp)});
-  }
+    this.route.params.subscribe(params => {
+      this.groupeService.findById(params.id).subscribe(resp => {
+        this.groupe = resp;
+        this.groupeService.findUtilisateursByGroupeId(this.groupe.id).subscribe(resp => this.utilisateurs = resp);
+
+      });
+    });
+  };
 
   ngOnInit() {
 
