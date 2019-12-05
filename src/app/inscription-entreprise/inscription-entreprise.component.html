@@ -1,67 +1,66 @@
 <div class="container">
-<div class="card mt-3">
-  <div class="card-header bg-info text-white">
-    <h3>Création de l'espace entreprise</h3>
-  </div>
+  <div class="card mt-3">
+    <div class="card-header bg-info text-white">
+      <h3>Création de l'espace entreprise</h3>
+    </div>
 
-  <div class="card-body">
-    <div class="form-group">
-      <label for="nom">Nom Entreprise* :</label>
-      <input type="text" class="form-control" id="nom">
-<!--      [(ngModel)]="stagiaire.nom"-->
+    <div class="card-body">
+      <div class="form-group">
+        <label for="nom">Nom Entreprise* :</label>
+        <input type="text" class="form-control" id="nom">
+        <!--      [(ngModel)]="stagiaire.nom"-->
+      </div>
+      <div class="form-group">
+        <label for="identifiant">Identifiant* :</label>
+        <input type="text" class="form-control" id="identifiant">
+      </div>
+      <div class="form-group">
+        <label for="mdp">Mot de passe* :</label>
+        <input type="text" class="form-control" id="mdp">
+      </div>
+      <div class="form-group">
+        <label for="confirmation">Confirmation* :</label>
+        <input type="text" class="form-control" id="confirmation">
+      </div>
+      <div class="form-group">
+        <label for="email">Email* :</label>
+        <input type="text" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="siret">SIRET* :</label>
+        <input type="text" class="form-control" id="siret">
+      </div>
+      <div class="form-group">
+        <label for="rue">Rue* :</label>
+        <input type="text" class="form-control" id="rue">
+      </div>
+      <div class="form-group">
+        <label for="codePostal">Code postal* :</label>
+        <input type="text" class="form-control" id="codePostal">
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville* :</label>
+        <input type="text" class="form-control" id="ville">
+      </div>
     </div>
     <div class="form-group">
-      <label for="identifiant">Identifiant* :</label>
-      <input type="text" class="form-control" id="identifiant" >
+      <label for="telephone">Téléphone* :</label>
+      <input type="text" class="form-control" id="telephone">
     </div>
     <div class="form-group">
-      <label for="mdp">Mot de passe* :</label>
-      <input type="text" class="form-control" id="mdp" >
+      <label for="tva">TVA* :</label>
+      <input type="text" class="form-control" id="tva">
     </div>
-    <div class="form-group">
-      <label for="confirmation">Confirmation* :</label>
-      <input type="text" class="form-control" id="confirmation" >
-    </div>
-    <div class="form-group">
-      <label for="email">Email* :</label>
-      <input type="text" class="form-control" id="email" >
-    </div>
-<!--    [ngModel]="stagiaire.dtNaissance | date:'yyyy-MM-dd'" (ngModelChange)="stagiaire.dtNaissance = $event"-->
-    <div class="form-group">
-      <label for="siret">SIRET* :</label>
-      <input type="text" class="form-control" id="siret">
-    </div>
-<!--    <div class="form-group">-->
-<!--      <label for="niveauEtude">Niveau d'étude:</label>-->
-<!--      <select class="form-control" id="niveauEtude" [(ngModel)]="stagiaire.niveauEtude">-->
-<!--        <option value="">Choisir un niveau d'étude</option>-->
-<!--        <option value="BAC">Bac</option>-->
-<!--        <option value="BAC_2">Bac + 2</option>-->
-<!--        <option value="BAC_3">Bac + 3</option>-->
-<!--        <option value="BAC_5">Bac + 5</option>-->
-<!--        <option value="BAC_8">Bac + 8</option>-->
-<!--      </select>-->
-<!--    </div>-->
-    <div class="form-group">
-      <label for="rue">Rue* :</label>
-      <input type="text" class="form-control" id="rue" >
-    </div>
-    <div class="form-group">
-      <label for="codePostal">Code postal* :</label>
-      <input type="text" class="form-control" id="codePostal" >
-    </div>
-    <div class="form-group">
-      <label for="ville">Ville* :</label>
-      <input type="text" class="form-control" id="ville" >
-    </div>
-    <!--    <div class="form-group">-->
-    <!--      <label for="evaluation">Evaluation:</label>-->
-    <!--      <select class="form-control" id="evaluation">-->
-    <!--        <option value="">Choisir une evaluation</option>-->
-    <!--        <option></option>-->
-    <!--      </select>-->
+    <!--  <div class="card-footer">-->
+    <!--    <div class="btn-group btn-group-lg float-right">-->
+    <!--      <a class="btn btn-success" (click)="save()">-->
+    <!--        <i class="fa fa-check"></i>-->
+    <!--      </a>-->
+    <!--      <a class="btn btn-warning" (click)="cancel()">-->
+    <!--        <i class="fa fa-undo"></i>-->
+    <!--      </a>-->
     <!--    </div>-->
-
+  </div>
   <div class="form-group">
     <label for="telephone">Téléphone* :</label>
     <input type="text" class="form-control" id="telephone">
@@ -70,15 +69,15 @@
     <label for="tva">TVA* :</label>
     <input type="text" class="form-control" id="tva" >
   </div>
-  </div>
-  <div class="card-footer">
-    <div class="btn-group btn-group-lg float-left">
-      <h5><span class="badge badge-secondary">*Obligatoire</span></h5>
-    </div>
-    <div class="btn-group btn-group-lg float-right">
-      <button style='font-size:24px' class="btn btn-primary">S'inscrire <i class="fas fa-angle-double-right"></i></button>
-    </div>
-  </div>
+<!--  <div class="card-footer">-->
+<!--    <div class="btn-group btn-group-lg float-right">-->
+<!--      <a class="btn btn-success" (click)="save()">-->
+<!--        <i class="fa fa-check"></i>-->
+<!--      </a>-->
+<!--      <a class="btn btn-warning" (click)="cancel()">-->
+<!--        <i class="fa fa-undo"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>
   </div>
-
