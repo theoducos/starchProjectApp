@@ -24,12 +24,9 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent}
+  {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent}
-
-  {path: 'evenement/:id', component: EvenementDetailComponent}
+  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
 ];
 
 @NgModule({
