@@ -22,7 +22,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
       this.utilisateurService.findById(params.id).subscribe(resp => {
           this.utilisateur = resp;
           this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
-          console.log(this.utilisateur.id);
+          this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
         }
       );
     });

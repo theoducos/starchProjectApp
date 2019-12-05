@@ -10,7 +10,6 @@ import {Observable} from "rxjs";
 export class UtilisateurHttpService {
 
   private utilisateur: any;
-  private groupes: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -34,8 +33,9 @@ export class UtilisateurHttpService {
   findGroupeByUtilisateurId(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
   }
-  findEvenementByUtilisateurId(id: number): any {
-    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
+
+  findEvenementByUtilisateurId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/evenements');
   }
 
 }

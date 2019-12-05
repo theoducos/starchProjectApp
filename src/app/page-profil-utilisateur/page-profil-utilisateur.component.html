@@ -13,17 +13,23 @@
   <div style="border: 1px solid black">
     <h2 style="font-weight: bold">GROUPES</h2>
 
-    <div *ngFor="let groupe of groupes"><p>{{groupe.nom}}</p>
-      <button type="button"><i class="fa fa-calendar-alt"></i></button>
+    <div *ngFor="let groupe of groupes">
+      <p>{{groupe.nom}}
+        <button type="button"><i class="fa fa-calendar"></i></button>
+      </p>
+
     </div>
   </div>
   <div style="border: 1px solid black">
     <h2 style="font-weight: bold">EVENEMENTS</h2>
+    <div *ngFor="let evenement of evenements">
+      <p>{{evenement.titre}}
+      </p>
+    </div>
+    <div style="border: 1px solid black">
+      <h2 style="font-weight: bold">FAVORIS</h2>
+    </div>
   </div>
-  <div style="border: 1px solid black">
-    <h2 style="font-weight: bold">FAVORIS</h2>
-  </div>
-</div>
 
 
 
