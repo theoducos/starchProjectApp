@@ -30,9 +30,9 @@ import { InscriptionEntrepriseComponent } from './inscription-entreprise/inscrip
     GroupeComponent,
     LieuxEvenementComponent,
     UtilisateurComponent,
-    OrgaEvenementComponent
+    OrgaEvenementComponent,
     IncriptionFormComponent,
-    NouveauLieuFormComponent
+    NouveauLieuFormComponent,
     InscriptionEntrepriseComponent
   ],
   imports: [

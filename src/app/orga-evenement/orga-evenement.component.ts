@@ -10,7 +10,7 @@ import {EvenementHttpService} from './evenement.http.service';
 export class OrgaEvenementComponent implements OnInit {
 
 
-  evenement: Evenement;
+  evenement: Evenement = new Evenement();
 
   constructor(private evenementService: EvenementHttpService) { }
 

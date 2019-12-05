@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
 import {IncriptionFormComponent} from "./incription-form/incription-form.component";
 import {NouveauLieuFormComponent} from "./nouveau-lieu-form/nouveau-lieu-form.component";
 import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscription-entreprise.component';
@@ -10,11 +8,10 @@ import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscripti
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscription', component: IncriptionFormComponent},
-  {path: 'nouveauLieu', component: NouveauLieuFormComponent}
+  {path: 'nouveauLieu', component: NouveauLieuFormComponent},
+  {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent}
 ];
-const routes: Routes = [ {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent}
 
-                        ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
