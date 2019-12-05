@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {GroupeDetailComponent} from './goupe-detail.component';
+import {GroupeDetailComponent} from './groupe-detail.component';
 
 
 describe('GroupeDetailComponent', () => {

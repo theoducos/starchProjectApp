@@ -7,7 +7,7 @@ import {NgModule} from "@angular/core";
 import {EvenementComponent} from "./evenement/evenement.component";
 import {PageProfilUtilisateurComponent} from "./page-profil-utilisateur/page-profil-utilisateur.component";
 import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
-import {GroupeDetailComponent} from "./groupe-detail/goupe-detail.component";
+import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
 import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 
