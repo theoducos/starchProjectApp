@@ -2,12 +2,10 @@ import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component'
 import {IncriptionFormComponent} from "./incription-form/incription-form.component";
 import {NouveauLieuFormComponent} from "./nouveau-lieu-form/nouveau-lieu-form.component";
 import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscription-entreprise.component';
-<<<<<<< HEAD
-
-=======
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {EvenementComponent} from "./evenement/evenement.component";
+import {PageProfilUtilisateurComponent} from "./page-profil-utilisateur/page-profil-utilisateur.component";
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -17,7 +15,9 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'evenement', component: EvenementComponent}
+  {path: 'evenement', component: EvenementComponent},
+  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent}
+
 ];
 
 
