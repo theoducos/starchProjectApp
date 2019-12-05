@@ -10,7 +10,7 @@
     <div>
       <div class="btn-group btn-group-sm">
         <a class="btn btn-success">Participe<i class="fas fa-check"></i></a>
-        <a class="btn btn-primary">Interesse<i class="fas fa-info"></i></a>
+        <a class="btn btn-primary" >Interesse<i class="fas fa-info"></i></a>
       </div>
     </div>
     <hr>
@@ -19,7 +19,18 @@
     </div>
     <hr>
     <div>
-      <a class="btn btn-primary">Nombre de participants, interesses <i class="far fa-calendar-check"></i></a>
+      <a class="btn btn-primary" (click)="listParticipant()">Participants <i class="far fa-calendar-check"></i></a>
+      <a class="btn btn-primary" (click)="listInteresse()">Interesses <i class="far fa-calendar-check"></i></a>
+    </div>
+    <div *ngIf="participants">
+      <div *ngFor="let utilisateur of utilisateursParticipants">
+        <p>{{utilisateur.nom}}</p>
+      </div>
+    </div>
+    <div *ngIf="interesses">
+      <div *ngFor="let util of utilisateursInteresses">
+        <p>{{util.nom}}</p>
+      </div>
     </div>
     <hr>
     <div> Prix :
@@ -55,13 +66,10 @@
       </div>
     </div>
     <hr>
-    <div>
-      Commentaires :
-      <div>
-        commentaire 1
-      </div>
-      <div>
-        commentaire 2
+    <button (click)="listCommentaires()">Commentaires</button>
+    <div *ngIf="commentaire">
+      <div *ngFor="let comm of commentaires">
+        <p>{{comm.commentaire}}</p>
       </div>
     </div>
   </div>
