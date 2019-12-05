@@ -7,6 +7,7 @@ import {NgModule} from "@angular/core";
 import {EvenementComponent} from "./evenement/evenement.component";
 import {PageProfilUtilisateurComponent} from "./page-profil-utilisateur/page-profil-utilisateur.component";
 import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
+import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -17,10 +18,10 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent}
+  {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent}
-
+  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
+  {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent}
 ];
 
 

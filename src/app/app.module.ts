@@ -24,6 +24,7 @@ import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.
 import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
 import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
 import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
+import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent
+    InscriptionEntrepriseComponent,
+    EvenementDetailComponent,
+    PageProfilUtilisateurComponent,
+    ModificationEntrepriseComponent
   ],
   imports: [
     BrowserModule,
