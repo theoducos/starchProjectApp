@@ -15,8 +15,7 @@ export class Utilisateur {
   entreprise : Entreprise
   groupes: Array<Groupe>;
 
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise) {
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, groupes?: Array<Groupe>) {
+  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise,groupes?: Array<Groupe>) {
     this.id = id;
     this.version = version;
     this.nom = nom;

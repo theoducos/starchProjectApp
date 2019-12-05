@@ -21,12 +21,8 @@ import {AppConfigService} from './app-config.service';
 import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
-import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
-import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
-import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
 import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
-import {GoupeDetailComponent} from './goupe-detail/goupe-detail.component';
-import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-profil-utilisateur.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +38,8 @@ import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-pro
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent
+    InscriptionEntrepriseComponent,
+    EvenementDetailComponent
   ],
 
   imports: [
