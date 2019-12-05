@@ -19,6 +19,7 @@ import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.componen
 import { InscriptionEntrepriseComponent } from './inscription-entreprise/inscription-entreprise.component';
 import {AppConfigService} from './app-config.service';
 import {EvenementHttpService} from './evenement/evenement-http.service';
+import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {EvenementHttpService} from './evenement/evenement-http.service';
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent
+    InscriptionEntrepriseComponent,
+    EvenementDetailComponent
   ],
   imports: [
     BrowserModule,
