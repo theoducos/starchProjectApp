@@ -1,1 +1,12 @@
-<p>evenement-starch works!</p>
+<div *ngFor="let event of list()">
+    <a [routerLink]="['evenement/', event.id]">{{event.titre}}</a>
+</div>
+
+<div class="btn-group btn-group-lg float-right">
+  <a class="btn btn-success">
+    <i class="fa fa-check"></i>
+  </a>
+  <a class="btn btn-warning">
+    <i class="fa fa-undo"></i>
+  </a>
+</div>

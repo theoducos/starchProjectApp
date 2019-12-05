@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {EvenementStarchHttpService} from './evenement-starch-http.service';
+import {EvenementStarch} from '../model/evenementStarch';
 
 @Component({
   selector: 'app-evenement-starch',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvenementStarchComponent implements OnInit {
 
-  constructor() { }
+  evenementsStarch: any;
+
+  constructor(private evenementStarchService: EvenementStarchHttpService) {
+
+  }
+
+
+  list(): Array<EvenementStarch> {
+    return this.evenementStarchService.findAll();
+  }
 
   ngOnInit() {
+
   }
 
 }

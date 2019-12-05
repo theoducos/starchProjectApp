@@ -18,12 +18,17 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'evenement', component: EvenementComponent},
+  {path: 'groupe', component: GroupeComponent},
+  {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
+  {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent}
-];
+  {path: 'evenement/:id', component: EvenementDetailComponent},
+  {path: 'evenement/:id', component: EvenementDetailComponent},
+  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent}
 
+  {path: 'evenement/:id', component: EvenementDetailComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

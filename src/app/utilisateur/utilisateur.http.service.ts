@@ -10,6 +10,7 @@ import {Observable} from "rxjs";
 export class UtilisateurHttpService {
 
   private utilisateur: any;
+  private groupes: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -21,7 +22,7 @@ export class UtilisateurHttpService {
   }
 
   save(utilisateur: Utilisateur) {
-    this.http.post(this.appConfigService.backend + 'utilisateur/', utilisateur).subscribe(resp => this.load())
+    this.http.post(this.appConfigService.backend + 'utilisateur/', utilisateur).subscribe(resp => this.load());
 
     console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
@@ -30,5 +31,8 @@ export class UtilisateurHttpService {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id);
   }
 
+  findGroupeByUtilisateurId(id: number): any {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + 'groupes');
+  }
 
 }

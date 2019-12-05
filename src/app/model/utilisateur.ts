@@ -1,3 +1,5 @@
+import {Groupe} from "./groupe";
+
 import {Entreprise} from './entreprise';
 
 export class Utilisateur {
@@ -11,8 +13,9 @@ export class Utilisateur {
   mdp: string;
   admin: boolean;
   entreprise : Entreprise
+  groupes: Array<Groupe>;
 
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise) {
+  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise,groupes?: Array<Groupe>) {
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -23,6 +26,8 @@ export class Utilisateur {
     this.mdp = mdp;
     this.admin = admin;
     this.entreprise = entreprise
+    this.groupes = groupes;
+
 
   }
 }
