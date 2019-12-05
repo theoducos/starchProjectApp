@@ -3,9 +3,8 @@
 </div>
 <div>
   <div> Membres du groupe : </div>
-  <div><tr *ngFor="let utilisateur of utilisateurs">
-    <td>{{utilisateur.nom}}</td>
-    </tr>
+  <div *ngFor="let utilisateur of utilisateurs">
+    <p>{{utilisateur.nom}}</p>
     </div>
 
 

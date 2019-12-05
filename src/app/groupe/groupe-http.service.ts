@@ -34,6 +34,8 @@ export class GroupeHttpService {
     this.http.post(this.appConfigService.backend + 'groupe/', groupe).subscribe(resp => this.load());
 
   }
-  
+  findUtilisateursByGroupeId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'groupe/' + id + '/utilisateurs');
+  }
 
 }
