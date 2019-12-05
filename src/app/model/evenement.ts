@@ -1,4 +1,5 @@
 import {LieuxEvenement} from './lieuxEvenement';
+import {Groupe} from './groupe';
 
 export class Evenement {
   id: number;
@@ -13,6 +14,7 @@ export class Evenement {
   nomEvenement: NomEvenement;
   StatutOF: boolean;
   lieuxEvenement: LieuxEvenement;
+  groupe: Groupe;
 
 
   constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, StatutOF?: boolean, lieuxEvenement?: LieuxEvenement) {
