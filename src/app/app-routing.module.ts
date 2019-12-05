@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
 import {IncriptionFormComponent} from "./incription-form/incription-form.component";
 import {NouveauLieuFormComponent} from "./nouveau-lieu-form/nouveau-lieu-form.component";
 import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscription-entreprise.component';
+<<<<<<< HEAD
 
+=======
+import {RouterModule, Routes} from "@angular/router";
+import {NgModule} from "@angular/core";
+>>>>>>> master
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
