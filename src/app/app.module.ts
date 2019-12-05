@@ -24,7 +24,9 @@ import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.
 import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
 import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
-import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
+import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
+import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
     InscriptionEntrepriseComponent,
     EvenementDetailComponent,
     PageProfilUtilisateurComponent,
-    ModificationEntrepriseComponent
+    ModificationEntrepriseComponent,
+    ModificationUtilisateurComponent,
   ],
 
   imports: [
