@@ -1,0 +1,23 @@
+<div class="card" class="card">
+  <!-- <p> <img src="img.jpg"></p>-->
+  <h1>{{utilisateur.identifiant}}</h1>
+  <p class="title">{{utilisateur.nom}}</p>
+  <p class="title">{{utilisateur.prenom}}</p>
+  <p>
+    <button type="button">Voir/Modifier des informations</button>
+  </p>
+</div>
+
+<div class="container" style=" border:2px solid black">
+
+  <div style="border: 1px solid black">
+    <h2 style="font-weight: bold">GROUPES</h2>
+
+    <div *ngFor="let groupe of listGroupe()"><p>{{groupe.nom}}</p></div>
+
+
+  </div>
+
+</div>
+
+

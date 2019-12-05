@@ -1,28 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CommentairesComponent } from './commentaires/commentaires.component';
-import { EntrepriseComponent } from './entreprise/entreprise.component';
-import { EvenementComponent } from './evenement/evenement.component';
-import { EvenementStarchComponent } from './evenement-starch/evenement-starch.component';
-import { FavorisComponent } from './favoris/favoris.component';
-import { GroupeComponent } from './groupe/groupe.component';
-import { LieuxEvenementComponent } from './lieux-evenement/lieux-evenement.component';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CommentairesComponent} from './commentaires/commentaires.component';
+import {EntrepriseComponent} from './entreprise/entreprise.component';
+import {EvenementComponent} from './evenement/evenement.component';
+import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
+import {FavorisComponent} from './favoris/favoris.component';
+import {GroupeComponent} from './groupe/groupe.component';
+import {LieuxEvenementComponent} from './lieux-evenement/lieux-evenement.component';
+import {UtilisateurComponent} from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { IncriptionFormComponent } from './incription-form/incription-form.component';
-import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
-import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
-import { InscriptionEntrepriseComponent } from './inscription-entreprise/inscription-entreprise.component';
+import {IncriptionFormComponent} from './incription-form/incription-form.component';
+import {NouveauLieuFormComponent} from './nouveau-lieu-form/nouveau-lieu-form.component';
+import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
+import {InscriptionEntrepriseComponent} from './inscription-entreprise/inscription-entreprise.component';
 import {AppConfigService} from './app-config.service';
 import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
 import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
+import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
 import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
+import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
+import {GoupeDetailComponent} from './goupe-detail/goupe-detail.component';
+import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-profil-utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +42,9 @@ import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent,
-    EvenementDetailComponent,
-    GoupeDetailComponent
+    InscriptionEntrepriseComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,4 +54,5 @@ import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

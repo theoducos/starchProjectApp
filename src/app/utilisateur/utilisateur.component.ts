@@ -11,12 +11,9 @@ export class UtilisateurComponent implements OnInit {
 
   utilisateur: Utilisateur = null;
 
-  constructor(private utilisateurService: UtilisateurHttpService) {
-  }
 
   ngOnInit() {
   }
-
 
 
 }
