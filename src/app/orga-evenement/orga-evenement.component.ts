@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from './evenement.http.service';
-import {LieuxEvenementService} from '../lieux-evenement/lieux-evenement.service';
+import {LieuxEvenement} from '../model/lieuxEvenement';
+import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http.service';
 
 @Component({
   selector: 'app-orga-evenement',
@@ -13,9 +14,11 @@ export class OrgaEvenementComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
 
-  lieux: any;
+  lieuxEvenements: any;
 
-  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementService) { }
+  lieuxEvenement : LieuxEvenement = new LieuxEvenement();
+
+  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService) { }
 
   save() {
     this.evenementService.save(this.evenement);
@@ -23,7 +26,8 @@ export class OrgaEvenementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
+    this.evenement.lieuxEvenement = this.lieuxEvenements;
+    this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
   }
 
 }

@@ -19,6 +19,10 @@ export class LieuxEvenementHttpService {
       .subscribe(resp => this.lieuxEvenement = resp);
   }
 
+  findAll(): any{
+    return this.http.get(this.appConfigService.backend + 'lieuxevenement/');
+  }
+
   save(lieuxEvenement: LieuxEvenement) {
 
     this.http.post(this.appConfigService.backend + 'lieuxevenement/', lieuxEvenement).subscribe(resp => this.load())
