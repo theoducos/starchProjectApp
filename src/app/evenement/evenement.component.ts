@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from './evenement-http.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'evenement',
-  templateUrl: './evenement-page.component.html',
+  templateUrl: '../evenement/evenement.component.html',
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
+
 evenement: Evenement =null;
 
-  constructor(private evenementService: EvenementHttpService) { }
+  constructor(private evenementService: EvenementHttpService) {
+  }
 
   ngOnInit() {
+
   }
 
   list(): any{

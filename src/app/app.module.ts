@@ -16,9 +16,13 @@ import {FormsModule} from '@angular/forms';
 import { IncriptionFormComponent } from './incription-form/incription-form.component';
 import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
 import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
-import {EvenementHttpService} from './orga-evenement/evenement.http.service';
 import { InscriptionEntrepriseComponent } from './inscription-entreprise/inscription-entreprise.component';
 import {AppConfigService} from './app-config.service';
+import {EvenementHttpService} from './evenement/evenement-http.service';
+import {GroupeHttpService} from './groupe/groupe-http.service';
+import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
+import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
+import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
 import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
 
 @NgModule({
@@ -35,8 +39,7 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
     OrgaEvenementComponent,
     IncriptionFormComponent,
     NouveauLieuFormComponent,
-    InscriptionEntrepriseComponent,
-    PageProfilUtilisateurComponent
+    InscriptionEntrepriseComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
     HttpClientModule,
     FormsModule
   ],
-  providers: [EvenementHttpService, AppConfigService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

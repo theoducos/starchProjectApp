@@ -37,7 +37,7 @@
 
   <div class="form-group">
     <label for="lieu">Lieu préexistant:</label>
-    <select class="form-control" id="lieu" [(ngModel)]="evenement.lieuxEvenement">
+    <select class="form-control" id="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
       <option value="">Lieu pré existant</option>
       <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
     </select>
@@ -54,15 +54,12 @@
     <label for="description">Description :</label>
     <textarea class="form-control" id="description"></textarea>
   </div>
-  <p>Quel groupes :</p>
-  <div>
-    <input type="checkbox" id="groupe1" name="groupe1"
-           checked>
-    <label for="groupe1">Groupe 1</label>
-  </div>
-  <div>
-    <input type="checkbox" id="groupe2" name="grouep2">
-    <label for="groupe2">Groupe 2</label>
+  <div class="form-group">
+    <label for="groupe">Groupe :</label>
+    <select class="form-control" id="groupe" [(ngModel)]="evenement.groupe.id">
+      <option value="">Choisir un groupe</option>
+      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+    </select>
   </div>
   <div>
     <p>Organiser cet événement tout les :</p>

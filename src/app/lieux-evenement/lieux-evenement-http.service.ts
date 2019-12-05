@@ -8,7 +8,7 @@ import {LieuxEvenement} from "../model/lieuxEvenement";
 })
 export class LieuxEvenementHttpService {
 
-  private lieuxEvenement: any;
+  private lieuxEvenements: any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -16,7 +16,7 @@ export class LieuxEvenementHttpService {
 
   load() {
     this.http.get(this.appConfigService.backend + 'lieuxevenement')
-      .subscribe(resp => this.lieuxEvenement = resp);
+      .subscribe(resp => this.lieuxEvenements = resp);
   }
 
   findAll(): any{

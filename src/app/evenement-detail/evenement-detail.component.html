@@ -1,10 +1,10 @@
 <div class="container">
   <div class="card mt-3">
     <div class="card-header bg-info text-white">
-      <h2>Titre de l'evenement</h2>
+      <h2>{{evenement.titre}}</h2>
     </div><br>
     <div>
-      <p>Date et heure</p>
+      {{evenement.date}}
     </div>
     <hr>
     <div>
@@ -15,40 +15,42 @@
     </div>
     <hr>
     <div>
-      <a class="btn btn-primary">Lieux <i class="fas fa-map-marked-alt"></i></a>
+ {{evenement.lieuxEvenement}}<i class="fas fa-map-marked-alt"></i>
     </div>
     <hr>
     <div>
       <a class="btn btn-primary">Nombre de participants, interesses <i class="far fa-calendar-check"></i></a>
     </div>
     <hr>
-    <div>
-      <a>Prix <i class="fas fa-euro-sign"></i>></a>
+    <div> Prix :
+      {{evenement.prix}} <i class="fas fa-euro-sign"></i>>
     </div>
     <hr>
-    <div>Nombre de places disponibles<i class="fas fa-user-plus"></i>
-    </div>
-    <hr>
-    <div>
-      Statut
+    <div >Nombre de places disponibles<i class="fas fa-user-plus"></i>
     </div>
     <hr>
     <div>
-      Description
+      {{evenement.statutOF}}
+
+    </div>
+    <hr>
+    <div>
+      Description :
       <div><br>
         description de l'evenement
       </div>
     </div>
     <hr>
     <div>
-      Date limite de l'inscription
+      Date limite de l'inscription :
+      {{evenement.deadline}}
       <i class="far fa-edit"></i>
     </div>
     <hr>
     <div>
       Ajouter un commentaire :
       <div>
-        <input type="text">
+        <input type="text" name="commentaire">
         <button type="button">Valider<i class="fas fa-share-square"></i></button>
       </div>
     </div>
