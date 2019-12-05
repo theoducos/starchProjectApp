@@ -25,7 +25,6 @@ export class UtilisateurHttpService {
   save(utilisateur: Utilisateur) {
     this.http.post(this.appConfigService.backend + 'utilisateur/', utilisateur).subscribe(resp => this.load());
 
-    console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
 
   findById(id: number): Observable<any> {
