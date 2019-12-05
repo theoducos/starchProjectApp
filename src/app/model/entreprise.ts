@@ -4,10 +4,10 @@ export class Entreprise {
   id: number;
   version: number;
   nom: string;
-codeEntreprise: string;
-siret: string;
-tva: string;
-adresse: Adresse;
+  codeEntreprise: string;
+  siret: string;
+  tva: string;
+  adresse: Adresse;
 
 
   constructor(id?: number, version?: number, nom?: string, codeEntreprise?: string, siret?: string, tva?: string, adresse?: Adresse) {

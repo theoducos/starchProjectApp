@@ -9,18 +9,9 @@ import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 })
 export class NouveauLieuFormComponent implements OnInit {
 
-  utilisateur: Utilisateur;
 
-  @Output()
-  childEvent = new EventEmitter();
 
-  save() {
 
-    this.utilisateurService.save(this.utilisateur);
-  }
-
-  constructor(private utilisateurService: UtilisateurHttpService) {
-  }
 
   ngOnInit() {
   }

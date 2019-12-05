@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Utilisateur} from "../model/utilisateur";
+import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
+import {Entreprise} from "../model/entreprise";
 
 @Component({
   selector: 'app-incription-form',
@@ -7,7 +10,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class IncriptionFormComponent implements OnInit {
 
-  constructor() {
+  utilisateur: Utilisateur;
+  entreprise: Entreprise;
+
+
+  save() {
+
+    this.utilisateurService.save(this.utilisateur);
+  }
+
+
+  constructor(private utilisateurService: UtilisateurHttpService) {
   }
 
   ngOnInit() {
