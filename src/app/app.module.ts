@@ -16,9 +16,9 @@ import {FormsModule} from '@angular/forms';
 import { IncriptionFormComponent } from './incription-form/incription-form.component';
 import { NouveauLieuFormComponent } from './nouveau-lieu-form/nouveau-lieu-form.component';
 import { OrgaEvenementComponent } from './orga-evenement/orga-evenement.component';
-import {EvenementHttpService} from './orga-evenement/evenement.http.service';
 import { InscriptionEntrepriseComponent } from './inscription-entreprise/inscription-entreprise.component';
 import {AppConfigService} from './app-config.service';
+import {EvenementHttpService} from './evenement/evenement-http.service';
 
 @NgModule({
   declarations: [

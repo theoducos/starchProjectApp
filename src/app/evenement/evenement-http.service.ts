@@ -20,7 +20,7 @@ export class EvenementHttpService {
   }
 
   findAll(): any {
-    return this.evenements;
+    return this.http.get(this.appConfigService.backend + 'evenement/');
   }
 
   findById(id: number): Observable<any> {
@@ -29,11 +29,8 @@ export class EvenementHttpService {
   }
 
   save(evenement: Evenement) {
-    if (evenement.id) {
-      this.http.put(this.appConfigService.backend + 'evenement/' + evenement.id, evenement).subscribe(resp => this.load());
-    } else {
       this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
-    }
+
   }
 
   deleteBydId(id: number) {
