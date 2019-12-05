@@ -5,7 +5,11 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'evenement',
+<<<<<<< Updated upstream
   templateUrl: '../evenement/evenement.component.html',
+=======
+  templateUrl: './evenement-page.component.html',
+>>>>>>> Stashed changes
   styleUrls: ['./evenement.component.css']
 })
 export class EvenementComponent implements OnInit {
