@@ -17,8 +17,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent}
-  {path: 'evenement', component: EvenementComponent},
+  {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent}
 
 ];
