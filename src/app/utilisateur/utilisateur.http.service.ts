@@ -37,5 +37,8 @@ export class UtilisateurHttpService {
   findEvenementByUtilisateurId(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/evenements');
   }
+  findFavorisByUtilisateurId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/favoris');
+  }
 
 }
