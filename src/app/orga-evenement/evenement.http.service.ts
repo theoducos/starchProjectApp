@@ -8,9 +8,17 @@ import {Evenement} from '../model/evenement';
 })
 export class EvenementHttpService {
 
-  constructor(private http: HttpClient, private appConfigService: AppConfigService) { }
+  evenements: any;
+
+  constructor(private http: HttpClient, private appConfigService: AppConfigService) {
+    this.load()
+  }
 
   save(evenement: Evenement) {
-    this.http.post(this.appConfigService.backend + '/evenement', evenement);
+    this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
+  }
+
+  load(){
+    this.http.get(this.appConfigService.backend + 'evenement/').subscribe(resp => this.evenements = resp);
   }
 }
