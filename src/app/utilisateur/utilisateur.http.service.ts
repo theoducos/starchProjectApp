@@ -31,8 +31,11 @@ export class UtilisateurHttpService {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id);
   }
 
-  findGroupeByUtilisateurId(id: number): any {
-    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + 'groupes');
+  findGroupeByUtilisateurId(id: number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
+  }
+  findEvenementByUtilisateurId(id: number): any {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
   }
 
 }
