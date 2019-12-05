@@ -22,7 +22,7 @@ import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
 import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
-import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
+import {GroupeDetailComponent} from './groupe-detail/goupe-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,9 @@ import { GoupeDetailComponent } from './goupe-detail/goupe-detail.component';
     NouveauLieuFormComponent,
     InscriptionEntrepriseComponent,
     EvenementDetailComponent,
-    GoupeDetailComponent
+    GroupeDetailComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

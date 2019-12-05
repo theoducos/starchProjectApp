@@ -6,6 +6,8 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {EvenementComponent} from "./evenement/evenement.component";
 import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
+import {GroupeComponent} from './groupe/groupe.component';
+import {GroupeDetailComponent} from './groupe-detail/goupe-detail.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -16,7 +18,10 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent}
+  {path: 'evenement/:id', component: EvenementDetailComponent},
+  {path: 'groupe', component: GroupeComponent},
+  {path: 'groupe/:id', component: GroupeDetailComponent},
+
 ];
 
 
