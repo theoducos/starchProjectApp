@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {GroupeDetailComponent} from './goupe-detail.component';
 
-import { GoupeDetailComponent } from './goupe-detail.component';
 
-describe('GoupeDetailComponent', () => {
-  let component: GoupeDetailComponent;
-  let fixture: ComponentFixture<GoupeDetailComponent>;
+describe('GroupeDetailComponent', () => {
+  let component: GroupeDetailComponent;
+  let fixture: ComponentFixture<GroupeDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoupeDetailComponent ]
+      declarations: [ GroupeDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoupeDetailComponent);
+    fixture = TestBed.createComponent(GroupeDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,64 +4,71 @@
       <h3>Création de l'espace entreprise</h3>
     </div>
 
-    <div class="card-body">
-      <div class="form-group">
-        <label for="nom">Nom Entreprise* :</label>
-        <input type="text" class="form-control" id="nom">
-        <!--      [(ngModel)]="stagiaire.nom"-->
-      </div>
-      <div class="form-group">
-        <label for="identifiant">Identifiant* :</label>
-        <input type="text" class="form-control" id="identifiant">
-      </div>
-      <div class="form-group">
-        <label for="mdp">Mot de passe* :</label>
-        <input type="text" class="form-control" id="mdp">
-      </div>
-      <div class="form-group">
-        <label for="confirmation">Confirmation* :</label>
-        <input type="text" class="form-control" id="confirmation">
-      </div>
-      <div class="form-group">
-        <label for="email">Email* :</label>
-        <input type="text" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="siret">SIRET* :</label>
-        <input type="text" class="form-control" id="siret">
-      </div>
-      <div class="form-group">
-        <label for="rue">Rue* :</label>
-        <input type="text" class="form-control" id="rue">
-      </div>
-      <div class="form-group">
-        <label for="codePostal">Code postal* :</label>
-        <input type="text" class="form-control" id="codePostal">
-      </div>
-      <div class="form-group">
-        <label for="ville">Ville* :</label>
-        <input type="text" class="form-control" id="ville">
-      </div>
+  <div class="card-body" >
+    <div class="form-group">
+      <label for="nom">Nom Entreprise* :</label>
+      <input type="text" class="form-control" id="nom" [(ngModel)]="utilisateur.entreprise.nom">
+<!--      [(ngModel)]="stagiaire.nom"-->
     </div>
     <div class="form-group">
-      <label for="telephone">Téléphone* :</label>
-      <input type="text" class="form-control" id="telephone">
+      <label for="identifiant">Identifiant* :</label>
+      <input type="text" class="form-control" id="identifiant" [(ngModel)]="utilisateur.identifiant "  >
+<!--      [(ngModel)]="utilisateur.identifiant"-->
     </div>
     <div class="form-group">
-      <label for="tva">TVA* :</label>
-      <input type="text" class="form-control" id="tva">
+      <label for="mdp">Mot de passe* :</label>
+      <input type="text" class="form-control" id="mdp" [(ngModel)]="utilisateur.mdp">
+<!--      [(ngModel)]="utilisateur.mdp"-->
     </div>
-    <!--  <div class="card-footer">-->
-    <!--    <div class="btn-group btn-group-lg float-right">-->
-    <!--      <a class="btn btn-success" (click)="save()">-->
-    <!--        <i class="fa fa-check"></i>-->
-    <!--      </a>-->
-    <!--      <a class="btn btn-warning" (click)="cancel()">-->
-    <!--        <i class="fa fa-undo"></i>-->
-    <!--      </a>-->
-    <!--    </div>-->
+    <div class="form-group">
+      <label for="confirmation">Confirmation* :</label>
+      <input type="text" class="form-control" id="confirmation" [(ngModel)]="utilisateur.mdp" >
+<!--      [(ngModel)]="utilisateur.mdp"-->
+    </div>
+    <div class="form-group">
+      <label for="email">Email* :</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="utilisateur.email " >
+    </div>
+    <div class="form-group">
+      <label for="siret">SIRET* :</label>
+      <input type="text" class="form-control" id="siret"  [(ngModel)]="utilisateur.entreprise.siret">
+    </div>
+
+    <div class="form-group">
+      <label for="rue">Rue* :</label>
+      <input type="text" class="form-control" id="rue" [(ngModel)]="utilisateur.entreprise.adresse.rue">
+    </div>
+    <div class="form-group">
+      <label for="codePostal">Code postal* :</label>
+      <input type="text" class="form-control" id="codePostal"  [(ngModel)]="utilisateur.entreprise.adresse.codePostal" >
+    </div>
+    <div class="form-group">
+      <label for="ville">Ville* :</label>
+      <input type="text" class="form-control" id="ville" [(ngModel)]="utilisateur.entreprise.adresse.ville">
+    </div>
+
+  <div class="form-group">
+    <label for="telephone">Téléphone* :</label>
+    <input type="text" class="form-control" id="telephone"  [(ngModel)]="utilisateur.telephone">
+  </div>
+  <div class="form-group">
+    <label for="tva">TVA* :</label>
+    <input type="text" class="form-control" id="tva"  [(ngModel)]="utilisateur.entreprise.tva">
+  </div>
+    <div class="form-group">
+      <label for="code">Code Entreprise* :</label>
+      <input type="text" class="form-control" id="code"  [(ngModel)]="utilisateur.entreprise.codeEntreprise">
+    </div>
   </div>
 
+  <div class="card-footer">
+    <div class="btn-group btn-group-lg float-left">
+      <h5><span class="badge badge-secondary">*Obligatoire</span></h5>
+    </div>
+    <div class="btn-group btn-group-lg float-right">
+      <button style='font-size:24px' class="btn btn-primary" (click)="save()">S'inscrire <i class="fa fa-angle-double-right"></i></button>
+    </div>
+  </div>
 </div>
 <<<<<<< HEAD
 =======
