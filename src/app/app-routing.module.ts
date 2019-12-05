@@ -17,17 +17,13 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'inscription', component: IncriptionFormComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
-  {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'evenement', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
-  {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent}
 ];
 
