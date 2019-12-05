@@ -23,14 +23,16 @@ export class EvenementComponent implements OnInit {
 
   constructor(private evenementHttpService: EvenementHttpService, private activatedRoute: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService) {
     this.activatedRoute.params.subscribe(params => {
-      this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
-        this.entreprise = resp;
-        this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
-          this.evenements = resp;
+      this.utilisateurHttpService.findById(params.id).subscribe(resp => {
+        this.utilisateur =resp;
+        this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
+          this.entreprise = resp;
+          this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
+            this.evenements = resp;
 
-        });
+          });
+        })
       });
-
     });
   }
 
