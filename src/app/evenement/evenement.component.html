@@ -1,0 +1,30 @@
+<div>
+  <div>{{utilisateur.nom}}</div>
+  <div>{{utilisateur.prenom}}</div>
+  <hr>
+
+  <div>Filtre statut</div>
+  <div>Filtre groupe</div>
+  <div>Filtre nom evenement</div>
+  <div>Filtre type evenement</div>
+  <div>Filtre activite favorite</div>
+  <div>Filtre lieux favoris</div>
+
+</div>
+<div>
+  <div>Liste des Evenements :</div>
+  <div *ngFor="let evenement of evenements">
+    <p>{{evenement.titre}}</p>
+    <p>{{evenement.date}}</p>
+    <p>{{evenement.nomEvenement}}</p>
+    <p>{{evenement.lieuxEvenement}}</p>
+
+  </div>
+
+
+
+
+
+
+
+</div>

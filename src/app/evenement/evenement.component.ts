@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from './evenement-http.service';
 import {ActivatedRoute} from '@angular/router';
+import {GroupeHttpService} from '../groupe/groupe-http.service';
+import {Groupe} from '../model/groupe';
+import {Entreprise} from '../model/entreprise';
+import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
+import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
+import {Utilisateur} from '../model/utilisateur';
 
 @Component({
   selector: 'evenement',
@@ -10,17 +16,31 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EvenementComponent implements OnInit {
 
-evenement: Evenement =null;
+  evenements: any;
+  entreprise: Entreprise = new Entreprise();
+  evenement: Evenement = new Evenement();
+  utilisateur: Utilisateur = new Utilisateur();
 
-  constructor(private evenementService: EvenementHttpService) {
+  constructor(private evenementHttpService: EvenementHttpService, private activatedRoute: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService) {
+    this.activatedRoute.params.subscribe(params => {
+      this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
+        this.entreprise = resp;
+        this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
+          this.evenements = resp;
+
+        });
+      });
+
+    });
   }
+
 
   ngOnInit() {
 
   }
 
-  list(): any{
-    return this.evenementService.findAll();
+  list(): any {
+    return this.evenementHttpService.findAll();
 
   }
 
@@ -28,11 +48,12 @@ evenement: Evenement =null;
     this.evenement = new Evenement();
   }
 
-  edit(id:number) {
-    this.evenementService.findById(id).subscribe(resp => this.evenement = resp);
+  edit(id: number) {
+    this.evenementHttpService.findById(id).subscribe(resp => this.evenement = resp);
   }
+
   delete(id: number) {
-    this.evenementService.deleteBydId(id);
+    this.evenementHttpService.deleteBydId(id);
   }
 
   cancel() {
