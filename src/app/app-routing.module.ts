@@ -11,6 +11,7 @@ import {GroupeDetailComponent} from "./groupe-detail/groupe-detail.component";
 import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
+import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
-  {path: 'evenementstarch', component: EvenementStarchComponent}
+  {path: 'evenementstarch', component: EvenementStarchComponent},
+  {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
 ];
 
 @NgModule({

@@ -25,6 +25,7 @@ import { EvenementDetailComponent } from './evenement-detail/evenement-detail.co
 import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
+import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
 
 
 
@@ -47,6 +48,7 @@ import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
     EvenementDetailComponent,
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
+    ModificationUtilisateurComponent,
   ],
 
   imports: [
