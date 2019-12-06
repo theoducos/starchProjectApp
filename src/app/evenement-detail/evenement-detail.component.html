@@ -61,8 +61,8 @@
     <div>
       Ajouter un commentaire :
       <div>
-        <input type="text" name="commentaire">
-        <button type="button">Valider<i class="fas fa-share-square"></i></button>
+        <input type="text" name="commentaire" [(ngModel)]="comment.commentaire">
+        <button type="button" (click)="saveCommentaire()">Valider<i class="fas fa-share-square"></i></button>
       </div>
     </div>
     <hr>

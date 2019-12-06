@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from '../evenement/evenement-http.service';
 import {ActivatedRoute} from '@angular/router';
+import {CommentaireHttpService} from '../commentaires/commentaire-http.service';
+import {Commentaire} from '../model/commentaire';
 
 @Component({
   selector: 'evenement-detail',
@@ -11,6 +13,8 @@ import {ActivatedRoute} from '@angular/router';
 export class EvenementDetailComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
+
+  comment: Commentaire = new Commentaire();
 
   utilisateursInteresses: any;
 
@@ -37,9 +41,11 @@ export class EvenementDetailComponent implements OnInit {
     this.childEvent.emit();
   }
 
-  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute) {
+  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService) {
 
-  this.route.params.subscribe(params => {this.evenementService.findById(params.id).subscribe(resp => this.evenement = resp)});
+    this.route.params.subscribe(params => {
+      this.evenementService.findById(params.id).subscribe(resp => this.evenement = resp);
+    });
   }
 
   ngOnInit() {
@@ -57,9 +63,14 @@ export class EvenementDetailComponent implements OnInit {
     this.evenementService.findUtilisateursParticipants(this.evenement.id).subscribe(resp => this.utilisateursParticipants = resp);
   }
 
-  listCommentaires(){
+  listCommentaires() {
     this.commentaire = true;
     this.evenementService.findCommentairesByEvenement(this.evenement.id).subscribe(resp => this.commentaires = resp);
+  }
+
+  saveCommentaire() {
+    console.log(this.comment);
+    this.commentaireService.save(this.comment);
   }
 
 }
