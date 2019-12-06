@@ -18,6 +18,7 @@ export class Utilisateur {
   groupes: Array<Groupe>;
   evenements: Array<Evenement>;
   favoris: Array<Favoris>;
+  confirmation: string;
 
   constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise, groupes?: Array<Groupe>, evenements?: Array<Evenement>, favoris?: Array<Favoris>) {
     this.id = id;

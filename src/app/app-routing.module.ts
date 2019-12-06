@@ -13,10 +13,12 @@ import {ModificationEntrepriseComponent} from './modification-entreprise/modific
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
+import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscription', component: IncriptionFormComponent},
+  {path: 'inscription-validator', component: IncriptionFormValidatorComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
@@ -30,6 +32,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
+
 ];
 
 @NgModule({

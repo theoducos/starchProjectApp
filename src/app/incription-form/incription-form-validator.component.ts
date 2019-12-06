@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'incription-form-validator',
   templateUrl: './incription-form-validator.component.html',
-  styleUrls: ['./incription-form-validator.component.css']
+  styleUrls: ['./incription-form.component.css']
 })
 export class IncriptionFormValidatorComponent implements OnInit {
   registerForm: FormGroup;
@@ -22,44 +22,26 @@ export class IncriptionFormValidatorComponent implements OnInit {
   }
 
 
-  constructor(private utilisateurService: UtilisateurHttpService, private formBuilder: FormBuilder) {
+  constructor(private utilisateurService: UtilisateurHttpService) {
   }
 
-  ngOnInit() {this.registerForm = this.formBuilder.group({
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    mdp: ['', [Validators.required, Validators.minLength(6)]],
-    confirmation: ['', Validators.required]
-  }, {
-    validator: MustMatch('password', 'confirmation')
-  });
-  }
-
-  get f() { return this.registerForm.controls; }
-
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    alert('SUCCESS!! :-)\n\n')
+  ngOnInit() {
   }
 }
-export function MustMatch(controlName: string, matchingControlName: string) {
-  return (formGroup: FormGroup) => {
-    var control = formGroup.controls[controlName];
-    var matchingControl = formGroup.controls[matchingControlName];
+  export function MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
 
-    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-      return;
-    }
-    if (control.value !== matchingControl.value) {
-      matchingControl.setErrors({ mustMatch: true });
-    } else {
-      matchingControl.setErrors(null);
+      if (!control || !matchingControl) {
+        return null;
+      }
+
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
     }
   }
-}
+
