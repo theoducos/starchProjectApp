@@ -20,7 +20,9 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
 
   constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
+
+    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.route.params.subscribe(params=>{
       this.utilisateurService.findById(params.id).subscribe(resp => {
           this.utilisateur = resp;
           this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
@@ -30,6 +32,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
         }
       );
     });
+
   }
 
 

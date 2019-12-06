@@ -19,7 +19,7 @@ import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-eveneme
 
 
 const routes: Routes = [
-  {path: 'inscription', component: IncriptionFormComponent, },
+  {path: 'inscription', component: IncriptionFormComponent,},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
@@ -32,7 +32,8 @@ const routes: Routes = [
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
-  {path: 'creationGroupe', component: CreationGroupeComponent}
+  {path: 'creationGroupe', component: CreationGroupeComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 
