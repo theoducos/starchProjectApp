@@ -27,7 +27,7 @@ import { ModificationEntrepriseComponent } from './modification-entreprise/modif
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
 import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
-import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
+// import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
 
@@ -53,9 +53,9 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
     OrgaEvenementStarchComponent,
-    IncriptionFormValidatorComponent,
-
+    // IncriptionFormValidatorComponent,
     CreationGroupeComponent,
+
   ],
 
   imports: [
