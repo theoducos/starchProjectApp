@@ -29,8 +29,12 @@ export class ModificationEntrepriseHttpService {
   }
 
   save(entreprise: Entreprise) {
-    if (entreprise.id) {
-      this.http.put(this.appConfigService.backend + 'entreprise/' + entreprise.id, entreprise).subscribe(resp => this.load());
+    if (this.entreprises.id) {
+      this.http.put(this.appConfigService.backend + 'entreprise/' + entreprise.id, entreprise).subscribe(resp => {
+        this.entreprises = resp ;
+        this.load()
+      });
+
     } else {
       this.http.post(this.appConfigService.backend + 'entreprise/', entreprise).subscribe(resp => this.load());
     }

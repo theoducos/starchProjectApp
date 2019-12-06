@@ -12,6 +12,9 @@ import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './login/auth.guard';
+import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 
@@ -21,19 +24,20 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'inscription-validator', component: IncriptionFormValidatorComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'orgaEvenement', component: OrgaEvenementComponent},
+  {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
   {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
   {path: 'evenement', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
-  {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
 
+  {path: 'creationGroupe', component: CreationGroupeComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -25,10 +25,14 @@ import {EvenementDetailComponent} from './evenement-detail/evenement-detail.comp
 import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-profil-utilisateur.component';
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
-import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
-import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
+import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import {AuthGuard} from './login/auth.guard';
+import { LoginComponent } from './login/login.component';
+import {AuthService} from './login/auth.service';
+import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
 import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 import {MustMatchDirective} from './must-match.directive';
+import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
 
 @NgModule({
@@ -51,10 +55,10 @@ import {MustMatchDirective} from './must-match.directive';
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    LoginComponent,
     OrgaEvenementStarchComponent,
     IncriptionFormValidatorComponent,
-    MustMatchDirective,
-
+    CreationGroupeComponent,
   ],
 
   imports: [
@@ -64,7 +68,7 @@ import {MustMatchDirective} from './must-match.directive';
     FormsModule,
 
   ],
-  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
