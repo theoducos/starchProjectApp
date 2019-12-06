@@ -3,9 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class EntrepriseHttpService {
 
   private utilisateur: any;
