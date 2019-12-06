@@ -26,6 +26,7 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
 
 
@@ -49,6 +50,7 @@ import { ModificationUtilisateurComponent } from './modification-utilisateur/mod
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    CreationGroupeComponent,
   ],
 
   imports: [
