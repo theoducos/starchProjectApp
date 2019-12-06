@@ -9,8 +9,8 @@
     <hr>
     <div>
       <div class="btn-group btn-group-sm">
-        <a class="btn btn-success">Participe<i class="fas fa-check"></i></a>
-        <a class="btn btn-primary" >Interesse<i class="fas fa-info"></i></a>
+        <a class="btn btn-success" (click)="AjouterParticipant()" >Participe<i class="fas fa-check"></i></a>
+        <a class="btn btn-primary" (click)="AjouterInteresse()">Interesse<i class="fas fa-info"></i></a>
       </div>
     </div>
     <hr>
@@ -25,11 +25,17 @@
     <div *ngIf="participantBool">
       <div *ngFor="let utilisateur of utilisateursParticipants">
         <p>{{utilisateur.nom}}</p>
+        <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
+          <p>{{groupes.nom}}</p>
+        </div>
       </div>
     </div>
     <div *ngIf="interessesBool">
       <div *ngFor="let util of utilisateursInteresses">
         <p>{{util.nom}}</p>
+        <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
+          <p>{{groupes.nom}}</p>
+        </div>
       </div>
     </div>
     <hr>
@@ -38,6 +44,10 @@
     </div>
     <hr>
     <div >Nombre de places disponibles<i class="fas fa-user-plus"></i>
+    </div>
+    <br>
+    <div>
+      {{nbparticipants}}/{{evenement.nbParticipantMax}}
     </div>
     <hr>
     <div>

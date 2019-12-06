@@ -3,6 +3,8 @@ import {Utilisateur} from "../model/utilisateur";
 import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 import {Entreprise} from "../model/entreprise";
 import {FormGroup} from '@angular/forms';
+import {InscriptionEntrepriseHttpService} from '../inscription-entreprise/inscription-entreprise-http.service';
+import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'incription-form',
@@ -10,8 +12,7 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./incription-form.component.css']
 })
 export class IncriptionFormComponent implements OnInit {
-  registerForm: FormGroup;
-  submitted = false;
+
 
   utilisateur: Utilisateur = new Utilisateur();
   entreprise: Entreprise = new Entreprise();
@@ -22,28 +23,13 @@ export class IncriptionFormComponent implements OnInit {
   }
 
 
-  constructor(private utilisateurService: UtilisateurHttpService) {
+  constructor(private utilisateurService: UtilisateurHttpService, formValidatorService: FormValidatorService) {
   }
 
   ngOnInit() {
   }
 
 }
-export function MustMatch(controlName: string, matchingControlName: string) {
-  return (formGroup: FormGroup) => {
-    const control = formGroup.controls[controlName];
-    const matchingControl = formGroup.controls[matchingControlName];
 
-    if (!control || !matchingControl) {
-      return null;
-    }
-
-    if (control.value !== matchingControl.value) {
-      matchingControl.setErrors({ mustMatch: true });
-    } else {
-      matchingControl.setErrors(null);
-    }
-  }
-}
 
 
