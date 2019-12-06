@@ -1,13 +1,13 @@
-.logo{
+.logo {
   width: 7%;
   height: 7%;
-  border-radius:50%;
 }
 
 .navbar {
   width: 100%;
-  background-color:white;
+  background-color: white;
   overflow: auto;
+  border: 2px solid #FF9D03;
 }
 
 .navbar a {
@@ -15,7 +15,7 @@
   padding: 12px;
   color: #FF9D03;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .navbar a:hover {
