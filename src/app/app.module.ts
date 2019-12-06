@@ -56,6 +56,8 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     ModificationUtilisateurComponent,
     LoginComponent,
     OrgaEvenementStarchComponent,
+    IncriptionFormValidatorComponent,
+
     CreationGroupeComponent,
     MustMatchDirective,
   ],
