@@ -1,60 +1,104 @@
 <div class="container">
-  <div class="card mt-5" style="border: 1px solid black">
-    <div class="card-header" style="background: white; border-bottom: 1px solid black">
-      <h3 style="font-weight: bold; color: #FF9D03">INSCRIPTION</h3>
+  <div class="card mt-3">
+    <div class="card-header bg-info text-white">
+      <h3>INSCRIPTION</h3>
+    </div>
+    <form #insForm="ngForm" name="insForm" [mustMatch]="['mdp', 'confirmation']">
+      <div class="card-body">
+        <div class="form-group">
+          <label>Identifiant: </label>
+          <input type="text" name="identifiant" class="form-control"
+                 [(ngModel)]="utilisateur.identifiant" required #identifiant="ngModel">
+          <div *ngIf="identifiant.invalid && (identifiant.dirty)"
+               class="alert alert-danger">
+            <div *ngIf="identifiant.errors.required">
+              Identifiant obligatoire
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password :</label>
+          <input type="password" name="mdp" class="form-control" [(ngModel)]="utilisateur.mdp" required #mdp="ngModel"
+                 minlength="4"/>
+          <div *ngIf="mdp.invalid && (mdp.dirty)"
+               class="alert alert-danger">
+            <div *ngIf="mdp.errors.required">
+              Password obligatoire
+            </div>
+            <div *ngIf="mdp.errors.minlength">
+              Au moins 4 caracteres
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Confirmation du Password</label>
+          <input type="password" name="confirmation" class="form-control" required
+                 [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"/>
+          <div *ngIf="confirmation.invalid && (confirmation.dirty)"
+               class="alert alert-danger">
+            <div *ngIf="confirmation.errors.required">Confirmation obligatoire</div>
+            <div *ngIf="confirmation.errors.mustMatch">Confirmation invalide</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Nom: </label>
+          <input type="text" name="nom" id="nom" class="form-control"
+                 [(ngModel)]="utilisateur.nom" required #nom="ngModel"/>
+          <div *ngIf="nom.invalid && (nom.dirty)"
+               class="alert alert-danger">
+            <div *ngIf="nom.errors.required">
+              Nom obligatoire
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Prénom: </label>
+            <input type="text" name="prenom" id="prenom" class="form-control"
+                   [(ngModel)]="utilisateur.prenom" required #prenom="ngModel"/>
+            <div *ngIf="prenom.invalid && (prenom.dirty)"
+                 class="alert alert-danger">
+              <div *ngIf="prenom.errors.required">
+                Prénom obligatoire
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control"
+                   [(ngModel)]="utilisateur.email" required #email="ngModel"/>
+            <div *ngIf="email.invalid && (email.dirty)"
+                 class="alert alert-danger">
+              <div *ngIf="email.errors.required">
+                Courriel obligatoire
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="telephone">Téléphone: </label>
+              <input type="text" class="form-control" id="telephone" name="telephone"
+                     [(ngModel)]="utilisateur.telephone">
+            </div>
+            <div class="form-group">
+              <label for="code">Code Entreprise: </label>
+              <input type="text" class="form-control" id="code" name="code" [(ngModel)]="entreprise.codeEntreprise">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="card-footer">
+      <div class="btn-group btn-group-lg float-right">
+        <a class="btn btn-success">
+          <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
+        </a>
+        <a class="btn btn-warning">
+          <i class="fa fa-undo"></i>
+        </a>
+      </div>
     </div>
 
-    <div class="card-body">
-      <div class="form-group">
-        <label for="identifiant">Identifiant: </label>
-        <input type="text" class="form-control" id="identifiant" [(ngModel)]="utilisateur.identifiant"
-               style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="password">Mot De Passe*: </label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="utilisateur.mdp"
-               style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="confirmation">Confirmation du Mot De Passe*: </label>
-        <input type="password" class="form-control" id="confirmation" style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="nom">Nom: </label>
-        <input type="text" class="form-control" id="nom" [(ngModel)]="utilisateur.nom" style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="prenom">Prénom: </label>
-        <input type="text" class="form-control" id="prenom" [(ngModel)]="utilisateur.prenom"
-               style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="email">Email: </label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="utilisateur.email"
-               style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="telephone">Téléphone: </label>
-        <input type="text" class="form-control" id="telephone" [(ngModel)]="utilisateur.telephone"
-               style="border: 1px solid black">
-      </div>
-      <div class="form-group">
-        <label for="code">Code Entreprise: </label>
-        <input type="text" class="form-control" id="code" [(ngModel)]="entreprise.codeEntreprise"
-               style="border: 1px solid black">
-      </div>
-    </div>
-  </div>
-  <div class="card-footer" style="background: white">
-    <div class="btn-group btn-group-lg float-right">
-      <a class="btn btn-success">
-        <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
-      </a>
-      <a class="btn" style="background: #FF9D03">
-        <i class="fa fa-ban"></i>
-      </a>
-    </div>
   </div>
 </div>
-
-

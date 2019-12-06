@@ -16,12 +16,10 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './login/auth.guard';
 import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
-import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscription', component: IncriptionFormComponent},
-  {path: 'inscription-validator', component: IncriptionFormValidatorComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},

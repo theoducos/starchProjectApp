@@ -30,7 +30,6 @@ import {AuthGuard} from './login/auth.guard';
 import { LoginComponent } from './login/login.component';
 import {AuthService} from './login/auth.service';
 import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
-import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 import {MustMatchDirective} from './must-match.directive';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
@@ -57,8 +56,8 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     ModificationUtilisateurComponent,
     LoginComponent,
     OrgaEvenementStarchComponent,
-    IncriptionFormValidatorComponent,
     CreationGroupeComponent,
+    MustMatchDirective,
   ],
 
   imports: [

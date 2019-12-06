@@ -1,6 +1,6 @@
 import {Directive, Input} from '@angular/core';
 import {FormGroup, NG_VALIDATORS, ValidationErrors, Validator} from '@angular/forms';
-import {MustMatch} from './incription-form/incription-form-validator.component';
+import {MustMatch} from './incription-form/incription-form.component';
 
 @Directive({
   selector: '[mustMatch]',
