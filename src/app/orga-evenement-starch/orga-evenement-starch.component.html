@@ -1,0 +1,92 @@
+
+<div class="card-body">
+  <div class="form-group">
+    <label for="titre">Titre :</label>
+    <input type="text" class="form-control" id="titre" [(ngModel)]="evenementStarch.titre">
+  </div>
+  <div class="form-group">
+    <label for="nomActivite">Nom activité:</label>
+    <select class="form-control" id="nomActivite" [(ngModel)]="evenementStarch.nomEvenement">
+      <option value="">Activité</option>
+      <option value="Foot_en_salle">Foot en salle</option>
+      <option value="Escape_game">Escape game</option>
+      <option value="Bowling">Bowling</option>
+      <option value="Laser_game">Laser game</option>
+      <option value="Boire_un_verre">Boire un verre</option>
+      <option value="Musee">Musée</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="typeActivite">Type d'activité:</label>
+    <select class="form-control" id="typeActivite" [(ngModel)]="evenementStarch.typeEvenement">
+      <option value="">Type</option>
+      <option value="Bar_restaurant">Bar Restaurant</option>
+      <option value="Culturel">Culturel</option>
+      <option value="Sportif">Sportif</option>
+      <option value="Corporate">Corporate</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="dtEtHeure">Date et heure :</label>
+    <input type="date" class="form-control" id="dtEtHeure" [(ngModel)]="evenement.date">
+  </div>
+  <div class="form-group">
+    <label for="deadline">Deadline d'inscription :</label>
+    <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
+  </div>
+
+  <div class="form-group">
+    <label for="lieu">Lieu préexistant:</label>
+    <select class="form-control" id="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
+      <option value="">Lieu pré existant</option>
+      <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="prix">Prix :</label>
+    <input type="number" class="form-control" id="prix" [(ngModel)]="evenementStarch.prixStarch">
+  </div>
+  <div class="form-group">
+    <label for="nbParticipants">Nombre de participants :</label>
+    <input type="number" class="form-control" id="nbParticipants" [(ngModel)]="evenementStarch.nbParticipantMax">
+  </div>
+  <div class="form-group">
+    <label for="description">Description :</label>
+    <textarea class="form-control" id="description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="groupe">Groupe :</label>
+    <select class="form-control" id="groupe" [(ngModel)]="evenement.groupe.id">
+      <option value="">Choisir un groupe</option>
+      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+    </select>
+  </div>
+  <div>
+    <p>Organiser cet événement tout les :</p>
+    <div>
+      <input type="radio" id="jour" name="recurrence" value="jour"
+             checked [(ngModel)]="evenement.recurrence">
+      <label for="jour">Jours</label>
+    </div>
+    <div>
+      <input type="radio" id="semaine" name="recurrence" value="semaine" [(ngModel)]="evenement.recurrence">
+      <label for="semaine">Semaine</label>
+    </div>
+
+    <div>
+      <input type="radio" id="mois" name="recurrence" value="mois" [(ngModel)]="evenement.recurrence">
+      <label for="mois">Mois</label>
+    </div>
+  </div>
+
+
+  <div class="btn-group btn-group-lg float-right">
+    <a class="btn btn-success" (click)="save()">
+      <i class="fa fa-check"></i>
+    </a>
+    <a class="btn btn-warning">
+      <i class="fa fa-undo"></i>
+    </a>
+  </div>
+
+</div>

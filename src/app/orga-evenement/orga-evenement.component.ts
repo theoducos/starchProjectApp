@@ -9,7 +9,7 @@ import {AuthService} from '../login/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-orga-evenement',
+  selector: 'orga-evenement',
   templateUrl: './orga-evenement.component.html',
   styleUrls: ['./orga-evenement.component.css']
 })
@@ -27,6 +27,9 @@ export class OrgaEvenementComponent implements OnInit {
   groupeNull: Groupe = new Groupe();
 
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService,private authService: AuthService, private router: Router) { }
+
+
+  }
 
   save() {
     this.evenementService.save(this.evenement);

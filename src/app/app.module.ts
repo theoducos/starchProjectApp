@@ -12,7 +12,7 @@ import {GroupeComponent} from './groupe/groupe.component';
 import {LieuxEvenementComponent} from './lieux-evenement/lieux-evenement.component';
 import {UtilisateurComponent} from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IncriptionFormComponent} from './incription-form/incription-form.component';
 import {NouveauLieuFormComponent} from './nouveau-lieu-form/nouveau-lieu-form.component';
 import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
@@ -29,6 +29,9 @@ import { ModificationUtilisateurComponent } from './modification-utilisateur/mod
 import {AuthGuard} from './login/auth.guard';
 import { LoginComponent } from './login/login.component';
 import {AuthService} from './login/auth.service';
+import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
+import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
+import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
 
 
@@ -53,13 +56,17 @@ import {AuthService} from './login/auth.service';
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
     LoginComponent,
+    OrgaEvenementStarchComponent,
+    IncriptionFormValidatorComponent,
+    CreationGroupeComponent,
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
   bootstrap: [AppComponent]

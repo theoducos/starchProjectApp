@@ -57,4 +57,5 @@ export class UtilisateurHttpService {
   findUtilisateurByIdentifiant(identifiant: string) {
     return this.http.get(this.appConfigService.backend + 'utilisateur/login/' + identifiant);
   }
+
 }

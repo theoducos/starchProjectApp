@@ -1,0 +1,29 @@
+.logo{
+  width: 7%;
+  height: 7%;
+  border-radius:50%;
+}
+
+.navbar {
+  width: 100%;
+  background-color:white;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: #FF9D03;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #000;
+}
+
+

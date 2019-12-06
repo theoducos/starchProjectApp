@@ -14,6 +14,8 @@ import {EvenementStarchComponent} from './evenement-starch/evenement-starch.comp
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './login/auth.guard';
+import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
+import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,7 @@ const routes: Routes = [
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
+  {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
   {path: 'evenement', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
@@ -29,12 +32,15 @@ const routes: Routes = [
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'creationGroupe', component: CreationGroupeComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
+
 }

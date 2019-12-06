@@ -1,19 +1,28 @@
-<div>
-  {{groupe.nom}}
-</div>
-<div>
-  <div> Membres du groupe : </div>
-  <div *ngFor="let utilisateur of utilisateurs">
-    <p>{{utilisateur.nom}}</p>
+<div class="container">
+  <div class="card" class="card">
+    <img [src]="'assets/img/'+groupe.nom+'.jpg'" alt="Avatar" class="avatar"/>
+    <h1>{{groupe.nom}}</h1>
+    <p>
+      <button type="button" class="button">Voir/Modifier des informations</button>
+    </p>
+  </div>
+  <br>
+  <div class="cardBis">
+    <br>
+    <div style="border: 1px solid black;background: white">
+      <h2 style="font-weight: bold">Membres du Groupe</h2>
+      <div *ngFor="let utilisateur of utilisateurs">
+        <p>{{utilisateur.nom}} {{utilisateur.prenom}}</p></div>
     </div>
+    <br>
+    <div>
+      <button class="buttonBis" style="color: black">Inviter <i class="fa fa-user-plus"></i></button>
+    </div>
+    <br>
 
-
-  <div>
-  <button type="button">Inviter <i class="fas fa-user-plus"></i></button>
+    <div>
+      <button type="button" class="buttonBis" style="color: black">Acceder au calendrier du groupe <i class="fa fa-calendar"></i></button>
+    </div>
+    <br>
   </div>
-
-  <div>
-    <button type="button">Acceder au calendrier du groupe<i class="far fa-calendar-alt"></i></button>
-  </div>
-
 </div>
