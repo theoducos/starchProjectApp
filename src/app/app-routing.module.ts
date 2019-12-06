@@ -32,6 +32,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
