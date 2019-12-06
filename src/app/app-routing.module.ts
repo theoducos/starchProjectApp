@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
   {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
-  {path: 'evenement', component: EvenementComponent},
+  {path: 'evenement/list/:id', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
@@ -32,7 +32,8 @@ const routes: Routes = [
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
-  {path: 'creationGroupe', component: CreationGroupeComponent}
+  {path: 'creationGroupe', component: CreationGroupeComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 
