@@ -13,12 +13,15 @@ import {ModificationEntrepriseComponent} from './modification-entreprise/modific
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
+import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 
 
 const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'inscription', component: IncriptionFormComponent},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
+  {path: 'orgaEvenement', component: OrgaEvenementComponent},
+  {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
   {path: 'evenement', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
@@ -35,5 +38,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
+
 }

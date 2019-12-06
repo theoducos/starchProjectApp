@@ -7,7 +7,7 @@ import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {Groupe} from '../model/groupe';
 
 @Component({
-  selector: 'app-orga-evenement',
+  selector: 'orga-evenement',
   templateUrl: './orga-evenement.component.html',
   styleUrls: ['./orga-evenement.component.css']
 })
@@ -24,7 +24,10 @@ export class OrgaEvenementComponent implements OnInit {
 
   groupeNull: Groupe = new Groupe();
 
-  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService) { }
+  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService) {
+
+
+  }
 
   save() {
     this.evenementService.save(this.evenement);

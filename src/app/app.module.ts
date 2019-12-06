@@ -12,7 +12,7 @@ import {GroupeComponent} from './groupe/groupe.component';
 import {LieuxEvenementComponent} from './lieux-evenement/lieux-evenement.component';
 import {UtilisateurComponent} from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {IncriptionFormComponent} from './incription-form/incription-form.component';
 import {NouveauLieuFormComponent} from './nouveau-lieu-form/nouveau-lieu-form.component';
 import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
@@ -26,6 +26,8 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
+import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
 
 
@@ -50,6 +52,9 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    OrgaEvenementStarchComponent,
+    IncriptionFormValidatorComponent,
+
     CreationGroupeComponent,
   ],
 
@@ -57,7 +62,8 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
   bootstrap: [AppComponent]
