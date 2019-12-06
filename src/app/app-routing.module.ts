@@ -26,7 +26,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'evenementstarch', component: EvenementStarchComponent}
+  {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
 ];
 
