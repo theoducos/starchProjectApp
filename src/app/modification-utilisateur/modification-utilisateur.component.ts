@@ -17,6 +17,7 @@ export class ModificationUtilisateurComponent implements OnInit {
   utilisateur: Utilisateur = new Utilisateur();
 
   constructor(private utilisateurhttpservice: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
+  // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
     this.route.params.subscribe(params => {
       this.utilisateurhttpservice.findById(params.id).subscribe(resp => {
