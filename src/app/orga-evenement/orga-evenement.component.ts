@@ -7,6 +7,8 @@ import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {Groupe} from '../model/groupe';
 import {AuthService} from '../login/auth.service';
 import {Router} from '@angular/router';
+import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
+import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'orga-evenement',
@@ -26,7 +28,7 @@ export class OrgaEvenementComponent implements OnInit {
 
   groupeNull: Groupe = new Groupe();
 
-  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService,private authService: AuthService, private router: Router) { }
+  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService,private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) { }
 
 
 

@@ -1,4 +1,4 @@
-
+<form #orgaForm="ngForm" name="orgaForm">
 <div class="card-body">
   <div class="form-group">
     <label for="titre">Titre :</label>
@@ -6,7 +6,7 @@
   </div>
   <div class="form-group">
     <label for="nomActivite">Nom activité:</label>
-    <select class="form-control" id="nomActivite" [(ngModel)]="evenement.nomEvenement">
+    <select class="form-control" name="nomActivite" id="nomActivite" [(ngModel)]="evenement.nomEvenement">
       <option value="">Activité</option>
       <option value="Foot_en_salle">Foot en salle</option>
       <option value="Escape_game">Escape game</option>
@@ -18,7 +18,7 @@
   </div>
   <div class="form-group">
     <label for="typeActivite">Type d'activité:</label>
-    <select class="form-control" id="typeActivite" [(ngModel)]="evenement.typeEvenement">
+    <select class="form-control" id="typeActivite" nom="typeActivite" [(ngModel)]="evenement.typeEvenement">
       <option value="">Type</option>
       <option value="Bar_restaurant">Bar Restaurant</option>
       <option value="Culturel">Culturel</option>
@@ -28,35 +28,35 @@
   </div>
   <div class="form-group">
     <label for="dtEtHeure">Date et heure :</label>
-    <input type="date" class="form-control" id="dtEtHeure" [(ngModel)]="evenement.date">
+    <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date">
   </div>
   <div class="form-group">
     <label for="deadline">Deadline d'inscription :</label>
-    <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
+    <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="evenement.deadline">
   </div>
 
   <div class="form-group">
     <label for="lieu">Lieu préexistant:</label>
-    <select class="form-control" id="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
+    <select class="form-control" id="lieu" name="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
       <option value="">Lieu pré existant</option>
       <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
     </select>
   </div>
   <div class="form-group">
     <label for="prix">Prix :</label>
-    <input type="number" class="form-control" id="prix" [(ngModel)]="evenement.prix">
+    <input type="number" class="form-control" name="prix" id="prix" [(ngModel)]="evenement.prix">
   </div>
   <div class="form-group">
     <label for="nbParticipants">Nombre de participants :</label>
-    <input type="number" class="form-control" id="nbParticipants" [(ngModel)]="evenement.nbParticipantMax">
+    <input type="number" class="form-control" id="nbParticipants" name="nbParticipants" [(ngModel)]="evenement.nbParticipantMax">
   </div>
   <div class="form-group">
     <label for="description">Description :</label>
-    <textarea class="form-control" id="description"></textarea>
+    <textarea class="form-control" id="description" name="description"></textarea>
   </div>
   <div class="form-group">
     <label for="groupe">Groupe :</label>
-    <select class="form-control" id="groupe" [(ngModel)]="evenement.groupe.id">
+    <select class="form-control" id="groupe" name="groupe" [(ngModel)]="evenement.groupe.id">
       <option value="">Choisir un groupe</option>
       <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
     </select>
@@ -91,3 +91,4 @@
 
   <button (click)="session()">Session</button>
 </div>
+</form>
