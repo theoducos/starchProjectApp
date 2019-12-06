@@ -4,7 +4,7 @@
   <p class="title">{{utilisateur.nom}}</p>
   <p class="title">{{utilisateur.prenom}}</p>
   <p>
-    <button type="button">Voir/Modifier des informations</button>
+    <button type="button" [routerLink]="['/modificationUtilisateur/'+ utilisateur.id]">Voir/Modifier des informations</button>
   </p>
 </div>
 
