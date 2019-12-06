@@ -26,6 +26,9 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import {AuthGuard} from './login/auth.guard';
+import { LoginComponent } from './login/login.component';
+import {AuthService} from './login/auth.service';
 
 
 
@@ -49,6 +52,7 @@ import { ModificationUtilisateurComponent } from './modification-utilisateur/mod
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    LoginComponent,
   ],
 
   imports: [
@@ -57,7 +61,7 @@ import { ModificationUtilisateurComponent } from './modification-utilisateur/mod
     HttpClientModule,
     FormsModule
   ],
-  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

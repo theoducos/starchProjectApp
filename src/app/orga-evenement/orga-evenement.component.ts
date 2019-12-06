@@ -5,6 +5,8 @@ import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http
 import {EvenementHttpService} from '../evenement/evenement-http.service';
 import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {Groupe} from '../model/groupe';
+import {AuthService} from '../login/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-orga-evenement',
@@ -24,7 +26,7 @@ export class OrgaEvenementComponent implements OnInit {
 
   groupeNull: Groupe = new Groupe();
 
-  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService) { }
+  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService,private authService: AuthService, private router: Router) { }
 
   save() {
     this.evenementService.save(this.evenement);
@@ -37,5 +39,13 @@ export class OrgaEvenementComponent implements OnInit {
     this.groupeService.findAll().subscribe(resp => this.groupes = resp);
     this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
   }
+
+  session(){
+    console.log(localStorage.getItem("identifiant"));
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
+
 
 }

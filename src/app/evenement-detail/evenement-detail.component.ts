@@ -14,7 +14,7 @@ export class EvenementDetailComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
 
-  comment: Commentaire = new Commentaire();
+  commentaire: Commentaire = new Commentaire();
 
   utilisateursInteresses: any;
 
@@ -22,12 +22,12 @@ export class EvenementDetailComponent implements OnInit {
 
   commentaires: any;
 
-  commentaire: boolean;
+  commentaireBool: boolean;
 
   id: number;
 
-  participants: boolean = false;
-  interesses: boolean = false;
+  participantBool: boolean = false;
+  interessesBool: boolean = false;
 
   @Output()
   childEvent = new EventEmitter();
@@ -52,25 +52,29 @@ export class EvenementDetailComponent implements OnInit {
   }
 
   listInteresse() {
-    this.participants = false;
-    this.interesses = true;
+    this.participantBool = false;
+    this.interessesBool = true;
     this.evenementService.findUtilisateursInteresses(this.evenement.id).subscribe(resp => this.utilisateursInteresses = resp);
   }
 
   listParticipant() {
-    this.interesses = false;
-    this.participants = true;
+    this.interessesBool = false;
+    this.participantBool = true;
     this.evenementService.findUtilisateursParticipants(this.evenement.id).subscribe(resp => this.utilisateursParticipants = resp);
   }
 
   listCommentaires() {
-    this.commentaire = true;
+    this.commentaireBool = true;
     this.evenementService.findCommentairesByEvenement(this.evenement.id).subscribe(resp => this.commentaires = resp);
   }
 
   saveCommentaire() {
-    console.log(this.comment);
-    this.commentaireService.save(this.comment);
+    this.commentaire.evenement = this.evenement;
+    this.commentaireService.save(this.commentaire);
+  }
+
+  saveParticipation(){
+
   }
 
 }
