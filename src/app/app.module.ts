@@ -12,7 +12,7 @@ import {GroupeComponent} from './groupe/groupe.component';
 import {LieuxEvenementComponent} from './lieux-evenement/lieux-evenement.component';
 import {UtilisateurComponent} from './utilisateur/utilisateur.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {IncriptionFormComponent} from './incription-form/incription-form.component';
 import {NouveauLieuFormComponent} from './nouveau-lieu-form/nouveau-lieu-form.component';
 import {OrgaEvenementComponent} from './orga-evenement/orga-evenement.component';
@@ -21,15 +21,17 @@ import {AppConfigService} from './app-config.service';
 import {EvenementHttpService} from './evenement/evenement-http.service';
 import {GroupeHttpService} from './groupe/groupe-http.service';
 import {LieuxEvenementHttpService} from './lieux-evenement/lieux-evenement-http.service';
-import { EvenementDetailComponent } from './evenement-detail/evenement-detail.component';
-import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-profil-utilisateur.component';
-import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
+import {EvenementDetailComponent} from './evenement-detail/evenement-detail.component';
+import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-profil-utilisateur.component';
+import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import {AuthGuard} from './login/auth.guard';
+import { LoginComponent } from './login/login.component';
+import {AuthService} from './login/auth.service';
 import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
-// import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
+import {MustMatchDirective} from './must-match.directive';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
-
 
 
 @NgModule({
@@ -52,10 +54,12 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    LoginComponent,
     OrgaEvenementStarchComponent,
-    // IncriptionFormValidatorComponent,
-    CreationGroupeComponent,
+    IncriptionFormValidatorComponent,
 
+    CreationGroupeComponent,
+    MustMatchDirective,
   ],
 
   imports: [
@@ -63,9 +67,9 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+
   ],
-  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

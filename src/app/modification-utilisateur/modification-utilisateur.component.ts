@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Entreprise} from '../model/entreprise';
 import {Adresse} from '../model/adresse';
 import {ModificationEntrepriseHttpService} from '../modification-entreprise/modification-entreprise-http.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Utilisateur} from '../model/utilisateur';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 
@@ -14,9 +14,9 @@ import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 export class ModificationUtilisateurComponent implements OnInit {
 
 
-  utilisateur : Utilisateur = new Utilisateur();
+  utilisateur: Utilisateur = new Utilisateur();
 
-  constructor( private utilisateurhttpservice : UtilisateurHttpService, private route: ActivatedRoute) {
+  constructor(private utilisateurhttpservice: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
 
     this.route.params.subscribe(params => {
       this.utilisateurhttpservice.findById(params.id).subscribe(resp => {
@@ -26,14 +26,11 @@ export class ModificationUtilisateurComponent implements OnInit {
     });
   }
 
-  save(){
+  save() {
     this.utilisateurhttpservice.save(this.utilisateur);
-    // this.cancel();
-  }
+    this.router.navigate(['/utilisateur', this.utilisateur.id]);
 
-  // cancel(){
-  //   this.entreprise = null;
-  // }
+  }
 
 
   ngOnInit() {

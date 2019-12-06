@@ -22,7 +22,7 @@
       <a class="btn btn-primary" (click)="listParticipant()">Participants <i class="far fa-calendar-check"></i></a>
       <a class="btn btn-primary" (click)="listInteresse()">Interesses <i class="far fa-calendar-check"></i></a>
     </div>
-    <div *ngIf="participants">
+    <div *ngIf="participantBool">
       <div *ngFor="let utilisateur of utilisateursParticipants">
         <p>{{utilisateur.nom}}</p>
         <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="interesses">
+    <div *ngIf="interessesBool">
       <div *ngFor="let util of utilisateursInteresses">
         <p>{{util.nom}}</p>
         <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
@@ -71,7 +71,7 @@
     <div>
       Ajouter un commentaire :
       <div>
-        <input type="text" name="commentaire" [(ngModel)]="comment.commentaire">
+        <input type="text" name="commentaire" [(ngModel)]="commentaire.commentaire">
         <button type="button" (click)="saveCommentaire()">Valider<i class="fas fa-share-square"></i></button>
       </div>
     </div>

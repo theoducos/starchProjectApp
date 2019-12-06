@@ -1,0 +1,10 @@
+Username: <input type="text" [(ngModel)]="model.userid">
+Password: <input type="text" [(ngModel)]="model.password">
+<button (click)="validate()">Valider</button>
+
+
+<button (click)="session()">session</button>
+<button (click)="disconnect()">Disconnect</button>
+
+<br>
+<p *ngIf="erreur">Identifiant ou mot de passe incorrect</p>

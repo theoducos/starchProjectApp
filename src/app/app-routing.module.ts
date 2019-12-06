@@ -12,26 +12,28 @@ import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './login/auth.guard';
 import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 
 
-const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponent},
-  {path: 'inscription', component: IncriptionFormComponent},
+const routes: Routes = [
+  {path: 'inscription', component: IncriptionFormComponent,},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'orgaEvenement', component: OrgaEvenementComponent},
+  {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
   {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
-  {path: 'evenement', component: EvenementComponent},
+  {path: 'evenement/list/:id', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
   {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
-  {path: 'evenement', component: EvenementComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
-  {path: 'creationGroupe', component: CreationGroupeComponent}
+  {path: 'creationGroupe', component: CreationGroupeComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 
