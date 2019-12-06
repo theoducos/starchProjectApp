@@ -36,5 +36,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
+
 }
