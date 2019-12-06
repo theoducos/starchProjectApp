@@ -26,6 +26,9 @@ import { PageProfilUtilisateurComponent } from './page-profil-utilisateur/page-p
 import { ModificationEntrepriseComponent } from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
 import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import {AuthGuard} from './login/auth.guard';
+import { LoginComponent } from './login/login.component';
+import {AuthService} from './login/auth.service';
 import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
 import {IncriptionFormValidatorComponent} from './incription-form/incription-form-validator.component';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
@@ -52,6 +55,7 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     PageProfilUtilisateurComponent,
     ModificationEntrepriseComponent,
     ModificationUtilisateurComponent,
+    LoginComponent,
     OrgaEvenementStarchComponent,
     IncriptionFormValidatorComponent,
     CreationGroupeComponent,
@@ -64,7 +68,7 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

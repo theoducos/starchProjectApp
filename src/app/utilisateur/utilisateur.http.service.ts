@@ -22,6 +22,10 @@ export class UtilisateurHttpService {
       .subscribe(resp => this.utilisateur = resp);
   }
 
+  findAll(): Observable<any>{
+    return this.http.get(this.appConfigService.backend + 'utilisateur');
+  }
+
   save(utilisateur: Utilisateur) {
     if (this.utilisateur.id) {
       this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
@@ -48,6 +52,10 @@ export class UtilisateurHttpService {
 
   findEntrepriseByUtilisateurId(id:number): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/entreprise');
+  }
+
+  findUtilisateurByIdentifiant(identifiant: string) {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/login/' + identifiant);
   }
 
 }
