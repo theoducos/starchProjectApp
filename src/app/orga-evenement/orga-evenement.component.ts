@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {LieuxEvenement} from '../model/lieuxEvenement';
 import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http.service';
@@ -20,17 +20,16 @@ export class OrgaEvenementComponent implements OnInit {
 
   lieuxEvenements: any;
 
-  lieuxEvenement : LieuxEvenement = new LieuxEvenement();
+  lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
   groupes: any;
 
   groupeNull: Groupe = new Groupe();
 
-  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService,private authService: AuthService, private router: Router) { }
-
-
+  constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private authService: AuthService, private router: Router) {
   }
 
+  
   save() {
     this.evenementService.save(this.evenement);
 
@@ -43,12 +42,11 @@ export class OrgaEvenementComponent implements OnInit {
     this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
   }
 
-  session(){
+  session() {
     console.log(localStorage.getItem("identifiant"));
     this.authService.logout();
     this.router.navigate(['/login']);
   }
-
 
 
 }
