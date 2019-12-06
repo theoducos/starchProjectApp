@@ -4,7 +4,7 @@ export class EvenementStarch {
   id: number;
   version: number;
   titre: string;
-  nbParticipant: number;
+  nbParticipantMax: number;
   prixStarch: number;
   description: string;
   typeEvenement: TypeEvenement;
@@ -12,11 +12,11 @@ export class EvenementStarch {
   adresse: Adresse;
 
 
-  constructor(id?: number, version?: number, titre?: string, nbParticipant?: number, prixStarch?: number, description?: string, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, adresse?: Adresse) {
+  constructor(id?: number, version?: number, titre?: string, nbParticipantMax?: number, prixStarch?: number, description?: string, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, adresse?: Adresse) {
     this.id = id;
     this.version = version;
     this.titre = titre;
-    this.nbParticipant = nbParticipant;
+    this.nbParticipantMax = nbParticipantMax;
     this.prixStarch = prixStarch;
     this.description = description;
     this.typeEvenement = typeEvenement;

@@ -33,6 +33,10 @@ export class EvenementHttpService {
 
   }
 
+  deleteBydId(id: number) {
+    this.http.delete(this.appConfigService.backend + 'evenement/' + id).subscribe(resp => this.load());
+  }
+
   findUtilisateursInteresses(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/interesse');
   }
@@ -41,9 +45,7 @@ export class EvenementHttpService {
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/participe');
   }
 
-  deleteBydId(id: number) {
-    this.http.delete(this.appConfigService.backend + 'evenement/' + id).subscribe(resp => this.load());
-  }
+
 
   findCommentairesByEvenement(id: number): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/commentaires');
