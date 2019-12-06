@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'incription-form-validator',
   templateUrl: './incription-form-validator.component.html',
-  styleUrls: ['./incription-form-validator.component.css']
+  styleUrls: ['./incription-form.component.css']
 })
 export class IncriptionFormValidatorComponent implements OnInit {
   registerForm: FormGroup;

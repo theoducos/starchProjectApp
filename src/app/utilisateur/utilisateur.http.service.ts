@@ -48,6 +48,6 @@ export class UtilisateurHttpService {
 
   findEntrepriseByUtilisateurId(id:number): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/entreprise');
-
   }
+
 }
