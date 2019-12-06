@@ -34,7 +34,7 @@
           <label>Confirmation du Password</label>
           <input type="password" name="confirmation" class="form-control" required
                  [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"/>
-          <div *ngIf="confirmation.invalid && (confirmation.dirty)"
+          <div *ngIf="confirmation.invalid && (confirmation.dirty) "
                class="alert alert-danger">
             <div *ngIf="confirmation.errors.required">Confirmation obligatoire</div>
             <div *ngIf="confirmation.errors.mustMatch">Confirmation invalide</div>
@@ -66,7 +66,7 @@
 
           <div class="form-group">
             <label>Email</label>
-            <input type="text" name="email" class="form-control"
+            <input type="email" name="email" class="form-control"
                    [(ngModel)]="utilisateur.email" required #email="ngModel"/>
             <div *ngIf="email.invalid && (email.dirty)"
                  class="alert alert-danger">
@@ -80,10 +80,19 @@
               <input type="text" class="form-control" id="telephone" name="telephone"
                      [(ngModel)]="utilisateur.telephone">
             </div>
+
             <div class="form-group">
               <label for="code">Code Entreprise: </label>
-              <input type="text" class="form-control" id="code" name="code" [(ngModel)]="entreprise.codeEntreprise">
+              <input type="text" name="code" id="code" class="form-control"
+                     [(ngModel)]="entreprise.codeEntreprise" required #code="ngModel"/>
+              <div *ngIf="code.invalid && (code.dirty)"
+                   class="alert alert-danger">
+                <div *ngIf="code.errors.required">
+                  Code Entreprise obligatoire
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
