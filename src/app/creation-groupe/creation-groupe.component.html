@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card mt-5" style="border: 1px solid black">
+    <div class="card-header" style="background: white; border-bottom: 1px solid black">
+      <h3 style="font-weight: bold; color: #FF9D03; text-align: center">CREATION DU GROUPE</h3>
+    </div>
+    <div class="card-body">
+      <div class="form-group"><label for="nomGroupe" style="font-weight: bold;">Nom du Groupe*</label>
+        <input type="text" class="form-control"
+               id="nomGroupe"
+               [(ngModel)]="groupe.nom" style="border: 1px solid black"></div>
+      <div class="form-group"><label for="codeGroupe" style="font-weight: bold;">Code du
+        Groupe* </label>
+        <input type="text" class="form-control"
+               id="codeGroupe"
+               [(ngModel)]="groupe.codeGroupe" style="border: 1px solid black"></div>
+    </div>
+    <div class="card-footer" style="background: white">
+      <div class="btn-group btn-group-lg float-right">
+        <a class="btn btn-success">
+          <i class="fa fa-check" (click)="save()" [routerLink]="['../groupe/', groupe.id]"></i>
+        </a>
+        <a class="btn" style="background: #FF9D03">
+          <i class="fa fa-ban"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

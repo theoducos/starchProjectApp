@@ -12,6 +12,7 @@ import {GroupeComponent} from "./groupe/groupe.component";
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {EvenementStarchComponent} from './evenement-starch/evenement-starch.component';
 import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
+import {CreationGroupeComponent} from "./creation-groupe/creation-groupe.component";
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [{path: 'orgaEvenement', component: OrgaEvenementComponen
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
   {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
+  {path: 'creationGroupe', component: CreationGroupeComponent}
 ];
 
 
