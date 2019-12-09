@@ -31,7 +31,7 @@
           </div>
           <input type="password" name="confirmation" class="field-style field-split align-right" required
                  [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"
-                 placeholder="Confirmation*"/>
+                 placeholder="Confirmer le mot de passe*"/>
           <div *ngIf="confirmation.invalid && (confirmation.dirty) "
                class="error">
             <div *ngIf="confirmation.errors.required" class="error">Confirmation obligatoire</div>

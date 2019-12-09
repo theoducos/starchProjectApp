@@ -18,12 +18,12 @@
       <div class="form-group"><label for="codeGroupe" style="font-weight: bold;">Code du
         Groupe* </label>
         <input type="text" class="form-control"
-               id="codeGroupe"
+               id="codeGroupe" name="codeGroupe"
                [(ngModel)]="groupe.codeGroupe" style="border: 1px solid black" #codeGroupe="ngModel" required>
         <div *ngIf="codeGroupe.invalid && (codeGroupe.dirty)"
              class="error">
           <div *ngIf="codeGroupe.errors.required">
-            Nom du Groupe obligatoire
+            Code du Groupe obligatoire
           </div>
         </div></div>
     </div>
