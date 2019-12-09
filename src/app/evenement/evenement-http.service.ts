@@ -29,8 +29,8 @@ export class EvenementHttpService {
   }
 
   save(evenement: Evenement) {
-    this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
 
+    this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
   }
 
   deleteBydId(id: number) {
@@ -47,6 +47,10 @@ export class EvenementHttpService {
 
   findCommentairesByEvenement(id: number): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/commentaires');
+  }
+
+  findAllPartcipationbyEvenement(id : number): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/participation');
   }
 
 }

@@ -30,7 +30,7 @@ export class UtilisateurHttpService {
   }
 
   save(utilisateur: Utilisateur) {
-    if (this.utilisateur.id) {
+    if (utilisateur.id) {
       this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
     } else {
       this.http.post(this.appConfigService.backend + '/utilisateur', utilisateur).subscribe(resp => this.load());
