@@ -1,113 +1,94 @@
-<div class="container">
-  <div class="card mt-3">
-    <div class="card-header bg-info text-white">
-      <h3>INSCRIPTION</h3>
-    </div>
-    <form #insForm="ngForm" name="insForm" [mustMatch]="['mdp', 'confirmation']">
-      <div class="card-body">
-        <div class="form-group">
-          <label>Identifiant: </label>
-          <input type="text" name="identifiant" class="form-control"
-                 [(ngModel)]="utilisateur.identifiant" required #identifiant="ngModel">
-          <div *ngIf="identifiant.invalid && (identifiant.dirty)"
-               class="alert alert-danger">
-            <div *ngIf="identifiant.errors.required">
-              Identifiant obligatoire
-            </div>
+<div class="form-style-9">
+  <h1 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">INSCRIPTION
+  </h1>
+  <form #insForm="ngForm" name="insForm" [mustMatch]="['mdp', 'confirmation']">
+    <ul>
+      <li>
+        <input type="text" name="identifiant" class="field-style field-full align-none"
+               [(ngModel)]="utilisateur.identifiant" required #identifiant="ngModel" placeholder="Identifiant*">
+        <p>
+        <div *ngIf="identifiant.invalid && (identifiant.dirty)">
+          <div *ngIf="identifiant.errors.required" class="error">
+            Identifiant obligatoire
           </div>
         </div>
-        <div class="form-group">
-          <label>Password :</label>
-          <input type="password" name="mdp" class="form-control" [(ngModel)]="utilisateur.mdp" required #mdp="ngModel"
-                 minlength="4"/>
+      </li>
+
+      <li>
+        <input type="password" name="mdp" class="field-style field-split align-left" [(ngModel)]="utilisateur.mdp"
+                    required #mdp="ngModel"
+                    minlength="4" placeholder="Mot de Passe*"/>
           <div *ngIf="mdp.invalid && (mdp.dirty)"
-               class="alert alert-danger">
+               class="error">
             <div *ngIf="mdp.errors.required">
               Password obligatoire
             </div>
-            <div *ngIf="mdp.errors.minlength">
-              Au moins 4 caracteres
-            </div>
+          </div>
+        <div *ngIf="mdp.errors.minlength" class="error">
+          Au moins 4 caracteres
+        </div>
+        <input type="password" name="confirmation" class="field-style field-split align-right" required
+               [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"
+               placeholder="Confirmation*"/>
+        <div *ngIf="confirmation.invalid && (confirmation.dirty) "
+             class="error">
+          <div *ngIf="confirmation.errors.required" class="error">Confirmation obligatoire</div>
+          <div *ngIf="confirmation.errors.mustMatch" class="error">Confirmation invalide</div>
+        </div>
+      </li>
+      <li>
+        <input type="text" name="nom" id="nom" class="field-style field-split align-left"
+               [(ngModel)]="utilisateur.nom" required #nom="ngModel" placeholder="Nom*"/>
+        <div *ngIf="nom.invalid && (nom.dirty)"
+             class="error">
+          <div *ngIf="nom.errors.required" class="error">
+            Nom obligatoire
           </div>
         </div>
-        <div class="form-group">
-          <label>Confirmation du Password</label>
-          <input type="password" name="confirmation" class="form-control" required
-                 [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"/>
-          <div *ngIf="confirmation.invalid && (confirmation.dirty) "
-               class="alert alert-danger">
-            <div *ngIf="confirmation.errors.required">Confirmation obligatoire</div>
-            <div *ngIf="confirmation.errors.mustMatch">Confirmation invalide</div>
+
+        <input type="text" name="prenom" id="prenom" class="field-style field-split align-right"
+               [(ngModel)]="utilisateur.prenom" required #prenom="ngModel" placeholder="Prénom*"/>
+        <div *ngIf="prenom.invalid && (prenom.dirty)"
+             class="error">
+          <div *ngIf="prenom.errors.required" class="error">
+            Prénom obligatoire
+          </div>
+        </div>
+      </li>
+      <li>
+        <input type="email" name="email" class="field-style field-split align-left"
+               [(ngModel)]="utilisateur.email" required #email="ngModel" placeholder="Email*"/>
+        <div *ngIf="email.invalid && (email.dirty)"
+             class="error">
+          <div *ngIf="email.errors.required" class="error">
+            Courriel obligatoire
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Nom: </label>
-          <input type="text" name="nom" id="nom" class="form-control"
-                 [(ngModel)]="utilisateur.nom" required #nom="ngModel"/>
-          <div *ngIf="nom.invalid && (nom.dirty)"
-               class="alert alert-danger">
-            <div *ngIf="nom.errors.required">
-              Nom obligatoire
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Prénom: </label>
-            <input type="text" name="prenom" id="prenom" class="form-control"
-                   [(ngModel)]="utilisateur.prenom" required #prenom="ngModel"/>
-            <div *ngIf="prenom.invalid && (prenom.dirty)"
-                 class="alert alert-danger">
-              <div *ngIf="prenom.errors.required">
-                Prénom obligatoire
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control"
-                   [(ngModel)]="utilisateur.email" required #email="ngModel"/>
-            <div *ngIf="email.invalid && (email.dirty)"
-                 class="alert alert-danger">
-              <div *ngIf="email.errors.required">
-                Courriel obligatoire
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="telephone">Téléphone: </label>
-              <input type="text" class="form-control" id="telephone" name="telephone"
-                     [(ngModel)]="utilisateur.telephone">
-            </div>
-
-            <div class="form-group">
-              <label for="code">Code Entreprise: </label>
-              <input type="text" name="code" id="code" class="form-control"
-                     [(ngModel)]="entreprise.codeEntreprise" required #code="ngModel"/>
-              <div *ngIf="code.invalid && (code.dirty)"
-                   class="alert alert-danger">
-                <div *ngIf="code.errors.required">
-                  Code Entreprise obligatoire
-                </div>
-              </div>
-            </div>
-
+        <input type="text" class="field-style field-split align-right" id="telephone" name="telephone"
+               [(ngModel)]="utilisateur.telephone" placeholder="Téléphone">
+      </li>
+      <li>
+        <input type="text" name="code" id="code" class="field-style field-full align-none"
+               [(ngModel)]="entreprise.codeEntreprise" required #code="ngModel" placeholder="Code Entreprise*"/>
+        <div *ngIf="code.invalid && (code.dirty)"
+             class="error">
+          <div *ngIf="code.errors.required">
+            Code Entreprise obligatoire
           </div>
         </div>
-      </div>
-    </form>
-
-    <div class="card-footer">
-      <div class="btn-group btn-group-lg float-right">
-        <a class="btn btn-success">
-          <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
-        </a>
-        <a class="btn btn-warning">
-          <i class="fa fa-undo"></i>
-        </a>
-      </div>
-    </div>
-
+      </li>
+    </ul>
+    *Obligatoire
+  </form>
+  <div class="btn-group btn-group-lg float-right">
+    <a class="btn" style="background: #0A3FFF">
+      <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
+    </a>
+    <a class="btn" style="background: #FF9D03">
+      <i class="fa fa-undo"></i>
+    </a>
   </div>
 </div>
+
+
