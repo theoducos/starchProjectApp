@@ -1,6 +1,6 @@
 import {Utilisateur} from "../model/utilisateur";
 import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {Component, Input, OnInit} from "@angular/core";
 import {Groupe} from "../model/groupe";
 import {Evenement} from "../model/evenement";
@@ -25,7 +25,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
 
 
-  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute) {
+  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
 
     // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.route.params.subscribe(params=>{
@@ -41,7 +41,11 @@ export class PageProfilUtilisateurComponent implements OnInit {
     });
 
   }
+  save() {
+    this.utilisateurService.save(this.utilisateur);
+    this.router.navigate(['/utilisateur', this.utilisateur.id]);
 
+  }
 
   ngOnInit() {
   }
