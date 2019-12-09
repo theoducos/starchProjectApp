@@ -1,9 +1,17 @@
-<div class="container">
-  <div class="card mt-3">
-    <div class="card-header bg-info text-white">
-      <h3>Création de l'espace entreprise</h3>
-    </div>
+<div class="form-style-9">
+  <h1 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">CREATION ENTREPRISE
+  </h1>
 
+  <form>
+    <ul>
+      <li style="font-weight: bold;font-size: large">Utilisateur</li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="identifiant"
+               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="mdp" [(ngModel)]="utilisateur.mdp"
+               placeholder="Mot de Passe*">
   <div class="card-body" >
     <div class="form-group">
       <label for="nom">Nom Entreprise* :</label>
@@ -58,6 +66,9 @@
       </div>
     </div>
 
+        <input type="text" class="field-style field-split align-right" id="confirmation" [(ngModel)]="utilisateur.mdp"
+               placeholder="Confirmation*">
+      </li>
     <div class="form-group">
       <label for="nomuser">Nom de l'administrateur* :</label>
       <input type="text" class="form-control" name="nomuser" id="nomuser" [(ngModel)]="utilisateur.nom " required #nomuser="ngModel">
@@ -79,6 +90,15 @@
       </div>
     </div>
 
+      <li>
+        <input type="text" class="field-style field-split align-left" id="email" [(ngModel)]="utilisateur.email "
+               placeholder="Email*">
+        <input type="text" class="field-style field-split align-right" id="telephone"
+               [(ngModel)]="utilisateur.telephone" placeholder="Téléphone*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="nomuser" [(ngModel)]="utilisateur.nom "
+               placeholder="Nom*">
     <div class="form-group">
       <label for="siret">SIRET* :</label>
       <input type="text" class="form-control" name="siret" id="siret"  [(ngModel)]="utilisateur.entreprise.siret" required #siret="ngModel" >
@@ -90,6 +110,9 @@
       </div>
     </div>
 
+        <input type="text" class="field-style field-split align-right" id="prenomuser"
+               [(ngModel)]="utilisateur.prenom " placeholder="Prénom*">
+      </li>
     <div class="form-group">
       <label for="rue">Rue* :</label>
       <input type="text" class="form-control" name="rue" id="rue" [(ngModel)]="utilisateur.entreprise.adresse.rue" required #rue="ngModel" >
@@ -121,6 +144,12 @@
       </div>
     </div>
 
+      <li style="font-weight: bold;font-size: large">Entreprise</li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="nom" [(ngModel)]="utilisateur.entreprise.nom"
+               placeholder="Nom de l'entreprise*"></li>
+      <li><input type="text" class="field-style field-full align-none" id="siret"
+                 [(ngModel)]="utilisateur.entreprise.siret" placeholder="SIRET*"></li>
   <div class="form-group">
     <label for="telephone">Téléphone :</label>
     <input type="text" class="form-control" name="telephone" id="telephone"  [(ngModel)]="utilisateur.telephone">
@@ -147,13 +176,31 @@
     </div>
   </div>
 
-  <div class="card-footer">
-    <div class="btn-group btn-group-lg float-left">
-      <h5><span class="badge badge-secondary">*Obligatoire</span></h5>
-    </div>
-    <div class="btn-group btn-group-lg float-right">
-      <button style='font-size:24px' class="btn btn-primary" (click)="save()">S'inscrire <i class="fa fa-angle-double-right"></i></button>
-    </div>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="rue"
+               [(ngModel)]="utilisateur.entreprise.adresse.rue" placeholder="Rue*">
+
+        <input type="text" class="field-style field-split align-right" id="codePostal"
+               [(ngModel)]="utilisateur.entreprise.adresse.codePostal" placeholder="Code Postal*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="ville"
+               [(ngModel)]="utilisateur.entreprise.adresse.ville" placeholder="Ville*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="tva" [(ngModel)]="utilisateur.entreprise.tva"
+               placeholder="TVA*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="code"
+               [(ngModel)]="utilisateur.entreprise.codeEntreprise" placeholder="Code Entreprise*">
+      </li>
+    </ul>
+    *Obligatoire
+  </form>
+  <div class="btn-group btn-group-lg float-right">
+    <button style="background: #0A3FFF;font-weight: bold;color: white" class="btn" (click)="save()">Créer
+      <i
+        class="fa fa-angle-double-right"></i></button>
   </div>
-</div>
 </div>

@@ -1,10 +1,12 @@
 .main {
   background: #f8f8f8;
   padding: 150px 0;
+
 }
 
 signin {
   margin-top: 16px;
+
 }
 
 .signin-image {
@@ -195,7 +197,6 @@ label.valid:after {
   position: absolute;
   /* right: 0; */
   font-size: 16px;
-  color: green;
 }
 
 .label-agree-term {
@@ -215,6 +216,7 @@ label.valid:after {
 .signin-content {
   padding-top: 67px;
   padding-bottom: 87px;
+
 }
 
 img {
@@ -274,6 +276,7 @@ body {
   -webkit-border-radius: 20px;
   -o-border-radius: 20px;
   -ms-border-radius: 20px;
+  border: 6px solid #DC3B3B;
 }
 
 .form-submit {
