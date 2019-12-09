@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'inscription', component: IncriptionFormComponent,},
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
+  {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
   {path: 'evenement/list/:id', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
