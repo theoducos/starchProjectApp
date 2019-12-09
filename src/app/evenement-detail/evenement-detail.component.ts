@@ -107,23 +107,23 @@ export class EvenementDetailComponent implements OnInit {
         this.evenement = resp;
         this.evenementService.findAllPartcipationbyEvenement(this.evenement.id).subscribe(resp => {
           this.allparticipationofcurentevenet = resp;
+          for( let oneparticipation of this.allparticipationofcurentevenet) {
+            if (oneparticipation.type == "Participant") {
+              this.nbparticipants = this.nbparticipants + 1
+            }
+          }
+          // if(this.nbparticipants <= this.evenement.nbParticipantMax) {
+          //   this.evenement.statutOf = true;
+          //   // this.evenementService.save(this.evenement)
+          // }
+          // else if(this.nbparticipants == this.evenement.nbParticipantMax){
+          //   this.evenement.statutOf = false;
+          //   // this.evenementService.save(this.evenement)
+          // }
         })
       })
     })
-
-    // for( let oneparticipation of this.allparticipationofcurentevenet) {
-    //   if (oneparticipation.type == "Participant") {
-    //     this.nbparticipants = this.nbparticipants + 1
-    //   }
-    // }
-    // if(this.nbparticipants <= this.evenement.nbParticipantMax) {
-    //   this.evenement.statutOF = true;
-    // }
-    // else if(this.nbparticipants == this.evenement.nbParticipantMax){
-    //   this.evenement.statutOF = false;
-    // }
-
-  }
+}
 
   ngOnInit() {
 
@@ -167,25 +167,48 @@ export class EvenementDetailComponent implements OnInit {
       this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
       console.log(this.participationparutilisateur)
       this.participationparutilisateur.type = null;
-      console.log(this.participationparutilisateur.type)
-      this.participantService.save(this.participationparutilisateur)
+      console.log(this.participationparutilisateur)
+       this.participantService.save(this.participationparutilisateur).subscribe(resp => this.participantService.findById(this.participationparutilisateur.id).subscribe(next => this.participationparutilisateur = resp))
+      console.log(this.participationparutilisateur)
+      // this.participantService.findById(this.participationparutilisateur.id).subscribe(resp =>this.participationparutilisateur)
       this.nbparticipants = this.nbparticipants - 1
-      if (this.evenement.statutOF = false) {
-        this.evenement.statutOF = true;
-
+      if (this.evenement.statutOf == false) {
+        this.evenement.statutOf = true;
+        this.evenementService.save(this.evenement)
 
       }
-    } else {
-      if (this.evenement.statutOF = true) {
-        this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
+    } else if(this.participationparutilisateur.type == null) {
+      if (this.evenement.statutOf = true) {
+         this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
         console.log(this.participationparutilisateur)
         this.participationparutilisateur.type = "Participant";
-        this.participantService.save(this.participationparutilisateur)
+        console.log(this.participationparutilisateur)
+     //  this.participantService.save(this.participationparutilisateur)
+       this.participantService.save(this.participationparutilisateur).subscribe(resp => this.participantService.findById(this.participationparutilisateur.id).subscribe(next => this.participationparutilisateur = resp))
+     //this.participantService.save(this.participationparutilisateur).subscribe(resp => this.participationparutilisateur)
+    //     this.participantService.findById(this.participationparutilisateur.id).subscribe(resp =>this.participationparutilisateur)
         console.log(this.participationparutilisateur.type)
         this.nbparticipants = this.nbparticipants + 1
         if (this.nbparticipants == this.evenement.nbParticipantMax) {
-          this.evenement.statutOF = false
+          this.evenement.statutOf = false;
+          this.evenementService.save(this.evenement)
+        }
+      }
 
+    }
+    else if(this.participationparutilisateur.type == "Interesse") {
+      if (this.evenement.statutOf = true) {
+        this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
+        console.log(this.participationparutilisateur)
+        this.participationparutilisateur.type = "Participant";
+      //  this.participantService.save(this.participationparutilisateur)
+        this.participantService.save(this.participationparutilisateur).subscribe(resp => this.participationparutilisateur)
+     //   this.participantService.findById(this.participationparutilisateur.id).subscribe(resp =>this.participationparutilisateur)
+        console.log(this.participationparutilisateur.type)
+        this.nbparticipants = this.nbparticipants + 1
+        if (this.nbparticipants == this.evenement.nbParticipantMax) {
+          this.evenement.statutOf = false;
+          this.evenementService.save(this.evenement)
         }
       }
 
@@ -199,12 +222,26 @@ export class EvenementDetailComponent implements OnInit {
       this.participationparutilisateur.type = null;
       // console.log(this.participationparutilisateur.type)
       this.participantService.save(this.participationparutilisateur)
-    } else {
+    }
+    else if(this.participationparutilisateur.type == null) {
       this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
       // console.log(this.participationparutilisateur)
       this.participationparutilisateur.type = "Interesse";
       // console.log(this.participationparutilisateur.type)
       this.participantService.save(this.participationparutilisateur)
+
+    }
+    else if(this.participationparutilisateur.type == "Participant") {
+      this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
+      // console.log(this.participationparutilisateur)
+      this.participationparutilisateur.type = "Interesse";
+      // console.log(this.participationparutilisateur.type)
+      this.participantService.save(this.participationparutilisateur)
+      this.nbparticipants = this.nbparticipants - 1
+      if (this.evenement.statutOf == false) {
+        this.evenement.statutOf = true;
+        this.evenementService.save(this.evenement)
+      }
 
     }
 

@@ -10,6 +10,8 @@
       <button class="participe" (click)="saveParticipation()">Participe <i class="fa fa-check"></i></button>
       <button class=" interet" (click)="saveInteret()">Interesse <i class="fa fa-star"></i></button>
     </div>
+        <a class="btn btn-success"   (click)="saveParticipation()" >Participe<i class="fas fa-check"></i></a>
+        <a class="btn btn-primary" (click)="saveInteret()">Interesse<i class="fas fa-info"></i></a>
   </div>
   <hr>
   <div>
@@ -48,10 +50,6 @@
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-  <p *ngIf="evenement.statutOF == true"> Inscription Ouverte!</p>
-  <p *ngIf="evenement.statutOF == false">Inscription Indisponible!</p>
-  <hr>
-  <div>
     <p style="font-weight: bold"> Description :</p>
     <div>
       {{evenement.description}}
@@ -66,16 +64,16 @@
   <div>
     <p style="font-weight: bold">Ajouter un commentaire : </p>
     <div>
-      <textarea name="commentaire" [(ngModel)]="commentaire.commentaire"></textarea>
-      <p><a class="fa fa-share-square fa-3x" (click)="saveCommentaire()"></a></p>
-    </div>
-  </div>
-  <hr>
-  <i class="btn" style="border:1px solid black;border-radius: 8px;font-weight: bold" (click)="listCommentaires()"> <i
-    class="fa fa-comments"> Commentaires</i></i>
-  <div *ngIf="commentaire">
-    <div *ngFor="let comm of commentaires">
-      <p>{{comm.commentaire}}</p>
+      <div *ngIf= "evenement.statutOf ; else elseBlock ">
+        <p> evenement ouvert aux participants </p>​
+      </div>
+      <ng-template #elseBlock> Content to render when condition is false.</ng-template>
+    <hr>
+    <div>
+      Description :
+      <div><br>
+        description de l'evenement
+      </div>
     </div>
   </div>
 
