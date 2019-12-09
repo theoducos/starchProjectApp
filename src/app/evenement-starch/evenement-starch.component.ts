@@ -4,7 +4,7 @@ import {EvenementStarch} from '../model/evenementStarch';
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-evenement-starch',
+  selector: 'evenement-starch',
   templateUrl: './evenement-starch.component.html',
   styleUrls: ['./evenement-starch.component.css']
 })
