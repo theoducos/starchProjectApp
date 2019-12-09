@@ -25,14 +25,23 @@ import {EvenementDetailComponent} from './evenement-detail/evenement-detail.comp
 import {PageProfilUtilisateurComponent} from './page-profil-utilisateur/page-profil-utilisateur.component';
 import {ModificationEntrepriseComponent} from './modification-entreprise/modification-entreprise.component';
 import {GroupeDetailComponent} from './groupe-detail/groupe-detail.component';
-import { ModificationUtilisateurComponent } from './modification-utilisateur/modification-utilisateur.component';
+import {ModificationUtilisateurComponent} from './modification-utilisateur/modification-utilisateur.component';
 import {AuthGuard} from './login/auth.guard';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 import {AuthService} from './login/auth.service';
-import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
+import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 import {MustMatchDirective} from './must-match.directive';
-import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
-import { ParticipationComponent } from './participation/participation.component';
+import {CreationGroupeComponent} from './creation-groupe/creation-groupe.component';
+import {ParticipationComponent} from './participation/participation.component';
+import {CommentaireHttpService} from './commentaires/commentaire-http.service';
+import {CreationGroupeHttpService} from './creation-groupe/creation-groupe-http.service';
+import {EntrepriseHttpService} from './entreprise/entreprise-http.service';
+import {EvenementStarchHttpService} from './evenement-starch/evenement-starch-http.service';
+import {FavorisHttpService} from './favoris/favoris-http.service';
+import {InscriptionEntrepriseHttpService} from './inscription-entreprise/inscription-entreprise-http.service';
+import {ModificationEntrepriseHttpService} from './modification-entreprise/modification-entreprise-http.service';
+import {ParticipationHttpService} from './participation/participation-http.service';
+import {UtilisateurHttpService} from './utilisateur/utilisateur.http.service';
 
 
 @NgModule({
@@ -57,8 +66,6 @@ import { ParticipationComponent } from './participation/participation.component'
     ModificationUtilisateurComponent,
     LoginComponent,
     OrgaEvenementStarchComponent,
-
-
     CreationGroupeComponent,
     MustMatchDirective,
     ParticipationComponent,
@@ -71,7 +78,11 @@ import { ParticipationComponent } from './participation/participation.component'
     FormsModule,
 
   ],
-  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService, AuthGuard, AuthService],
+  providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService,
+    AuthGuard, AuthService, CommentaireHttpService, CreationGroupeHttpService, EntrepriseHttpService,
+    EvenementStarchHttpService, FavorisHttpService, InscriptionEntrepriseHttpService, ModificationEntrepriseHttpService,
+    ParticipationHttpService, UtilisateurHttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
