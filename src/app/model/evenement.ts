@@ -13,7 +13,7 @@ export class Evenement {
   recurrence: Recurrence;
   typeEvenement: TypeEvenement;
   nomEvenement: NomEvenement;
-  statutOF: boolean;
+  statutOf: boolean;
   lieuxEvenement: LieuxEvenement;
   groupe: Groupe;
   commentaires: Array<Commentaire>;
@@ -31,7 +31,7 @@ export class Evenement {
     this.recurrence = recurrence;
     this.typeEvenement = typeEvenement;
     this.nomEvenement = nomEvenement;
-    this.statutOF = statutOF;
+    this.statutOf = statutOf;
     this.lieuxEvenement = lieuxEvenement;
     this.description = description;
   }

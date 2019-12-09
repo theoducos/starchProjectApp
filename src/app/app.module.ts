@@ -42,6 +42,8 @@ import {InscriptionEntrepriseHttpService} from './inscription-entreprise/inscrip
 import {ModificationEntrepriseHttpService} from './modification-entreprise/modification-entreprise-http.service';
 import {ParticipationHttpService} from './participation/participation-http.service';
 import {UtilisateurHttpService} from './utilisateur/utilisateur.http.service';
+import { CalendarComponent } from './calendar/calendar.component';
+import {FullCalendarModule} from '@fullcalendar/angular';
 
 
 @NgModule({
@@ -69,6 +71,7 @@ import {UtilisateurHttpService} from './utilisateur/utilisateur.http.service';
     CreationGroupeComponent,
     MustMatchDirective,
     ParticipationComponent,
+    CalendarComponent,
   ],
 
   imports: [
@@ -76,6 +79,7 @@ import {UtilisateurHttpService} from './utilisateur/utilisateur.http.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FullCalendarModule
 
   ],
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService,

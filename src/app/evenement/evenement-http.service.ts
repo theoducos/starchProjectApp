@@ -29,9 +29,14 @@ export class EvenementHttpService {
   }
 
   save(evenement: Evenement) {
-
-    this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
+    if (evenement.id) {
+      this.http.put(this.appConfigService.backend + 'evenement/' + evenement.id, evenement).subscribe(resp => this.load());
+    }
+    else{
+      this.http.post(this.appConfigService.backend + 'evenement/', evenement).subscribe(resp => this.load());
+    }
   }
+
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backend + 'evenement/' + id).subscribe(resp => this.load());
