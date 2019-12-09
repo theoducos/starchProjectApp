@@ -1,10 +1,13 @@
 <div class="card" class="card">
-  <img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'" alt="Avatar" class="avatar"/>
+  <div *ngIf="!img"><img [src]="'assets/img/noavatar.jpg'" class="avatar"/></div>
+  <div *ngIf="img"><img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
+                        alt="Avatar" class="avatar"/></div>
   <h1>{{utilisateur.identifiant}}</h1>
   <p class="title">{{utilisateur.nom}}</p>
   <p class="title">{{utilisateur.prenom}}</p>
   <p>
-    <button type="button" [routerLink]="['/modificationUtilisateur/'+ utilisateur.id]">Voir/Modifier des informations</button>
+    <button type="button" [routerLink]="['/modificationUtilisateur/'+ utilisateur.id]">Voir/Modifier des informations
+    </button>
   </p>
 </div>
 
