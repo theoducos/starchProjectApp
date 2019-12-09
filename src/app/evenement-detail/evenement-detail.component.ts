@@ -7,6 +7,8 @@ import {Commentaire} from '../model/commentaire';
 import {Observable} from 'rxjs';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {Utilisateur} from '../model/utilisateur';
+import {Participation} from '../model/participation';
+import {ParticipationHttpService} from '../participation/participation-http.service';
 
 @Component({
   selector: 'evenement-detail',
@@ -19,6 +21,8 @@ export class EvenementDetailComponent implements OnInit {
 
   commentaire: Commentaire = new Commentaire();
 
+  participation : Participation = new Participation();
+
   utilisateursInteresses: any;
 
   utilisateursParticipants: any;
@@ -30,6 +34,9 @@ export class EvenementDetailComponent implements OnInit {
   commentaireBool: boolean;
 
  nbparticipants : number = 0;
+
+ participationparutilisateur : any;
+
 
 
 
@@ -54,8 +61,9 @@ export class EvenementDetailComponent implements OnInit {
     this.childEvent.emit();
   }
 
-  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService : UtilisateurHttpService) {
-  this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+
+  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService : UtilisateurHttpService, private participantService : ParticipationHttpService) {
+  // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.route.params.subscribe(params => {
       this.evenementService.findById(params.id).subscribe(resp => {
         this.evenement = resp;
@@ -78,11 +86,29 @@ export class EvenementDetailComponent implements OnInit {
           })
         } )
       });
+
     });
-  }
+
+    this.route.params.subscribe(params => {
+      this.evenementService.findById(params.id).subscribe(resp => {
+        this.evenement = resp;
+        this.utilisateurService.findById(107).subscribe(resp => {  //TODO remettre l'ID de l'utilisateur dans findbyid (params.id)
+          this.utilisateur = resp;
+          this.utilisateurService.findParticipationByUtilisateur(107).subscribe(resp => { //TODO remettre l'ID de l'utilisateur dans findParticipationByUtilisateur (params.id)
+            this.participationparutilisateur = resp;
+          })
+        } )
+      });
+
+    });
+
+
+
+        }
 
 
   ngOnInit() {
+
   }
 
   listInteresse() {
@@ -92,7 +118,6 @@ export class EvenementDetailComponent implements OnInit {
 
     for (let lesutilisateurs of this.utilisateursInteresses) {
       this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurInteressesListe = resp); }
-
   }
 
   listParticipant() {
@@ -103,20 +128,17 @@ export class EvenementDetailComponent implements OnInit {
     for (let lesutilisateurs of this.utilisateursParticipants) {
 
       this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurParticipantsListe = resp);
-
     }
   }
 
   AjouterParticipant() {
+
     this.nbparticipants = this.nbparticipants +1
   }
 
   AjouterInteresse() {
     this.nbparticipants = this.nbparticipants -1
   }
-
-
-
 
 
   listCommentaires() {
@@ -129,12 +151,14 @@ export class EvenementDetailComponent implements OnInit {
     this.commentaireService.save(this.commentaire);
   }
 
-  saveParticipation(){
+  saveParticipation(iduser = 107){
+    // this.utilisateurService.findParticipationByUtilisateur(iduser).subscribe(resp => this.participationparutilisateur = resp)
+ this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
+    console.log(this.participationparutilisateur);
+    this.participationparutilisateur.type = "Participant";
+  //   console.log(this.participationparutilisateur.id);
+  this.participantService.save(this.participationparutilisateur)
+}
 
-  }
-
-  // findGroupeByUtilisateurId(id: number): Observable<any> {
-  //   return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/groupes');
-  // }
 
 }

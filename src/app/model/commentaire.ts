@@ -5,6 +5,7 @@ export class Commentaire{
   id: number;
   version: number;
   commentaire: string;
+    // evenement: import("C:/java/workspace-final/starchProjectApp/src/app/model/evenement").Evenement;
   utilisateur: Utilisateur;
   evenement: Evenement;
 

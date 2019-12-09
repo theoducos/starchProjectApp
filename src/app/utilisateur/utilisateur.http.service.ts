@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../model/utilisateur";
 import {AppConfigService} from "../app-config.service";
 import {Observable} from "rxjs";
+import {Participation} from '../model/participation';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import {Observable} from "rxjs";
 export class UtilisateurHttpService {
 
   private utilisateur: any;
+  private participation : any;
 
   constructor(private http: HttpClient, private appConfigService: AppConfigService) {
     this.load();
@@ -21,6 +23,7 @@ export class UtilisateurHttpService {
     this.http.get(this.appConfigService.backend + 'utilisateur')
       .subscribe(resp => this.utilisateur = resp);
   }
+
 
   findAll(): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'utilisateur');
@@ -34,6 +37,7 @@ export class UtilisateurHttpService {
     }
     // console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
+
 
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id);
@@ -57,5 +61,14 @@ export class UtilisateurHttpService {
   findUtilisateurByIdentifiant(identifiant: string) {
     return this.http.get(this.appConfigService.backend + 'utilisateur/login/' + identifiant);
   }
+
+  findParticipationByUtilisateur(id: number) {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/'+ id + '/participation');
+  }
+
+  findParticipationByUtilisateurAndEvent(iduser: number, idevent : number) {
+    return this.http.get(this.appConfigService.backend + 'utilisateur/'+ iduser +  '/evenement/'+ idevent+ '/participation');
+  }
+
 
 }

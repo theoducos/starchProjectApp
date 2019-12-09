@@ -3,7 +3,7 @@ import {InscriptionEntrepriseHttpService} from './inscription-entreprise-http.se
 import {Entreprise} from '../model/entreprise';
 import {Adresse} from '../model/adresse';
 import {Utilisateur} from '../model/utilisateur';
-import {FormValidatorService} from '../form-validator.service';
+// import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'inscription-entreprise',

@@ -49,6 +49,4 @@ export class EvenementHttpService {
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/commentaires');
   }
 
-
-
 }

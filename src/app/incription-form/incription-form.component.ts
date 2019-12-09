@@ -4,7 +4,7 @@ import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 import {Entreprise} from "../model/entreprise";
 import {FormGroup} from '@angular/forms';
 import {InscriptionEntrepriseHttpService} from '../inscription-entreprise/inscription-entreprise-http.service';
-import {FormValidatorService} from '../form-validator.service';
+// import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'incription-form',
@@ -16,6 +16,7 @@ export class IncriptionFormComponent implements OnInit {
 
   utilisateur: Utilisateur = new Utilisateur();
   entreprise: Entreprise = new Entreprise();
+  private utilisateurService: any;
 
 
   save() {
@@ -23,8 +24,8 @@ export class IncriptionFormComponent implements OnInit {
   }
 
 
-  constructor(private utilisateurService: UtilisateurHttpService, formValidatorService: FormValidatorService) {
-  }
+  // constructor(private utilisateurService: UtilisateurHttpService, formValidatorService: FormValidatorService) {
+  // }
 
   ngOnInit() {
   }

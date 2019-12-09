@@ -32,6 +32,7 @@ import {AuthService} from './login/auth.service';
 import { OrgaEvenementStarchComponent } from './orga-evenement-starch/orga-evenement-starch.component';
 import {MustMatchDirective} from './must-match.directive';
 import { CreationGroupeComponent } from './creation-groupe/creation-groupe.component';
+import { ParticipationComponent } from './participation/participation.component';
 
 
 @NgModule({
@@ -56,10 +57,11 @@ import { CreationGroupeComponent } from './creation-groupe/creation-groupe.compo
     ModificationUtilisateurComponent,
     LoginComponent,
     OrgaEvenementStarchComponent,
-    IncriptionFormValidatorComponent,
+
 
     CreationGroupeComponent,
     MustMatchDirective,
+    ParticipationComponent,
   ],
 
   imports: [
