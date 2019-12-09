@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {Component, Input, OnInit} from "@angular/core";
 import {Groupe} from "../model/groupe";
 import {Evenement} from "../model/evenement";
+import {LieuxEvenement} from '../model/lieuxEvenement';
+import {Favoris} from '../model/favoris';
 
 @Component({
   selector: 'app-page-profil-utilisateur',
@@ -15,8 +17,11 @@ export class PageProfilUtilisateurComponent implements OnInit {
   utilisateur: Utilisateur = new Utilisateur();
   groupes: any;
   evenements: any;
-  favoris: any;
+  favoris: Array<Favoris>;
   img: any;
+  types: TypeEvenement;
+  lieux = LieuxEvenement;
+
 
 
   constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute) {
@@ -29,6 +34,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
           this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
           this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
           this.img = resp;
+
         }
       );
     });

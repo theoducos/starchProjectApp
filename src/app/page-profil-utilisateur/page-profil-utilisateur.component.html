@@ -40,10 +40,33 @@
       <p>{{fav.nomActivite}}
       </p>
     </div>
+    <div>
+      <button type="button">Supprimer une activité favorite</button>
+    </div>
+    <div>
+    <button type="button">Ajouter une activité favorite</button>
   </div>
-  <br>
+    <div>
+      <select [(ngModel)]="utilisateur.favoris">
+        <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <div *ngFor="let fav of favoris">
+      <p>{{fav.nomLieu}}
+      </p>
+    </div>
+    <div>
+      <button type="button">Supprimer un lieu favoris</button>
+    </div>
+    <div>
+      <button type="button">Ajouter un Lieu favoris</button>
+    </div>
+    <div>
+      <select [(ngModel)]="utilisateur.favoris" >
+        <option *ngFor="let lieu of lieux" [ngValue]="lieu">{{lieu.nomLieux}}</option>
+      </select>
+    </div>
+  </div>
+
 </div>
-
-
-
-
