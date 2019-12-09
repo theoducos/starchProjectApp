@@ -18,9 +18,10 @@ export class PageProfilUtilisateurComponent implements OnInit {
   groupes: any;
   evenements: any;
   favoris: Array<Favoris>;
+  typeFavoris: TypeFavoris;
   img: any;
   types: TypeEvenement;
-  lieux = LieuxEvenement;
+  lieux = Array<LieuxEvenement>();
 
 
 

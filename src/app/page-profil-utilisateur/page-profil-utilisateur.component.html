@@ -48,7 +48,21 @@
   </div>
     <div>
       <select [(ngModel)]="utilisateur.favoris">
-        <option *ngFor="let type of types" [ngValue]="type">{{type}}</option>
+        <option value="" selected>Selectionnez un évènement</option>
+        <option value="Foot_en_salle">Tournoi Foot en salle</option>
+        <option value="Escape_game">Escape Game</option>
+        <option value="Bowling">Bowling</option>
+        <option value="Laser_game">Laser Game</option>
+        <option value="Musee">Visite privée au Musée</option>
+        <option value="Football">Tournoi Football</option>
+        <option value="Basketball">Tournoi Basketball</option>
+        <option value="Handball">Tournoi Handball</option>
+        <option value="Volleyball">Tournoi Volleyball</option>
+        <option value="Spectacle">Spectacle</option>
+        <option value="Jeu_de_piste">Jeu de piste</option>
+        <option value="Olympiades">Olympiades</option>
+        <option value="Virtual_Escape_Game">Virtual Escape Game</option>
+        <option value="">Virtual Escape Game</option>
       </select>
     </div>
 
@@ -63,8 +77,9 @@
       <button type="button">Ajouter un Lieu favoris</button>
     </div>
     <div>
-      <select [(ngModel)]="utilisateur.favoris" >
-        <option *ngFor="let lieu of lieux" [ngValue]="lieu">{{lieu.nomLieux}}</option>
+      <select [(ngModel)]="utilisateur.favoris">
+        <option value="" selected>Selectionnez un lieu</option>
+        <option *ngFor="let lieu of lieux">{{lieu.nomLieu}}</option>
       </select>
     </div>
   </div>

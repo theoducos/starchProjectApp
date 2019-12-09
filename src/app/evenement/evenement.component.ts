@@ -8,6 +8,7 @@ import {Entreprise} from '../model/entreprise';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {Utilisateur} from '../model/utilisateur';
+import {log} from 'util';
 
 @Component({
   selector: 'evenement',
@@ -27,7 +28,7 @@ export class EvenementComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.utilisateurHttpService.findById(params.id).subscribe(resp => {
         this.utilisateur = resp;
-        this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+        this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
           this.entreprise = resp;
           this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
             this.evenements = resp;
