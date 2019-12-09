@@ -6,13 +6,26 @@
     <div class="card-body">
       <div class="form-group"><label for="nomGroupe" style="font-weight: bold;">Nom du Groupe*</label>
         <input type="text" class="form-control"
-               id="nomGroupe"
-               [(ngModel)]="groupe.nom" style="border: 1px solid black"></div>
+               id="nomGroupe" name="nomGroupe"
+               [(ngModel)]="groupe.nom" style="border: 1px solid black" #nomGroupe="ngModel" required>
+        <div *ngIf="nomGroupe.invalid && (nomGroupe.dirty)"
+             class="error">
+          <div *ngIf="nomGroupe.errors.required">
+            Nom du Groupe obligatoire
+          </div>
+        </div>
+      </div>
       <div class="form-group"><label for="codeGroupe" style="font-weight: bold;">Code du
         Groupe* </label>
         <input type="text" class="form-control"
                id="codeGroupe"
-               [(ngModel)]="groupe.codeGroupe" style="border: 1px solid black"></div>
+               [(ngModel)]="groupe.codeGroupe" style="border: 1px solid black" #codeGroupe="ngModel" required>
+        <div *ngIf="codeGroupe.invalid && (codeGroupe.dirty)"
+             class="error">
+          <div *ngIf="codeGroupe.errors.required">
+            Nom du Groupe obligatoire
+          </div>
+        </div></div>
     </div>
     <div class="card-footer" style="background: white">
       <div class="btn-group btn-group-lg float-right">

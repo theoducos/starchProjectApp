@@ -56,7 +56,7 @@
       </li>
       <li>
         <input type="email" name="email" class="field-style field-split align-left"
-               [(ngModel)]="utilisateur.email" required #email="ngModel" placeholder="Email*"/>
+               [(ngModel)]="utilisateur.email" required #email="ngModel" placeholder="exemple@sopra-steria.fr"/>
         <div *ngIf="email.invalid && (email.dirty)"
              class="error">
           <div *ngIf="email.errors.required" class="error">
