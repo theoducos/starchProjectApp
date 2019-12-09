@@ -13,7 +13,7 @@
         </div>
       </li>
       <li>
-        <input type="password" name="mdp" class="field-style field-split align-left" [(ngModel)]="utilisateur.mdp"
+        <input type="password" name="mdp" class="field-style field-full align-none" [(ngModel)]="utilisateur.mdp"
                required #mdp="ngModel"
                minlength="4" placeholder="Mot de Passe*"/>
         <div *ngIf="mdp.invalid && (mdp.dirty)">
@@ -24,7 +24,7 @@
         <div *ngIf="mdp.errors.minlength" class="error">
           Au moins 4 caractères
         </div>
-        <input type="password" name="confirmation" class="field-style field-split align-right" required
+        <input type="password" name="confirmation" class="field-style field-full align-none" required
                [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"
                placeholder="Confirmer le mot de passe*"/>
         <div *ngIf="confirmation.invalid && (confirmation.dirty) "

@@ -30,7 +30,7 @@ export class ParticipationHttpService {
   }
 
   save(participation: Participation) {
-    if (this.participation.id != null) {
+    if (participation.id != null) {
       this.http.put(this.appConfigService.backend + 'participation/' + participation.id, participation).subscribe(resp => this.load());
     } else {
       this.http.post(this.appConfigService.backend + '/participation', participation).subscribe(resp => this.load());
@@ -41,6 +41,7 @@ export class ParticipationHttpService {
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'participation/' + id);
   }
+
 
 
 

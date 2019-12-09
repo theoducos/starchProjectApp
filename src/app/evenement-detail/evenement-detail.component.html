@@ -1,16 +1,37 @@
-<div class="container">
-  <div class="card mt-3">
-    <div class="card-header bg-info text-white">
-      <h2>{{evenement.titre}}</h2>
-    </div><br>
-    <div>
-      {{evenement.date}}
+<div class="form-style-9">
+  <h2>{{evenement.titre}}</h2>
+</div><br>
+<div>
+  {{evenement.date}}
+</div>
+<hr>
+<div>
+  <div class="btn-group btn-group-sm">
+    <a class="btn btn-success" (click)="AjouterParticipant()" (click)="saveParticipation()">Participe<i
+      class="fas fa-check"></i></a>
+    <a class="btn btn-primary" (click)="AjouterInteresse()">Interesse<i class="fas fa-info"></i></a>
+  </div>
+</div>
+<hr>
+<div>
+  {{evenement.lieuxEvenement}}<i class="fas fa-map-marked-alt"></i>
+</div>
+<hr>
+<div>
+  <a class="btn btn-primary" (click)="listParticipant()">Participants <i class="far fa-calendar-check"></i></a>
+  <a class="btn btn-primary" (click)="listInteresse()">Interesses <i class="far fa-calendar-check"></i></a>
+</div>
+<div *ngIf="participantBool">
+  <div *ngFor="let utilisateur of utilisateursParticipants">
+    <p>{{utilisateur.nom}}</p>
+    <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
+      <p>{{groupes.nom}}</p>
     </div>
     <hr>
     <div>
       <div class="btn-group btn-group-sm">
-        <a class="btn btn-success" (click)="AjouterParticipant()"  (click)="saveParticipation()" >Participe<i class="fas fa-check"></i></a>
-        <a class="btn btn-primary" (click)="AjouterInteresse()">Interesse<i class="fas fa-info"></i></a>
+        <a class="btn btn-success"  (click)="saveParticipation()" >Participe<i class="fas fa-check"></i></a>
+        <a class="btn btn-primary"  (click)="saveInteret()">Interesse<i class="fas fa-info"></i></a>
       </div>
     </div>
     <hr>
@@ -40,7 +61,7 @@
     </div>
     <hr>
     <div> Prix :
-      {{evenement.prix}} <i class="fas fa-euro-sign"></i>>
+      {{evenement.prix}} <i class="fas fa-euro-sign"></i>
     </div>
     <hr>
     <div >Nombre de places disponibles<i class="fas fa-user-plus"></i>
@@ -52,7 +73,6 @@
     <hr>
     <div>
       {{evenement.statutOF}}
-
     </div>
     <hr>
     <div>
@@ -84,3 +104,25 @@
     </div>
   </div>
 </div>
+<hr>
+<div>
+  Date limite de l'inscription :
+  {{evenement.deadline}}
+  <i class="far fa-edit"></i>
+</div>
+<hr>
+<div>
+  Ajouter un commentaire :
+  <div>
+    <input type="text" name="commentaire" [(ngModel)]="commentaire.commentaire">
+    <button type="button" (click)="saveCommentaire()">Valider<i class="fas fa-share-square"></i></button>
+  </div>
+</div>
+<hr>
+<button (click)="listCommentaires()">Commentaires</button>
+<div *ngIf="commentaire">
+  <div *ngFor="let comm of commentaires">
+    <p>{{comm.commentaire}}</p>
+  </div>
+</div>
+

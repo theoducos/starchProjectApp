@@ -31,12 +31,9 @@ export class OrgaEvenementComponent implements OnInit {
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService,
               private groupeService: GroupeHttpService,private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) { }
 
-
-
-
   save() {
+    this.evenement.statutOF = true
     this.evenementService.save(this.evenement);
-
   }
 
   ngOnInit() {
