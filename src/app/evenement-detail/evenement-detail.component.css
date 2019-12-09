@@ -8,59 +8,45 @@
   border: 6px solid #DC3B3B;
 }
 
-.form-style-9 ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+hr{
+  border:1px solid grey;
 }
 
-.form-style-9 ul li {
-  display: block;
-  margin-bottom: 30px;
-  min-height: 30px;
+.logo {
+  width: 10%;
+  height: 10%;
 }
 
-.form-style-9 ul li .field-style {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  padding: 8px;
-  outline: none;
-  border: 1px solid black;
-  -webkit-transition: all 0.30s ease-in-out;
-  -moz-transition: all 0.30s ease-in-out;
-  -ms-transition: all 0.30s ease-in-out;
-  -o-transition: all 0.30s ease-in-out;
-
-}
-
-.form-style-9 ul li .field-style:focus {
-  box-shadow: 0 0 5px #B0CFE0;
-  border: 1px solid #B0CFE0;
-}
-
-.form-style-9 ul li .field-split {
-  width: 49%;
-}
-
-.form-style-9 ul li .field-full {
-  width: 100%;
-}
-
-.form-style-9 ul li input.align-left {
-  float: left;
-}
-
-.form-style-9 ul li input.align-right {
-  float: right;
-}
-
-.logo{
-  width:10%;
-  height:10%;
-}
-.error{
+.error {
   color: #a94442;
 
 }
 
+.participe{
+
+  border: 1px solid grey;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  background-color: #0A3FFF;
+  font-weight: bold;
+  color: white;
+}
+
+.interet{
+
+  border: 1px solid grey;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  background-color: #FF9D03;
+  font-weight: bold;
+  color: white;
+
+}
+
+.participant {
+  border-right:1px solid black;
+}
+
+.btn{
+  border-radius:1px;
+}
