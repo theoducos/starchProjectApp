@@ -6,7 +6,6 @@
       <li>
         <input type="text" name="identifiant" class="field-style field-full align-none"
                [(ngModel)]="utilisateur.identifiant" required #identifiant="ngModel" placeholder="Identifiant*">
-        <p>
         <div *ngIf="identifiant.invalid && (identifiant.dirty)">
           <div *ngIf="identifiant.errors.required" class="error">
             Identifiant obligatoire

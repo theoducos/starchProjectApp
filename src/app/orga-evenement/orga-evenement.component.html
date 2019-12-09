@@ -2,11 +2,16 @@
 <div class="card-body">
   <div class="form-group">
     <label for="titre">Titre :</label>
-    <input type="text" class="form-control" id="titre" [(ngModel)]="evenement.titre">
+    <input type="text" class="form-control" id="titre" [(ngModel)]="evenement.titre" #titre="ngModel" required>
+    <div *ngIf="titre.invalid && (titre.dirty)">
+      <div *ngIf="titre.errors.required" class="error">
+        Titre de l'activité obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="nomActivite">Nom activité:</label>
-    <select class="form-control" name="nomActivite" id="nomActivite" [(ngModel)]="evenement.nomEvenement">
+    <select class="form-control" name="nomActivite" id="nomActivite" [(ngModel)]="evenement.nomEvenement" #nomActivite="ngModel" required>
       <option value="">Activité</option>
       <option value="Foot_en_salle">Foot en salle</option>
       <option value="Escape_game">Escape game</option>
@@ -15,52 +20,87 @@
       <option value="Boire_un_verre">Boire un verre</option>
       <option value="Musee">Musée</option>
     </select>
+    <div *ngIf="nomActivite.invalid">
+      <div *ngIf="nomActivite.errors.required" class="error">
+        Nom de l'activité obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="typeActivite">Type d'activité:</label>
-    <select class="form-control" id="typeActivite" nom="typeActivite" [(ngModel)]="evenement.typeEvenement">
+    <select class="form-control" id="typeActivite" name="typeActivite" [(ngModel)]="evenement.typeEvenement" #typeActivite="ngModel" required>
       <option value="">Type</option>
       <option value="Bar_restaurant">Bar Restaurant</option>
       <option value="Culturel">Culturel</option>
       <option value="Sportif">Sportif</option>
       <option value="Corporate">Corporate</option>
     </select>
+    <div *ngIf="typeActivite.invalid">
+      <div *ngIf="typeActivite.errors.required" class="error">
+        Type de l'activité obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="dtEtHeure">Date et heure :</label>
-    <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date">
+    <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date" #dtEtHeure="ngModel" required>
+    <div *ngIf="dtEtHeure.invalid">
+      <div *ngIf="dtEtHeure.errors.required" class="error">
+        Date obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="deadline">Deadline d'inscription :</label>
-    <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="evenement.deadline">
+    <label for="deadline">Date limite d'inscription :</label>
+    <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="evenement.deadline" #deadline="ngModel" required>
+    <div *ngIf="deadline.invalid">
+      <div *ngIf="deadline.errors.required" class="error">
+        Date limite d'inscription obligatoire
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="lieu">Lieu préexistant:</label>
-    <select class="form-control" id="lieu" name="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
+    <select class="form-control" id="lieu" name="lieu" [(ngModel)]="evenement.lieuxEvenement.id" #lieu="ngModel" required>
       <option value="">Lieu pré existant</option>
       <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
     </select>
+    <div *ngIf="lieu.invalid">
+      <div *ngIf="lieu.errors.required" class="error">
+        Lieu obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="prix">Prix :</label>
-    <input type="number" class="form-control" name="prix" id="prix" [(ngModel)]="evenement.prix">
+    <input type="number" class="form-control" name="prix" id="prix" [(ngModel)]="evenement.prix" #prix="ngModel" required>
+    <div *ngIf="prix.invalid && (prix.dirty)">
+      <div *ngIf="prix.errors.required" class="error">
+        Prix obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="nbParticipants">Nombre de participants :</label>
-    <input type="number" class="form-control" id="nbParticipants" name="nbParticipants" [(ngModel)]="evenement.nbParticipantMax">
+    <input type="number" class="form-control" id="nbParticipants" name="nbParticipants" [(ngModel)]="evenement.nbParticipantMax" #nbParticipants="ngModel" required>
+    <div *ngIf="nbParticipants.invalid && (nbParticipants.dirty)">
+      <div *ngIf="nbParticipants.errors.required" class="error">
+        Nombre de participants obligatoire
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="description">Description :</label>
     <textarea class="form-control" id="description" name="description"></textarea>
   </div>
-  <div class="form-group">
-    <label for="groupe">Groupe :</label>
-    <select class="form-control" id="groupe" name="groupe" [(ngModel)]="evenement.groupe.id">
-      <option value="">Choisir un groupe</option>
-      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
-    </select>
-  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="groupe">Groupe :</label>-->
+<!--    <select class="form-control" id="groupe" name="groupe" [(ngModel)]="evenement.groupe.id">-->
+<!--      <option value="">Choisir un groupe</option>-->
+<!--      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>-->
+<!--    </select>-->
+<!--  </div>-->
   <div>
     <p>Organiser cet événement tout les :</p>
     <div>
