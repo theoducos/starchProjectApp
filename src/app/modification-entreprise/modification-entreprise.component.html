@@ -7,31 +7,73 @@
     <div class="card-body" >
       <div class="form-group">
         <label for="nom">Nom Entreprise* :</label>
-        <input type="text" class="form-control" id="nom" [(ngModel)]="entreprise.nom">
+        <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="entreprise.nom" required #nom="ngModel" placeholder="Nom de l'entreprise">
+        <div *ngIf="nom.invalid && (nom.dirty)"
+             class="error">
+          <div *ngIf="nom.errors.required" class="error">
+            Nom de l'entreprise obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="siret">SIRET* :</label>
-        <input type="text" class="form-control" id="siret"  [(ngModel)]="entreprise.siret">
+        <input type="text" class="form-control" name="siret" id="siret"  [(ngModel)]="entreprise.siret" required #siret="ngModel" placeholder="SIRET">
+        <div *ngIf="siret.invalid && (siret.dirty)"
+             class="error">
+          <div *ngIf="siret.errors.required" class="error">
+            SIRET obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="rue">Rue* :</label>
-        <input type="text" class="form-control" id="rue" [(ngModel)]="entreprise.adresse.rue">
+        <input type="text" class="form-control" name="rue" id="rue" [(ngModel)]="entreprise.adresse.rue" required #rue="ngModel" placeholder="Rue">
+        <div *ngIf="rue.invalid && (rue.dirty)"
+             class="error">
+          <div *ngIf="rue.errors.required" class="error">
+            Rue obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="codePostal">Code postal* :</label>
-        <input type="text" class="form-control" id="codePostal"  [(ngModel)]="entreprise.adresse.codePostal" >
+        <input type="text" class="form-control" name="codePostal" id="codePostal"  [(ngModel)]="entreprise.adresse.codePostal" required #codePostal="ngModel" placeholder="Code Postal" >
+        <div *ngIf="codePostal.invalid && (codePostal.dirty)"
+             class="error">
+          <div *ngIf="codePostal.errors.required" class="error">
+            Code Postal obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="ville">Ville* :</label>
-        <input type="text" class="form-control" id="ville" [(ngModel)]="entreprise.adresse.ville">
+        <input type="text" class="form-control" name="ville" id="ville" [(ngModel)]="entreprise.adresse.ville" required #ville="ngModel" placeholder="Ville">
+        <div *ngIf="ville.invalid && (ville.dirty)"
+             class="error">
+          <div *ngIf="ville.errors.required" class="error">
+            Ville obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="tva">TVA* :</label>
-        <input type="text" class="form-control" id="tva"  [(ngModel)]="entreprise.tva">
+        <input type="text" class="form-control" name="tva" id="tva"  [(ngModel)]="entreprise.tva" required #tva="ngModel" placeholder="TVA">
+        <div *ngIf="tva.invalid && (tva.dirty)"
+             class="error">
+          <div *ngIf="tva.errors.required" class="error">
+            TVA obligatoire
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="code">Code Entreprise* :</label>
-        <input type="text" class="form-control" id="code"  [(ngModel)]="entreprise.codeEntreprise">
+        <input type="text" class="form-control" name="code" id="code"  [(ngModel)]="entreprise.codeEntreprise" required #code="ngModel" placeholder="Code Entreprise">
+        <div *ngIf="code.invalid && (code.dirty)"
+             class="error">
+          <div *ngIf="code.errors.required" class="error">
+            Code Entreprise obligatoire
+          </div>
+        </div>
       </div>
     </div>
     <div class="card-footer">

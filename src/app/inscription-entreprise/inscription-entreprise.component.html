@@ -7,67 +7,137 @@
   <div class="card-body" >
     <div class="form-group">
       <label for="nom">Nom Entreprise* :</label>
-      <input type="text" class="form-control" id="nom" [(ngModel)]="utilisateur.entreprise.nom">
-<!--      [(ngModel)]="stagiaire.nom"-->
+      <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="utilisateur.entreprise.nom" required #nom="ngModel" placeholder="Nom de l'entreprise">
+      <div *ngIf="nom.invalid && (nom.dirty)"
+           class="error">
+        <div *ngIf="nom.errors.required" class="error">
+          Nom de l'entreprise obligatoire
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="identifiant">Identifiant* :</label>
-      <input type="text" class="form-control" id="identifiant" [(ngModel)]="utilisateur.identifiant "  >
-<!--      [(ngModel)]="utilisateur.identifiant"-->
+      <input type="text" class="form-control" name="identifiant" id="identifiant" [(ngModel)]="utilisateur.identifiant " required #identifiant="ngModel" placeholder="Identifiant" >
+      <div *ngIf="identifiant.invalid && (identifiant.dirty)"
+           class="error">
+        <div *ngIf="identifiant.errors.required" class="error">
+          Identifiant obligatoire
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="mdp">Mot de passe* :</label>
-      <input type="text" class="form-control" id="mdp" [(ngModel)]="utilisateur.mdp">
-<!--      [(ngModel)]="utilisateur.mdp"-->
+      <input type="text" class="form-control" name="mdp" id="mdp" [(ngModel)]="utilisateur.mdp" required #mdp="ngModel" placeholder="Mot de passe">
+      <div *ngIf="mdp.invalid && (mdp.dirty)"
+           class="error">
+        <div *ngIf="mdp.errors.required" class="error">
+          Mot de passe obligatoire
+        </div>
+        <div *ngIf="mdp.errors.minlength" class="error">
+          Au moins 4 caractères
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="confirmation">Confirmation* :</label>
-      <input type="text" class="form-control" id="confirmation" [(ngModel)]="utilisateur.mdp" >
-<!--      [(ngModel)]="utilisateur.mdp"-->
+      <input type="text" class="form-control" name="confirmation" id="confirmation" [(ngModel)]="utilisateur.mdp" required #confirmation="ngModel" placeholder="Confirmer le mot de passe" >
+      <div *ngIf="confirmation.invalid && (confirmation.dirty) "
+           class="error">
+        <div *ngIf="confirmation.errors.required" class="error">Confirmation obligatoire</div>
+        <div *ngIf="confirmation.errors.mustMatch" class="error">Confirmation invalide</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email* :</label>
-      <input type="text" class="form-control" id="email" [(ngModel)]="utilisateur.email " >
+      <input type="text" class="form-control" name="email" id="email" [(ngModel)]="utilisateur.email" required #email="ngModel" placeholder="exemple@sopra.fr">
+      <div *ngIf="email.invalid && (email.dirty)"
+           class="error">
+        <div *ngIf="email.errors.required" class="error">
+          Courriel obligatoire
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="nomuser">Nom* :</label>
-      <input type="text" class="form-control" id="nomuser" [(ngModel)]="utilisateur.nom " >
+      <input type="text" class="form-control" name="nomuser" id="nomuser" [(ngModel)]="utilisateur.nom " >
     </div>
     <div class="form-group">
       <label for="prenomuser">Prenom* :</label>
-      <input type="text" class="form-control" id="prenomuser" [(ngModel)]="utilisateur.prenom " >
+      <input type="text" class="form-control" name="prenomuser" id="prenomuser" [(ngModel)]="utilisateur.prenom " required #prenomuser="ngModel" placeholder="Prénom" >
+      <div *ngIf="prenomuser.invalid && (prenomuser.dirty)"
+           class="error">
+        <div *ngIf="prenomuser.errors.required" class="error">
+          Prénom obligatoire
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="siret">SIRET* :</label>
-      <input type="text" class="form-control" id="siret"  [(ngModel)]="utilisateur.entreprise.siret">
+      <input type="text" class="form-control" name="siret" id="siret"  [(ngModel)]="utilisateur.entreprise.siret" required #siret="ngModel" placeholder="SIRET">
+      <div *ngIf="siret.invalid && (siret.dirty)"
+           class="error">
+        <div *ngIf="siret.errors.required" class="error">
+          SIRET obligatoire
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="rue">Rue* :</label>
-      <input type="text" class="form-control" id="rue" [(ngModel)]="utilisateur.entreprise.adresse.rue">
+      <input type="text" class="form-control" name="rue" id="rue" [(ngModel)]="utilisateur.entreprise.adresse.rue" required #rue="ngModel" placeholder="Rue">
+      <div *ngIf="rue.invalid && (rue.dirty)"
+           class="error">
+        <div *ngIf="rue.errors.required" class="error">
+          Rue obligatoire
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="codePostal">Code postal* :</label>
-      <input type="text" class="form-control" id="codePostal"  [(ngModel)]="utilisateur.entreprise.adresse.codePostal" >
+      <input type="text" class="form-control" name="codePostal" id="codePostal"  [(ngModel)]="utilisateur.entreprise.adresse.codePostal" required #codePostal="ngModel" placeholder="Code Postal" >
+      <div *ngIf="codePostal.invalid && (codePostal.dirty)"
+           class="error">
+        <div *ngIf="codePostal.errors.required" class="error">
+          Code Postal obligatoire
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="ville">Ville* :</label>
-      <input type="text" class="form-control" id="ville" [(ngModel)]="utilisateur.entreprise.adresse.ville">
+      <input type="text" class="form-control" name="ville" id="ville" [(ngModel)]="utilisateur.entreprise.adresse.ville" required #ville="ngModel" placeholder="Ville">
+      <div *ngIf="ville.invalid && (ville.dirty)"
+           class="error">
+        <div *ngIf="ville.errors.required" class="error">
+          Ville obligatoire
+        </div>
+      </div>
     </div>
 
   <div class="form-group">
-    <label for="telephone">Téléphone* :</label>
-    <input type="text" class="form-control" id="telephone"  [(ngModel)]="utilisateur.telephone">
+    <label for="telephone">Téléphone :</label>
+    <input type="text" class="form-control" name="telephone" id="telephone"  [(ngModel)]="utilisateur.telephone">
   </div>
   <div class="form-group">
     <label for="tva">TVA* :</label>
-    <input type="text" class="form-control" id="tva"  [(ngModel)]="utilisateur.entreprise.tva">
+    <input type="text" class="form-control" name="tva" id="tva"  [(ngModel)]="utilisateur.entreprise.tva" required #tva="ngModel" placeholder="TVA">
+    <div *ngIf="tva.invalid && (tva.dirty)"
+         class="error">
+      <div *ngIf="tva.errors.required" class="error">
+        TVA obligatoire
+      </div>
+    </div>
   </div>
     <div class="form-group">
       <label for="code">Code Entreprise* :</label>
-      <input type="text" class="form-control" id="code"  [(ngModel)]="utilisateur.entreprise.codeEntreprise">
+      <input type="text" class="form-control" name="code" id="code"  [(ngModel)]="utilisateur.entreprise.codeEntreprise" required #code="ngModel" placeholder="Code Entreprise">
+      <div *ngIf="code.invalid && (code.dirty)"
+           class="error">
+        <div *ngIf="code.errors.required" class="error">
+          Code Entreprise obligatoire
+        </div>
+      </div>
     </div>
   </div>
 
