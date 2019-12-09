@@ -9,6 +9,7 @@ import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {Utilisateur} from '../model/utilisateur';
 import {Participation} from '../model/participation';
 import {ParticipationHttpService} from '../participation/participation-http.service';
+import {LieuxEvenement} from "../model/lieuxEvenement";
 
 @Component({
   selector: 'evenement-detail',
@@ -21,29 +22,29 @@ export class EvenementDetailComponent implements OnInit {
 
   commentaire: Commentaire = new Commentaire();
 
-  participation : Participation = new Participation();
+  participation: Participation = new Participation();
+  lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
   utilisateursInteresses: any;
 
   utilisateursParticipants: any;
 
-  utilisateur : Utilisateur;
+  utilisateur: Utilisateur;
 
   commentaires: any;
 
   commentaireBool: boolean;
 
- nbparticipants : number = 0;
+  nbparticipants: number = 0;
 
- participationparutilisateur : any;
-  allparticipationofcurentevenet : any;
+  participationparutilisateur: any;
+  allparticipationofcurentevenet: any;
 
 
-
-  groupesUtilisateurParticipants : any;
-  groupesUtilisateurInteresses : any;
-  groupesUtilisateurInteressesListe : any;
-  groupesUtilisateurParticipantsListe :any;
+  groupesUtilisateurParticipants: any;
+  groupesUtilisateurInteresses: any;
+  groupesUtilisateurInteressesListe: any;
+  groupesUtilisateurParticipantsListe: any;
   id: number;
 
   participantBool: boolean = false;
@@ -62,8 +63,8 @@ export class EvenementDetailComponent implements OnInit {
   }
 
 
-  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService : UtilisateurHttpService, private participantService : ParticipationHttpService) {
-  // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService: UtilisateurHttpService, private participantService: ParticipationHttpService) {
+    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.route.params.subscribe(params => {
       this.evenementService.findById(params.id).subscribe(resp => {
         this.evenement = resp;
@@ -72,7 +73,7 @@ export class EvenementDetailComponent implements OnInit {
           this.utilisateurService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
             this.groupesUtilisateurParticipants = resp;
           })
-        } )
+        })
       });
     });
 
@@ -84,7 +85,7 @@ export class EvenementDetailComponent implements OnInit {
           this.utilisateurService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
             this.groupesUtilisateurInteresses = resp;
           })
-        } )
+        })
       });
 
     });
@@ -92,12 +93,12 @@ export class EvenementDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.evenementService.findById(params.id).subscribe(resp => {
         this.evenement = resp;
-        this.utilisateurService.findById(107).subscribe(resp => {  //TODO remettre l'ID de l'utilisateur dans findbyid (params.id)
+        this.utilisateurService.findById(83).subscribe(resp => {  //TODO remettre l'ID de l'utilisateur dans findbyid (params.id)
           this.utilisateur = resp;
-          this.utilisateurService.findParticipationByUtilisateurAndEvent(107, this.evenement.id).subscribe(resp => { //TODO remettre l'ID de l'utilisateur dans findParticipationByUtilisateur (params.id)
+          this.utilisateurService.findParticipationByUtilisateurAndEvent(83, this.evenement.id).subscribe(resp => { //TODO remettre l'ID de l'utilisateur dans findParticipationByUtilisateur (params.id)
             this.participationparutilisateur = resp;
           })
-        } )
+        })
       });
     });
 
@@ -122,7 +123,7 @@ export class EvenementDetailComponent implements OnInit {
     //   this.evenement.statutOF = false;
     // }
 
-}
+  }
 
   ngOnInit() {
 
@@ -134,7 +135,8 @@ export class EvenementDetailComponent implements OnInit {
     this.evenementService.findUtilisateursInteresses(this.evenement.id).subscribe(resp => this.utilisateursInteresses = resp);
 
     for (let lesutilisateurs of this.utilisateursInteresses) {
-      this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurInteressesListe = resp); }
+      this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurInteressesListe = resp);
+    }
   }
 
   listParticipant() {
@@ -149,7 +151,6 @@ export class EvenementDetailComponent implements OnInit {
   }
 
 
-
   listCommentaires() {
     this.commentaireBool = true;
     this.evenementService.findCommentairesByEvenement(this.evenement.id).subscribe(resp => this.commentaires = resp);
@@ -160,7 +161,7 @@ export class EvenementDetailComponent implements OnInit {
     this.commentaireService.save(this.commentaire);
   }
 
-  saveParticipation(iduser = 107) {
+  saveParticipation(iduser = 83) {
 
     if (this.participationparutilisateur.type == "Participant") {
       this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
@@ -191,16 +192,14 @@ export class EvenementDetailComponent implements OnInit {
     }
   }
 
-  saveInteret(iduser = 107){
-    if(this.participationparutilisateur.type == "Interesse")
-    {
+  saveInteret(iduser = 83) {
+    if (this.participationparutilisateur.type == "Interesse") {
       this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
       // console.log(this.participationparutilisateur)
       this.participationparutilisateur.type = null;
       // console.log(this.participationparutilisateur.type)
       this.participantService.save(this.participationparutilisateur)
-    }
-    else {
+    } else {
       this.utilisateurService.findParticipationByUtilisateurAndEvent(iduser, this.evenement.id).subscribe(resp => this.participationparutilisateur = resp)
       // console.log(this.participationparutilisateur)
       this.participationparutilisateur.type = "Interesse";
@@ -210,7 +209,6 @@ export class EvenementDetailComponent implements OnInit {
     }
 
   }
-
 
 
 }
