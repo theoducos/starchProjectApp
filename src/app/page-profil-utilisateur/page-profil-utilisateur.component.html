@@ -48,7 +48,7 @@
   </div>
     <div>
       <select [(ngModel)]="utilisateur.favoris">
-        <option value="" selected>Selectionnez un évènement</option>
+        <option value="" selected >Selectionnez un évènement</option>
         <option value="Foot_en_salle">Tournoi Foot en salle</option>
         <option value="Escape_game">Escape Game</option>
         <option value="Bowling">Bowling</option>
@@ -62,7 +62,6 @@
         <option value="Jeu_de_piste">Jeu de piste</option>
         <option value="Olympiades">Olympiades</option>
         <option value="Virtual_Escape_Game">Virtual Escape Game</option>
-        <option value="">Virtual Escape Game</option>
       </select>
     </div>
 
@@ -74,7 +73,7 @@
       <button type="button">Supprimer un lieu favoris</button>
     </div>
     <div>
-      <button type="button">Ajouter un Lieu favoris</button>
+      <button type="button" (click)="save()">Ajouter un Lieu favoris</button>
     </div>
     <div>
       <select [(ngModel)]="utilisateur.favoris">
