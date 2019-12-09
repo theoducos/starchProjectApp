@@ -1,9 +1,15 @@
 enum NomEvenement {
-  footEnSalle = "Foot_en_salle",
-  escapeGame = "Escape_game",
-  bowling = "Bowling",
-  laserGame = "Laser_game",
-  boireUnVerre="Boire_un_verre",
-  musee="Musee"
-
+  footEnSalle = 'Foot_en_salle',
+  escapeGame = 'Escape_game',
+  bowling = 'Bowling',
+  laserGame = 'Laser_game',
+  musee = 'Musee',
+  football = 'Football',
+  basketball = 'Basketball',
+  handball = 'Handball',
+  volleyball = 'Vollyball',
+  spectacle = 'Spectacle',
+  jeuDePiste = 'Jeu_de_piste',
+  olympiades = 'Olympiades',
+  virtualEscapeGame = 'Virtual_Escape_Game'
 }
