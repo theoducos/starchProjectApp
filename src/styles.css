@@ -1,3 +1,6 @@
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
