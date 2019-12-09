@@ -2,26 +2,28 @@
   <h2 style="font-weight: bold;text-align: center">{{evenement.titre}}</h2>
   <br>
   <div>
-    <p style="font-weight: bold">Date de l'événement:</p> {{evenement.date}}
+    <p style="font-weight: bold;font-size: x-large">Date de l'événement:</p> {{evenement.date}}
   </div>
   <hr>
-  <div>
+  <div align="center">
     <div class="btn-group btn-group-sm">
       <button class="participe" (click)="saveParticipation()">Participe <i class="fa fa-check"></i></button>
-      <button class=" interet" (click)="saveInteret()">Interesse <i class="fa fa-star"></i></button>
+      <button class=" interet" (click)="saveInteret()">Intéressé(e) <i class="fa fa-star"></i></button>
     </div>
         <a class="btn btn-success"   (click)="saveParticipation()" >Participe<i class="fas fa-check"></i></a>
         <a class="btn btn-primary" (click)="saveInteret()">Interesse<i class="fas fa-info"></i></a>
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold">Lieu de l'événement:</p> {{evenement.lieuxEvenement?.nomLieu}} <i
-    class="fa fa-map-marker fa-2x"></i>
+    <p style="font-weight: bold;font-size: x-large">Lieu de l'événement:</p> <i
+    class="fa fa-map-marker fa-2x"></i> {{evenement.lieuxEvenement?.nomLieu}}
   </div>
   <hr>
-  <div>
-    <a class="btn participant" (click)="listParticipant()">Participant(e)s<i class="fa fa-users fa-2x"></i></a>
-    <a class="btn participant" (click)="listInteresse()">Interessé(e)s<i class="fa fa-star-o fa-2x"></i></a></div>
+  <div align="center">
+    <a class="btn participant" (click)="listParticipant()">Participant(e)s<i
+      class="fa fa-users fa-2x"></i></a>
+    <a class="btn participant" (click)="listInteresse()">Intéressé(e)s<i class="fa fa-star-o fa-2x"></i></a>
+  </div>
   <div *ngIf="participantBool">
     <div *ngFor="let utilisateur of utilisateursParticipants">
       <p>{{utilisateur.nom}}</p>
@@ -39,30 +41,35 @@
     </div>
   </div>
   <hr>
-  <div><p style="font-weight: bold">Prix:</p>
+  <div><p style="font-weight: bold;font-size: x-large">Prix:</p>
     {{evenement.prix}} <i class="fa fa-euro"></i>
   </div>
   <hr>
-  <div style="font-weight: bold">Nombre de places disponibles:
+  <div style="font-weight: bold;font-size: x-large">Nombre de places disponibles:
   </div>
   <br>
   <div>
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-    <p style="font-weight: bold"> Description :</p>
+  <p *ngIf="evenement.statutOF == true"> Inscription Ouverte!</p>
+  <p *ngIf="evenement.statutOF == false">Inscription Indisponible!</p>
+  <hr>
+  <div>
+    <p style="font-weight: bold;font-size: x-large"> Description :</p>
     <div>
       {{evenement.description}}
     </div>
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold"><i class="fa fa-hourglass-1 fa-1x"></i> Date limite de l'inscription : </p>
+    <p style="font-weight: bold;font-size: x-large"><i class="fa fa-hourglass-1 fa-1x"></i> Date limite de l'inscription
+      : </p>
     {{evenement.deadline}}
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold">Ajouter un commentaire : </p>
+    <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
     <div>
       <div *ngIf= "evenement.statutOf ; else elseBlock ">
         <p> evenement ouvert aux participants </p>​
