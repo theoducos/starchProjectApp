@@ -6,7 +6,6 @@
       <li>
         <input type="text" name="identifiant" class="field-style field-full align-none"
                [(ngModel)]="utilisateur.identifiant" required #identifiant="ngModel" placeholder="Identifiant*">
-        <p>
         <div *ngIf="identifiant.invalid && (identifiant.dirty)">
           <div *ngIf="identifiant.errors.required" class="error">
             Identifiant obligatoire
@@ -16,14 +15,13 @@
 
       <li>
         <input type="password" name="mdp" class="field-style field-split align-left" [(ngModel)]="utilisateur.mdp"
-                    required #mdp="ngModel"
-                    minlength="4" placeholder="Mot de Passe*"/>
-          <div *ngIf="mdp.invalid && (mdp.dirty)"
-               class="error">
-            <div *ngIf="mdp.errors.required">
-              Password obligatoire
-            </div>
+               required #mdp="ngModel"
+               minlength="4" placeholder="Mot de Passe*"/>
+        <div *ngIf="mdp.invalid && (mdp.dirty)">
+          <div *ngIf="mdp.errors.required" class="error">
+            Password obligatoire
           </div>
+        </div>
         <div *ngIf="mdp.errors.minlength" class="error">
           Au moins 4 caracteres
         </div>
@@ -39,8 +37,7 @@
       <li>
         <input type="text" name="nom" id="nom" class="field-style field-split align-left"
                [(ngModel)]="utilisateur.nom" required #nom="ngModel" placeholder="Nom*"/>
-        <div *ngIf="nom.invalid && (nom.dirty)"
-             class="error">
+        <div *ngIf="nom.invalid && (nom.dirty)">
           <div *ngIf="nom.errors.required" class="error">
             Nom obligatoire
           </div>
@@ -82,10 +79,10 @@
     *Obligatoire
   </form>
   <div class="btn-group btn-group-lg float-right">
-    <a class="btn" style="background: #0A3FFF">
+    <a class="btn" style="background: #0A3FFF;color:white">
       <i class="fa fa-check" (click)="save()" [routerLink]="['../utilisateur/', utilisateur.id]"></i>
     </a>
-    <a class="btn" style="background: #FF9D03">
+    <a class="btn" style="background: #DC3B3B;color: white">
       <i class="fa fa-undo"></i>
     </a>
   </div>

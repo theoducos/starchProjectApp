@@ -1,83 +1,68 @@
-<div class="container">
-  <div class="card mt-3">
-    <div class="card-header bg-info text-white">
-      <h3>Création de l'espace entreprise</h3>
-    </div>
+<div class="form-style-9">
+  <h1 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">CREATION ENTREPRISE
+  </h1>
 
-  <div class="card-body" >
-    <div class="form-group">
-      <label for="nom">Nom Entreprise* :</label>
-      <input type="text" class="form-control" id="nom" [(ngModel)]="utilisateur.entreprise.nom">
-<!--      [(ngModel)]="stagiaire.nom"-->
-    </div>
-    <div class="form-group">
-      <label for="identifiant">Identifiant* :</label>
-      <input type="text" class="form-control" id="identifiant" [(ngModel)]="utilisateur.identifiant "  >
-<!--      [(ngModel)]="utilisateur.identifiant"-->
-    </div>
-    <div class="form-group">
-      <label for="mdp">Mot de passe* :</label>
-      <input type="text" class="form-control" id="mdp" [(ngModel)]="utilisateur.mdp">
-<!--      [(ngModel)]="utilisateur.mdp"-->
-    </div>
-    <div class="form-group">
-      <label for="confirmation">Confirmation* :</label>
-      <input type="text" class="form-control" id="confirmation" [(ngModel)]="utilisateur.mdp" >
-<!--      [(ngModel)]="utilisateur.mdp"-->
-    </div>
-    <div class="form-group">
-      <label for="email">Email* :</label>
-      <input type="text" class="form-control" id="email" [(ngModel)]="utilisateur.email " >
-    </div>
+  <form>
+    <ul>
+      <li style="font-weight: bold;font-size: large">Utilisateur</li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="identifiant"
+               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="mdp" [(ngModel)]="utilisateur.mdp"
+               placeholder="Mot de Passe*">
 
-    <div class="form-group">
-      <label for="nomuser">Nom* :</label>
-      <input type="text" class="form-control" id="nomuser" [(ngModel)]="utilisateur.nom " >
-    </div>
-    <div class="form-group">
-      <label for="prenomuser">Prenom* :</label>
-      <input type="text" class="form-control" id="prenomuser" [(ngModel)]="utilisateur.prenom " >
-    </div>
+        <input type="text" class="field-style field-split align-right" id="confirmation" [(ngModel)]="utilisateur.mdp"
+               placeholder="Confirmation*">
+      </li>
 
-    <div class="form-group">
-      <label for="siret">SIRET* :</label>
-      <input type="text" class="form-control" id="siret"  [(ngModel)]="utilisateur.entreprise.siret">
-    </div>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="email" [(ngModel)]="utilisateur.email "
+               placeholder="Email*">
+        <input type="text" class="field-style field-split align-right" id="telephone"
+               [(ngModel)]="utilisateur.telephone" placeholder="Téléphone*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-split align-left" id="nomuser" [(ngModel)]="utilisateur.nom "
+               placeholder="Nom*">
 
-    <div class="form-group">
-      <label for="rue">Rue* :</label>
-      <input type="text" class="form-control" id="rue" [(ngModel)]="utilisateur.entreprise.adresse.rue">
-    </div>
-    <div class="form-group">
-      <label for="codePostal">Code postal* :</label>
-      <input type="text" class="form-control" id="codePostal"  [(ngModel)]="utilisateur.entreprise.adresse.codePostal" >
-    </div>
-    <div class="form-group">
-      <label for="ville">Ville* :</label>
-      <input type="text" class="form-control" id="ville" [(ngModel)]="utilisateur.entreprise.adresse.ville">
-    </div>
+        <input type="text" class="field-style field-split align-right" id="prenomuser"
+               [(ngModel)]="utilisateur.prenom " placeholder="Prénom*">
+      </li>
 
-  <div class="form-group">
-    <label for="telephone">Téléphone* :</label>
-    <input type="text" class="form-control" id="telephone"  [(ngModel)]="utilisateur.telephone">
+      <li style="font-weight: bold;font-size: large">Entreprise</li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="nom" [(ngModel)]="utilisateur.entreprise.nom"
+               placeholder="Nom de l'entreprise*"></li>
+      <li><input type="text" class="field-style field-full align-none" id="siret"
+                 [(ngModel)]="utilisateur.entreprise.siret" placeholder="SIRET*"></li>
+
+      <li>
+        <input type="text" class="field-style field-split align-left" id="rue"
+               [(ngModel)]="utilisateur.entreprise.adresse.rue" placeholder="Rue*">
+
+        <input type="text" class="field-style field-split align-right" id="codePostal"
+               [(ngModel)]="utilisateur.entreprise.adresse.codePostal" placeholder="Code Postal*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="ville"
+               [(ngModel)]="utilisateur.entreprise.adresse.ville" placeholder="Ville*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="tva" [(ngModel)]="utilisateur.entreprise.tva"
+               placeholder="TVA*">
+      </li>
+      <li>
+        <input type="text" class="field-style field-full align-none" id="code"
+               [(ngModel)]="utilisateur.entreprise.codeEntreprise" placeholder="Code Entreprise*">
+      </li>
+    </ul>
+    *Obligatoire
+  </form>
+  <div class="btn-group btn-group-lg float-right">
+    <button style="background: #0A3FFF;font-weight: bold;color: white" class="btn" (click)="save()">Créer
+      <i
+        class="fa fa-angle-double-right"></i></button>
   </div>
-  <div class="form-group">
-    <label for="tva">TVA* :</label>
-    <input type="text" class="form-control" id="tva"  [(ngModel)]="utilisateur.entreprise.tva">
-  </div>
-    <div class="form-group">
-      <label for="code">Code Entreprise* :</label>
-      <input type="text" class="form-control" id="code"  [(ngModel)]="utilisateur.entreprise.codeEntreprise">
-    </div>
-  </div>
-
-  <div class="card-footer">
-    <div class="btn-group btn-group-lg float-left">
-      <h5><span class="badge badge-secondary">*Obligatoire</span></h5>
-    </div>
-    <div class="btn-group btn-group-lg float-right">
-      <button style='font-size:24px' class="btn btn-primary" (click)="save()">S'inscrire <i class="fa fa-angle-double-right"></i></button>
-    </div>
-  </div>
-</div>
 </div>

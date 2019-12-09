@@ -1,34 +1,3 @@
-<!--<div id="login">-->
-<!--  <div class="imgcontainer">-->
-<!--    <img src="assets/img/logo.PNG" alt="logo" class="logo"/>-->
-<!--  </div>-->
-
-<!--  <div class="container">-->
-<!--    <label for="username"><b>Username</b></label>-->
-<!--    <input id="username" type="text" [(ngModel)]="model.userid">-->
-
-<!--    <label for="mdp"><b>Password</b></label>-->
-<!--    <input id="mdp" type="text" [(ngModel)]="model.password">-->
-<!--    <p *ngIf="erreur" class="error">Identifiant ou mot de passe incorrect!</p>-->
-<!--    <button (click)="validate()" class="button">Login</button>-->
-
-<!--    <button (click)="session()" class="buttonBis">Session</button>-->
-<!--    <button (click)="disconnect()" class="buttonBis">Disconnect</button>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--Username: <input type="text" [(ngModel)]="model.userid">-->
-<!--Password: <input type="text" [(ngModel)]="model.password">-->
-<!--<button (click)="validate()">Valider</button>-->
-
-
-<!--<button (click)="session()">session</button>-->
-<!--<button (click)="disconnect()">Disconnect</button>-->
-
-<!--<br>-->
-<!--<p *ngIf="erreur">Identifiant ou mot de passe incorrect</p>-->
-
 <div class="main">
   <section class="sign-in">
     <div class="container">
@@ -48,11 +17,12 @@
               <label for="mdp"><i class="fa fa-lock"></i></label>
               <input id="mdp" type="text" [(ngModel)]="model.password" placeholder="Password">
             </div>
-            <p *ngIf="erreur" class="error">Identifiant ou mot de passe incorrect!</p>
+            <p *ngIf="erreur" style="color: #DC3B3B">Identifiant ou mot de passe incorrect!</p>
             <button (click)="validate()" class="form-submit">Login</button>
           </div>
         </div>
         <a [routerLink]="['/inscription']" class="signup-image-link"> Create an account</a>
+        <a [routerLink]="['/inscriptionEntreprise']" class="signup-image-link"> Create an entreprise</a>
         <button (click)="session()">session</button>
         <button (click)="disconnect()">Disconnect</button>
       </div>
