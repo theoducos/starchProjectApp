@@ -32,7 +32,6 @@ export class OrgaEvenementComponent implements OnInit {
               private groupeService: GroupeHttpService,private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) { }
 
   save() {
-    this.evenement.statutOF = true
     this.evenementService.save(this.evenement);
   }
 
