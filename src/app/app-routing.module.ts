@@ -25,17 +25,17 @@ const routes: Routes = [
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
   {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
-  {path: 'evenement/list/:id', component: EvenementComponent},
+  {path: 'evenement/list', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
-  {path: 'utilisateur/:id', component: PageProfilUtilisateurComponent},
+  {path: 'utilisateur', component: PageProfilUtilisateurComponent},
   {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
   {path: 'evenement/:id', component: EvenementDetailComponent},
   {path: 'evenementstarch', component: EvenementStarchComponent},
-  {path: 'modificationUtilisateur/:id', component: ModificationUtilisateurComponent},
+  {path: 'modificationUtilisateur', component: ModificationUtilisateurComponent},
   {path: 'creationGroupe', component: CreationGroupeComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'calendar/:id', component: CalendarComponent}
+  {path: 'calendar', component: CalendarComponent}
 ];
 
 

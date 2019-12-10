@@ -9,6 +9,9 @@ import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {Utilisateur} from '../model/utilisateur';
 import {log} from 'util';
+import {SearchCriteria} from '../model/searchCriteria';
+import {HttpClient} from '@angular/common/http';
+import {AppConfigService} from '../app-config.service';
 
 @Component({
   selector: 'evenement',
@@ -22,23 +25,19 @@ export class EvenementComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
-  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService) {
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+  searchCriteria: SearchCriteria = new SearchCriteria();
 
-    this.route.params.subscribe(params => {
-      this.utilisateurHttpService.findById(params.id).subscribe(resp => {
-        this.utilisateur = resp;
-        this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
-          this.entreprise = resp;
-          this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
-            this.evenements = resp;
-          });
-        });
-      });
-    })
+  groupes: Array<Groupe>;
 
+  nomEvenement: NomEvenement;
+  typeEvenement: TypeEvenement;
+
+  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService) {
+
+    this.findWithFilter();
 
   }
+
 
 
   ngOnInit() {
@@ -64,6 +63,24 @@ export class EvenementComponent implements OnInit {
 
   cancel() {
     this.evenement = null;
+  }
+
+  findWithFilter() {
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+
+    this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+      this.entreprise = resp;
+      this.searchCriteria.idEntreprise = this.entreprise.id;
+      this.http.post(this.appConfigService.backend + 'evenement/search', this.searchCriteria).subscribe(resp => this.evenements = resp);
+
+    });
+
+  }
+
+  listGroupes(){
+    this.route.params.subscribe(params => this.utilisateurHttpService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
+      this.groupes = resp;
+    }));
   }
 
 }

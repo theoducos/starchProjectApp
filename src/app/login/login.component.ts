@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('isLoggedin', 'true');
               localStorage.setItem('identifiant', this.model.userid);
               localStorage.setItem('id', this.utilisateur.id);
-              this.router.navigate(['/utilisateur/', this.utilisateur.id]);
+              this.router.navigate(['/utilisateur']);
             } else {
               this.router.navigate(['/login']);
               this.erreur = true;

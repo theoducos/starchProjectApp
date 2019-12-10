@@ -3,6 +3,7 @@ import {AppConfigService} from '../app-config.service';
 import {Observable} from 'rxjs';
 import {Evenement} from '../model/evenement';
 import {HttpClient} from '@angular/common/http';
+import {SearchCriteria} from '../model/searchCriteria';
 
 
 @Injectable({
@@ -57,5 +58,6 @@ export class EvenementHttpService {
   findAllPartcipationbyEvenement(id : number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'evenement/' + id + '/participation');
   }
+
 
 }

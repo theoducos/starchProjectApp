@@ -10,8 +10,6 @@
       <button class="participe" (click)="saveParticipation()">Participe <i class="fa fa-check"></i></button>
       <button class=" interet" (click)="saveInteret()">Intéressé(e) <i class="fa fa-star"></i></button>
     </div>
-        <a class="btn btn-success"   (click)="saveParticipation()" >Participe<i class="fas fa-check"></i></a>
-        <a class="btn btn-primary" (click)="saveInteret()">Interesse<i class="fas fa-info"></i></a>
   </div>
   <hr>
   <div>
@@ -26,17 +24,17 @@
   </div>
   <div *ngIf="participantBool">
     <div *ngFor="let utilisateur of utilisateursParticipants">
-      <p>{{utilisateur.nom}}</p>
       <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
-        <p>{{groupes.nom}}</p>
+        <p><b>{{utilisateur.prenom}} {{utilisateur.nom}},   <i
+          class="fa fa-users"></i>  {{groupes.nom}}</b> </p>
       </div>
     </div>
   </div>
   <div *ngIf="interessesBool">
     <div *ngFor="let util of utilisateursInteresses">
-      <p>{{util.nom}}</p>
       <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
-        <p>{{groupes.nom}}</p>
+        <p><b>{{util.nom}} {{utilisateur.prenom}},   <i
+          class="fa fa-users "></i>  {{groupes.nom}}</b></p>
       </div>
     </div>
   </div>
@@ -52,8 +50,8 @@
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-  <p *ngIf="evenement.statutOF == true"> Inscription Ouverte!</p>
-  <p *ngIf="evenement.statutOF == false">Inscription Indisponible!</p>
+  <div style="color: #42A948; font-weight: bold" ><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p></div>
+  <ng-template #elseBlock><div style="color:#DC3B3B ; font-weight: bold">Else template</div></ng-template>
   <hr>
   <div>
     <p style="font-weight: bold;font-size: x-large"> Description :</p>
@@ -70,18 +68,12 @@
   <hr>
   <div>
     <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
-    <div>
-      <div *ngIf= "evenement.statutOf ; else elseBlock ">
-        <p> evenement ouvert aux participants </p>​
-      </div>
-      <ng-template #elseBlock> Content to render when condition is false.</ng-template>
     <hr>
     <div>
-      Description :
-      <div><br>
-        description de l'evenement
+      <div class="form-group">
+        <textarea class="form-control" id="comment" rows="5" cols="5"></textarea>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
