@@ -25,7 +25,7 @@
 <div>
   <p>Les filtres wouhou</p>
   <select [(ngModel)]="searchCriteria.nomEvenement">
-    <option value="" selected>Nom d'événement</option>
+    <option value="null" selected>Nom d'événement</option>
     <option value="Foot_en_salle">Tournoi Foot en salle</option>
     <option value="Escape_game">Escape Game</option>
     <option value="Bowling">Bowling</option>
@@ -49,10 +49,11 @@
     <option value="Corporate">Corporate</option>
   </select>
   <br>
-  <!--  <select [(ngModel)]="groupes">-->
-  <!--    <option [value]="null" selected>Groupe</option>-->
-  <!--    <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>-->
-  <!--  </select>-->
+    <select [(ngModel)]="searchCriteria.idGroupe">
+      <option [value]="null" selected>Groupe</option>
+      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+    </select>
 </div>
 
 <button (click)="findWithFilter()">Apply filter</button>
+<button (click)="resetFilter()">Reset filter</button>

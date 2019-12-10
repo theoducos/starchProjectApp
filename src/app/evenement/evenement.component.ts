@@ -25,7 +25,10 @@ export class EvenementComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
+  groupe: Groupe = new Groupe();
+
   searchCriteria: SearchCriteria = new SearchCriteria();
+
 
   groupes: Array<Groupe>;
 
@@ -34,7 +37,10 @@ export class EvenementComponent implements OnInit {
 
   constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService) {
 
+
     this.findWithFilter();
+
+    this.listGroupes();
 
   }
 
@@ -77,10 +83,16 @@ export class EvenementComponent implements OnInit {
 
   }
 
+  resetFilter(){
+    this.searchCriteria = new SearchCriteria();
+
+    this.findWithFilter();
+  }
+
   listGroupes(){
-    this.route.params.subscribe(params => this.utilisateurHttpService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
+   this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.groupes = resp;
-    }));
+    });
   }
 
 }

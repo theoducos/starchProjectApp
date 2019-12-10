@@ -11,6 +11,7 @@ import {EventInput} from '@fullcalendar/core';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {SearchCriteria} from '../model/searchCriteria';
+import {Groupe} from '../model/groupe';
 
 @Component({
   selector: 'app-calendar',
@@ -26,6 +27,8 @@ export class CalendarComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
+  groupes: Array<Groupe>;
+
   searchCriteria: SearchCriteria = new SearchCriteria();
 
   calendarEvents = [
@@ -36,6 +39,7 @@ export class CalendarComponent implements OnInit {
 
 
     this.findWithFilter();
+    this.listGroupes();
 
   }
 
@@ -62,6 +66,18 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  resetFilter(){
+    this.searchCriteria = new SearchCriteria();
+
+    this.findWithFilter();
+  }
+
+  listGroupes(){
+    this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+      this.groupes = resp;
+    });
   }
 
 }
