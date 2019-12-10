@@ -71,10 +71,14 @@
   <hr>
   <div>
     <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
+    <textarea [(ngModel)]="commentaire.commentaire"></textarea>
+    <button class="fa fa-share" (click)="saveCommentaire()"></button>
     <hr>
-    <div>
-      <div class="form-group">
-        <textarea class="form-control" id="comment" rows="5" cols="5"></textarea>
+    <button (click)="listCommentaires()"><i class="fa fa-comments"></i>Commentaires</button>
+    <div *ngIf="commentaireBool==true">
+      <div *ngFor="let com of commentaires">
+        <p>{{com.utilisateur?.identifiant}}</p>
+        <p>{{com.commentaire}}</p>
       </div>
     </div>
 

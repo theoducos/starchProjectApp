@@ -70,10 +70,6 @@ export class CalendarComponent implements OnInit {
       });
     });
   }
-  disconnect() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 
   ngOnInit() {
   }

@@ -32,7 +32,7 @@ export class EvenementDetailComponent implements OnInit {
 
   utilisateur: Utilisateur = new Utilisateur();
 
-  commentaires: any;
+  commentaires: Array<Commentaire>;
 
   commentaireBool: boolean;
 
