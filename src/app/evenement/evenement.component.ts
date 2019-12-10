@@ -66,17 +66,14 @@ export class EvenementComponent implements OnInit {
   }
 
   findWithFilter() {
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
-    this.route.params.subscribe(params => this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
+    this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.entreprise = resp;
       this.searchCriteria.idEntreprise = this.entreprise.id;
-      this.utilisateurHttpService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
-        this.groupes = resp;
-      })
       this.http.post(this.appConfigService.backend + 'evenement/search', this.searchCriteria).subscribe(resp => this.evenements = resp);
 
-    }));
+    });
 
   }
 

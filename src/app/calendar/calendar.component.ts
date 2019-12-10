@@ -31,9 +31,6 @@ export class CalendarComponent implements OnInit {
   constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router) {
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
-
-    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
-      this.utilisateur = resp;
       this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
         this.entreprise = resp;
         this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
@@ -48,7 +45,6 @@ export class CalendarComponent implements OnInit {
           ;
         });
       });
-    });
 
 
   }
