@@ -1,27 +1,51 @@
 .form-style-9 {
-  max-width: 1000px;
+  width: 1000px;
   background: #FAFAFA;
   padding: 30px;
-  margin: 15px auto;
+  margin: 10px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 6px solid #DC3B3B;
-
+  border: 5px solid #DC3B3B;
+  height: auto;
 }
 
 .form-style-8 {
-  max-width: 450px;
+  max-width: 600px;
   background: #FAFAFA;
   padding: 30px;
-  margin-top: 150px;
+  margin-top: 10px;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 6px solid #FF9D03;
-
+  border: 6px solid #DC3B3B;
+  text-align: center;
+  height: 850px;
+  margin-left: 10px;
 }
 
 .avatar {
-  width: 100%;
-  height: 300px;
-  border: 1px solid black;
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #DC3B3B;
+  border-radius: 50%;
 }
+
+.select {
+
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+
+button {
+  border-color: #DC3B3B;
+  outline: 0;
+  color: white;
+  background-color: #DC3B3B;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+

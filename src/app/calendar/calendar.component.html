@@ -1,16 +1,51 @@
 <div class="row">
   <div class="col-lg-2">
     <div class="form-style-8">
-      <div class="card" style="text-align: center">
+      <div style="text-align: center">
         <img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
              alt="Avatar" class="avatar"/>
         <h1>{{utilisateur.identifiant}}</h1>
         <p class="title">{{utilisateur.nom}}</p>
         <p class="title">{{utilisateur.prenom}}</p>
       </div>
+      <br>
+      <h3><i class="fa fa-list-alt"></i> Filtres</h3>
+      <label for="nomEvenement">Nom d'évenement</label> <br> <select id="nomEvenement" class="select"
+                                                                     [(ngModel)]="searchCriteria.nomEvenement">
+      <option value="Foot_en_salle">Tournoi Foot en salle</option>
+      <option value="Escape_game">Escape Game</option>
+      <option value="Bowling">Bowling</option>
+      <option value="Laser_game">Laser Game</option>
+      <option value="Musee">Visite privée au Musée</option>
+      <option value="Football">Tournoi Football</option>
+      <option value="Basketball">Tournoi Basketball</option>
+      <option value="Handball">Tournoi Handball</option>
+      <option value="Volleyball">Tournoi Volleyball</option>
+      <option value="Spectacle">Spectacle</option>
+      <option value="Jeu_de_piste">Jeu de piste</option>
+      <option value="Olympiades">Olympiades</option>
+      <option value="Virtual_escape_game">Virtual Escape Game</option>
+    </select><br>
+      <label for="Type d'évenement">Type d'évenement</label><br>
+      <select id="Type d'évenement" class="select" [(ngModel)]="searchCriteria.typeEvenement">
+        <option value="Bar_restaurant">Bar/Restaurant</option>
+        <option value="Culturel">Culturel</option>
+        <option value="Sportif">Sportif</option>
+        <option value="Corporate">Corporate</option>
+      </select><br>
+      <label for="groupe">Groupes</label><br>
+      <select id="groupe" class="select" [(ngModel)]="searchCriteria.idGroupe">
+        <option [value]="null" selected>Groupe</option>
+        <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+      </select>
+      <div>
+        <button (click)="findWithFilter()">Apply filter</button>
+        <button (click)="resetFilter()">Reset filter</button>
+      </div>
+
     </div>
   </div>
-  <div class="col-9">
+  <div class="col-10">
     <div align="right">
       <div class="form-style-9">
         <div class="card" style="text-align: center">
@@ -20,3 +55,5 @@
     </div>
   </div>
 </div>
+
+

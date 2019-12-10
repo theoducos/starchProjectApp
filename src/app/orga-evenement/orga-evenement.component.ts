@@ -9,6 +9,7 @@ import {AuthService} from '../login/auth.service';
 import {Router} from '@angular/router';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {FormValidatorService} from '../form-validator.service';
+import {Utilisateur} from '../model/utilisateur';
 
 @Component({
   selector: 'orga-evenement',
@@ -17,19 +18,27 @@ import {FormValidatorService} from '../form-validator.service';
 })
 export class OrgaEvenementComponent implements OnInit {
 
-
+  utilisateur: Utilisateur = new Utilisateur();
   evenement: Evenement = new Evenement();
 
   lieuxEvenements: any;
 
   lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
-  groupes: any;
+  groupes: Array<Groupe>;
 
   groupeNull: Groupe = new Groupe();
 
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService,
-              private groupeService: GroupeHttpService, private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) {
+              private groupeService: GroupeHttpService, private authService: AuthService, private router: Router, formValidatorService: FormValidatorService,
+              private utilisateurHttpService: UtilisateurHttpService) {
+
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.evenement.lieuxEvenement = this.lieuxEvenement;
+    this.evenement.groupe = this.groupeNull;
+    this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
+    this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
+
   }
 
   save() {
@@ -37,10 +46,7 @@ export class OrgaEvenementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.evenement.lieuxEvenement = this.lieuxEvenement;
-    this.evenement.groupe = this.groupeNull;
-    this.groupeService.findAll().subscribe(resp => this.groupes = resp);
-    this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
+
   }
 
   session() {

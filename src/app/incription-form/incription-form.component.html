@@ -20,9 +20,9 @@
           <div *ngIf="mdp.errors.required" class="error">
             Password obligatoire
           </div>
-        </div>
-        <div *ngIf="mdp.errors.minlength" class="error">
-          Au moins 4 caractères
+          <div *ngIf="mdp.errors.minlength" class="error">
+            Au moins 4 caractères
+          </div>
         </div>
         <input type="password" name="confirmation" class="field-style field-full align-none" required
                [(ngModel)]="utilisateur.confirmation" #confirmation="ngModel"
@@ -59,7 +59,7 @@
           <div *ngIf="email.errors.required" class="error">
             Courriel obligatoire
           </div>
-          </div>
+        </div>
 
         <input type="text" class="field-style field-split align-right" id="telephone" name="telephone"
                [(ngModel)]="utilisateur.telephone" placeholder="Téléphone">
@@ -82,7 +82,7 @@
       <i class="fa fa-check" (click)="save()" [routerLink]="['/utilisateur/']"></i>
     </a>
     <a class="btn" style="background: #DC3B3B;color: white">
-      <i class="fa fa-undo"></i>
+      <i class="fa fa-undo" [routerLink]="['../login']"></i>
     </a>
   </div>
 </div>

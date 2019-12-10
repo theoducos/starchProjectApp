@@ -21,43 +21,41 @@
 
   </div>
 
-<div>
-  <p>Les filtres wouhou</p>
-  <select [(ngModel)]="searchCriteria.nomEvenement">
-    <option value="" selected>Nom d'événement</option>
-    <option value="Foot_en_salle">Tournoi Foot en salle</option>
-    <option value="Escape_game">Escape Game</option>
-    <option value="Bowling">Bowling</option>
-    <option value="Laser_game">Laser Game</option>
-    <option value="Musee">Visite privée au Musée</option>
-    <option value="Football">Tournoi Football</option>
-    <option value="Basketball">Tournoi Basketball</option>
-    <option value="Handball">Tournoi Handball</option>
-    <option value="Volleyball">Tournoi Volleyball</option>
-    <option value="Spectacle">Spectacle</option>
-    <option value="Jeu_de_piste">Jeu de piste</option>
-    <option value="Olympiades">Olympiades</option>
-    <option value="Virtual_escape_game">Virtual Escape Game</option>
-  </select>
-  <br>
-  <select [(ngModel)]="searchCriteria.typeEvenement">
-    <option value="null" selected>Type d'événement</option>
-    <option value="Bar_restaurant">Bar/Restaurant</option>
-    <option value="Culturel">Culturel</option>
-    <option value="Sportif">Sportif</option>
-    <option value="Corporate">Corporate</option>
-  </select>
-  <br>
-<!--  <select [(ngModel)]="groupes">-->
-<!--    <option [value]="null" selected>Groupe</option>-->
-<!--    <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>-->
-<!--  </select>-->
-</div>
+  <div>
+    <p>Les filtres wouhou</p>
+    <select [(ngModel)]="searchCriteria.nomEvenement">
+      <option value="null" selected>Nom d'événement</option>
+      <option value="Foot_en_salle">Tournoi Foot en salle</option>
+      <option value="Escape_game">Escape Game</option>
+      <option value="Bowling">Bowling</option>
+      <option value="Laser_game">Laser Game</option>
+      <option value="Musee">Visite privée au Musée</option>
+      <option value="Football">Tournoi Football</option>
+      <option value="Basketball">Tournoi Basketball</option>
+      <option value="Handball">Tournoi Handball</option>
+      <option value="Volleyball">Tournoi Volleyball</option>
+      <option value="Spectacle">Spectacle</option>
+      <option value="Jeu_de_piste">Jeu de piste</option>
+      <option value="Olympiades">Olympiades</option>
+      <option value="Virtual_escape_game">Virtual Escape Game</option>
+    </select>
+    <br>
+    <select [(ngModel)]="searchCriteria.typeEvenement">
+      <option value="null" selected>Type d'événement</option>
+      <option value="Bar_restaurant">Bar/Restaurant</option>
+      <option value="Culturel">Culturel</option>
+      <option value="Sportif">Sportif</option>
+      <option value="Corporate">Corporate</option>
+    </select>
+    <br>
+    <select [(ngModel)]="searchCriteria.idGroupe">
+      <option [value]="null" selected>Groupe</option>
+      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+    </select>
+  </div>
 
   <button (click)="findWithFilter()">Apply filter</button>
-
-
-
+  <button (click)="resetFilter()">Reset filter</button>
 
 
 </div>

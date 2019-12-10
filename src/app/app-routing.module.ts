@@ -20,6 +20,7 @@ import {CalendarComponent} from './calendar/calendar.component';
 
 
 const routes: Routes = [
+  {path:'',component:LoginComponent},
   {path: 'inscription', component: IncriptionFormComponent, },
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},

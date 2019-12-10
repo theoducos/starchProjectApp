@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from '../evenement/evenement-http.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CommentaireHttpService} from '../commentaires/commentaire-http.service';
 import {Commentaire} from '../model/commentaire';
 import {Observable} from 'rxjs';
@@ -10,6 +10,7 @@ import {Utilisateur} from '../model/utilisateur';
 import {Participation} from '../model/participation';
 import {ParticipationHttpService} from '../participation/participation-http.service';
 import {LieuxEvenement} from "../model/lieuxEvenement";
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'evenement-detail',
@@ -29,7 +30,7 @@ export class EvenementDetailComponent implements OnInit {
 
   utilisateursParticipants: any;
 
-  utilisateur: Utilisateur;
+  utilisateur: Utilisateur = new Utilisateur();
 
   commentaires: any;
 
@@ -63,7 +64,7 @@ export class EvenementDetailComponent implements OnInit {
   }
 
 
-  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService: UtilisateurHttpService, private participantService: ParticipationHttpService) {
+  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService: UtilisateurHttpService, private participantService: ParticipationHttpService, private router: Router, private authService: AuthService) {
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
     this.route.params.subscribe(params => {
@@ -116,6 +117,11 @@ export class EvenementDetailComponent implements OnInit {
         })
       })
     })
+  }
+
+  disconnect() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {
@@ -204,7 +210,7 @@ export class EvenementDetailComponent implements OnInit {
       }
 
     }
-}
+  }
 
   saveInteret(iduser = this.utilisateur.id) {
     if (this.participationparutilisateur.type == "Interesse") {

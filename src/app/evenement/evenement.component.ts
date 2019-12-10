@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from './evenement-http.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {Groupe} from '../model/groupe';
 import {Entreprise} from '../model/entreprise';
@@ -12,6 +12,7 @@ import {log} from 'util';
 import {SearchCriteria} from '../model/searchCriteria';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'evenement',
@@ -25,20 +26,29 @@ export class EvenementComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
+  groupe: Groupe = new Groupe();
+
   searchCriteria: SearchCriteria = new SearchCriteria();
+
 
   groupes: Array<Groupe>;
 
   nomEvenement: NomEvenement;
   typeEvenement: TypeEvenement;
 
-  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService) {
+  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService, private router: Router, private authService: AuthService) {
+
 
     this.findWithFilter();
 
+    this.listGroupes();
+
   }
 
-
+  disconnect() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit() {
 
@@ -66,24 +76,27 @@ export class EvenementComponent implements OnInit {
   }
 
   findWithFilter() {
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
-    this.route.params.subscribe(params => this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
+    this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.entreprise = resp;
       this.searchCriteria.idEntreprise = this.entreprise.id;
-      this.utilisateurHttpService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
-        this.groupes = resp;
-      })
       this.http.post(this.appConfigService.backend + 'evenement/search', this.searchCriteria).subscribe(resp => this.evenements = resp);
 
-    }));
+    });
 
   }
 
-  listGroupes(){
-    this.route.params.subscribe(params => this.utilisateurHttpService.findGroupeByUtilisateurId(params.id).subscribe(resp => {
+  resetFilter() {
+    this.searchCriteria = new SearchCriteria();
+
+    this.findWithFilter();
+  }
+
+  listGroupes() {
+    this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.groupes = resp;
-    }));
+    });
   }
 
 }

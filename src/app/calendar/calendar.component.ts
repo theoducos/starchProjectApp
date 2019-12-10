@@ -8,6 +8,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {EventInput} from '@fullcalendar/core';
+import {HttpClient} from '@angular/common/http';
+import {AppConfigService} from '../app-config.service';
+import {SearchCriteria} from '../model/searchCriteria';
+import {Groupe} from '../model/groupe';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'app-calendar',
@@ -22,38 +27,67 @@ export class CalendarComponent implements OnInit {
   entreprise: Entreprise = new Entreprise();
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
+  img: any;
 
+  groupes: Array<Groupe>;
+
+  searchCriteria: SearchCriteria = new SearchCriteria();
 
   calendarEvents = [
     {title: '', start: '', url: ''}
   ];
 
-  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router) {
-    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router, private http: HttpClient, private appConfigService: AppConfigService, private authService: AuthService) {
 
 
+    this.findWithFilter();
+    this.listGroupes();
     this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
-      this.utilisateur = resp;
-      this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
-        this.entreprise = resp;
-        this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
-          this.evenements = resp;
-          for (let calEvent of this.evenements) {
-            this.calendarEvents = this.calendarEvents.concat({
-              title: calEvent.titre,
-              start: calEvent.date,
-              url: 'http://localhost:4200/evenement/' + calEvent.id
-            })
-          }
-          ;
-        });
-      });
+      this.utilisateur = resp
     });
-
 
   }
 
+  findWithFilter() {
+    this.calendarEvents = [];
+
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+
+    this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+      this.entreprise = resp;
+      this.searchCriteria.idEntreprise = this.entreprise.id;
+      this.http.post(this.appConfigService.backend + 'evenement/search', this.searchCriteria).subscribe(resp => {
+        this.evenements = resp;
+
+        for (let calEvent of this.evenements) {
+          this.calendarEvents = this.calendarEvents.concat({
+            title: calEvent.titre,
+            start: calEvent.date,
+            url: 'http://localhost:4200/evenement/' + calEvent.id
+          });
+        }
+        ;
+      });
+    });
+  }
+  disconnect() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+
   ngOnInit() {
+  }
+
+  resetFilter() {
+    this.searchCriteria = new SearchCriteria();
+
+    this.findWithFilter();
+  }
+
+  listGroupes() {
+    this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+      this.groupes = resp;
+    });
   }
 
 }

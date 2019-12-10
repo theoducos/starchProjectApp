@@ -25,15 +25,15 @@
   <div *ngIf="participantBool">
     <div *ngFor="let utilisateur of utilisateursParticipants">
       <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
-        <p><b>{{utilisateur.prenom}} {{utilisateur.nom}},   <i
-          class="fa fa-users"></i>  {{groupes.nom}}</b> </p>
+        <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}, <i
+          class="fa fa-users"></i>  {{groupes.nom}}</b></p>
       </div>
     </div>
   </div>
   <div *ngIf="interessesBool">
     <div *ngFor="let util of utilisateursInteresses">
       <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
-        <p><b>{{util.nom}} {{utilisateur.prenom}},   <i
+        <p><b>{{util.prenom}} {{util.nom}}, <i
           class="fa fa-users "></i>  {{groupes.nom}}</b></p>
       </div>
     </div>
@@ -50,8 +50,11 @@
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-  <div style="color: #42A948; font-weight: bold" ><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p></div>
-  <ng-template #elseBlock><div style="color:#DC3B3B ; font-weight: bold">Else template</div></ng-template>
+  <div style="color: #42A948; font-weight: bold"><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p>
+  </div>
+  <ng-template #elseBlock>
+    <div style="color:#DC3B3B ; font-weight: bold">Else template</div>
+  </ng-template>
   <hr>
   <div>
     <p style="font-weight: bold;font-size: x-large"> Description :</p>
