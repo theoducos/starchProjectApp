@@ -13,14 +13,14 @@ export class Evenement {
   recurrence: Recurrence;
   typeEvenement: TypeEvenement;
   nomEvenement: NomEvenement;
-  statutOF: boolean;
+  statutOf: boolean;
   lieuxEvenement: LieuxEvenement;
   groupe: Groupe;
   commentaires: Array<Commentaire>;
   description: string;
 
 
-  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOF?: boolean, lieuxEvenement?: LieuxEvenement, description?: string) {
+  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOf?: boolean, lieuxEvenement?: LieuxEvenement, description?: string) {
     this.id = id;
     this.version = version;
     this.titre = titre;
@@ -31,7 +31,7 @@ export class Evenement {
     this.recurrence = recurrence;
     this.typeEvenement = typeEvenement;
     this.nomEvenement = nomEvenement;
-    this.statutOF = statutOF;
+    this.statutOf = statutOf;
     this.lieuxEvenement = lieuxEvenement;
     this.description = description;
   }

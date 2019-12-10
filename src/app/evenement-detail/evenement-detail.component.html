@@ -2,81 +2,78 @@
   <h2 style="font-weight: bold;text-align: center">{{evenement.titre}}</h2>
   <br>
   <div>
-    <p style="font-weight: bold">Date de l'événement:</p> {{evenement.date}}
+    <p style="font-weight: bold;font-size: x-large">Date de l'événement:</p> {{evenement.date}}
   </div>
   <hr>
-  <div>
+  <div align="center">
     <div class="btn-group btn-group-sm">
       <button class="participe" (click)="saveParticipation()">Participe <i class="fa fa-check"></i></button>
-      <button class=" interet" (click)="saveInteret()">Interesse <i class="fa fa-star"></i></button>
+      <button class=" interet" (click)="saveInteret()">Intéressé(e) <i class="fa fa-star"></i></button>
     </div>
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold">Lieu de l'événement:</p> {{evenement.lieuxEvenement?.nomLieu}} <i
-    class="fa fa-map-marker fa-2x"></i>
+    <p style="font-weight: bold;font-size: x-large">Lieu de l'événement:</p> <i
+    class="fa fa-map-marker fa-2x"></i> {{evenement.lieuxEvenement?.nomLieu}}
   </div>
   <hr>
-  <div>
-    <a class="btn participant" (click)="listParticipant()">Participant(e)s<i class="fa fa-users fa-2x"></i></a>
-    <a class="btn participant" (click)="listInteresse()">Interessé(e)s<i class="fa fa-star-o fa-2x"></i></a></div>
+  <div align="center">
+    <a class="btn participant" (click)="listParticipant()">Participant(e)s<i
+      class="fa fa-users fa-2x"></i></a>
+    <a class="btn participant" (click)="listInteresse()">Intéressé(e)s<i class="fa fa-star-o fa-2x"></i></a>
+  </div>
   <div *ngIf="participantBool">
     <div *ngFor="let utilisateur of utilisateursParticipants">
-      <p>{{utilisateur.nom}}</p>
       <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
-        <p>{{groupes.nom}}</p>
+        <p><b>{{utilisateur.prenom}} {{utilisateur.nom}},   <i
+          class="fa fa-users"></i>  {{groupes.nom}}</b> </p>
       </div>
     </div>
   </div>
   <div *ngIf="interessesBool">
     <div *ngFor="let util of utilisateursInteresses">
-      <p>{{util.nom}}</p>
       <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
-        <p>{{groupes.nom}}</p>
+        <p><b>{{util.nom}} {{utilisateur.prenom}},   <i
+          class="fa fa-users "></i>  {{groupes.nom}}</b></p>
       </div>
     </div>
   </div>
   <hr>
-  <div><p style="font-weight: bold">Prix:</p>
+  <div><p style="font-weight: bold;font-size: x-large">Prix:</p>
     {{evenement.prix}} <i class="fa fa-euro"></i>
   </div>
   <hr>
-  <div style="font-weight: bold">Nombre de places disponibles:
+  <div style="font-weight: bold;font-size: x-large">Nombre de places disponibles:
   </div>
   <br>
   <div>
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-  <p *ngIf="evenement.statutOF == true"> Inscription Ouverte!</p>
-  <p *ngIf="evenement.statutOF == false">Inscription Indisponible!</p>
+  <div style="color: #42A948; font-weight: bold" ><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p></div>
+  <ng-template #elseBlock><div style="color:#DC3B3B ; font-weight: bold">Else template</div></ng-template>
   <hr>
   <div>
-    <p style="font-weight: bold"> Description :</p>
+    <p style="font-weight: bold;font-size: x-large"> Description :</p>
     <div>
       {{evenement.description}}
     </div>
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold"><i class="fa fa-hourglass-1 fa-1x"></i> Date limite de l'inscription : </p>
+    <p style="font-weight: bold;font-size: x-large"><i class="fa fa-hourglass-1 fa-1x"></i> Date limite de l'inscription
+      : </p>
     {{evenement.deadline}}
   </div>
   <hr>
   <div>
-    <p style="font-weight: bold">Ajouter un commentaire : </p>
+    <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
+    <hr>
     <div>
-      <textarea name="commentaire" [(ngModel)]="commentaire.commentaire"></textarea>
-      <p><a class="fa fa-share-square fa-3x" (click)="saveCommentaire()"></a></p>
+      <div class="form-group">
+        <textarea class="form-control" id="comment" rows="5" cols="5"></textarea>
+      </div>
     </div>
-  </div>
-  <hr>
-  <i class="btn" style="border:1px solid black;border-radius: 8px;font-weight: bold" (click)="listCommentaires()"> <i
-    class="fa fa-comments"> Commentaires</i></i>
-  <div *ngIf="commentaire">
-    <div *ngFor="let comm of commentaires">
-      <p>{{comm.commentaire}}</p>
-    </div>
-  </div>
 
+  </div>
 </div>

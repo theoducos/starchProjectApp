@@ -1,2 +1,22 @@
-
-<full-calendar [plugins]="calendarPlugins" locale="fr" [events]="calendarEvents" [themeSystem]="['bootstrap']"></full-calendar>
+<div class="row">
+  <div class="col-lg-2">
+    <div class="form-style-8">
+      <div class="card" style="text-align: center">
+        <img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
+             alt="Avatar" class="avatar"/>
+        <h1>{{utilisateur.identifiant}}</h1>
+        <p class="title">{{utilisateur.nom}}</p>
+        <p class="title">{{utilisateur.prenom}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div align="right">
+      <div class="form-style-9">
+        <div class="card" style="text-align: center">
+          <full-calendar [plugins]="calendarPlugins" locale="fr" [events]="calendarEvents"></full-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

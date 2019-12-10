@@ -6,7 +6,7 @@
   <p class="title">{{utilisateur.nom}}</p>
   <p class="title">{{utilisateur.prenom}}</p>
   <p>
-    <button type="button" [routerLink]="['/modificationUtilisateur/'+ utilisateur.id]">Voir/Modifier des informations
+    <button type="button" [routerLink]="['/modificationUtilisateur']">Voir/Modifier des informations
     </button>
   </p>
 </div>
@@ -29,7 +29,7 @@
   <div style="border: 1px solid black; background: white">
     <h2 style="font-weight: bold">EVENEMENTS</h2>
     <div *ngFor="let evenement of evenements">
-      <p>{{evenement.titre}}
+      <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>
       </p>
     </div>
   </div>
@@ -44,8 +44,8 @@
       <button type="button">Supprimer une activité favorite</button>
     </div>
     <div>
-    <button type="button">Ajouter une activité favorite</button>
-  </div>
+      <button type="button">Ajouter une activité favorite</button>
+    </div>
     <div>
       <select [(ngModel)]="utilisateur.favoris">
         <option value="" selected>Selectionnez un évènement</option>
@@ -62,7 +62,6 @@
         <option value="Jeu_de_piste">Jeu de piste</option>
         <option value="Olympiades">Olympiades</option>
         <option value="Virtual_Escape_Game">Virtual Escape Game</option>
-        <option value="">Virtual Escape Game</option>
       </select>
     </div>
 
@@ -74,7 +73,7 @@
       <button type="button">Supprimer un lieu favoris</button>
     </div>
     <div>
-      <button type="button">Ajouter un Lieu favoris</button>
+      <button type="button" (click)="save()">Ajouter un Lieu favoris</button>
     </div>
     <div>
       <select [(ngModel)]="utilisateur.favoris">

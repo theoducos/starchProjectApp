@@ -29,11 +29,11 @@ export class ParticipationHttpService {
     return this.http.get(this.appConfigService.backend + 'participation');
   }
 
-  save(participation: Participation) {
+  save(participation: Participation): Observable<any> {
     if (participation.id != null) {
-      this.http.put(this.appConfigService.backend + 'participation/' + participation.id, participation).subscribe(resp => this.load());
+      return this.http.put(this.appConfigService.backend + 'participation/' + participation.id, participation);
     } else {
-      this.http.post(this.appConfigService.backend + '/participation', participation).subscribe(resp => this.load());
+      return this.http.post(this.appConfigService.backend + '/participation', participation);
     }
     // console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }

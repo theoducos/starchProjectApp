@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {Entreprise} from '../model/entreprise';
 import {Evenement} from '../model/evenement';
@@ -23,31 +23,32 @@ export class CalendarComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
+
   calendarEvents = [
-    { title: '', start: '', url: '' }
+    {title: '', start: '', url: ''}
   ];
 
   constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router) {
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
-    this.route.params.subscribe(params => {
-      this.utilisateurHttpService.findById(params.id).subscribe(resp => {
-        this.utilisateur = resp;
-        this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
-          this.entreprise = resp;
-          this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
-            this.evenements = resp;
-            for(let calEvent of this.evenements){
-              this.calendarEvents = this.calendarEvents.concat({
-                title: calEvent.titre,
-                start: calEvent.date,
-                url: 'http://localhost:4200/evenement/' + calEvent.id
-              })
-            };
-          });
+
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp;
+      this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+        this.entreprise = resp;
+        this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
+          this.evenements = resp;
+          for (let calEvent of this.evenements) {
+            this.calendarEvents = this.calendarEvents.concat({
+              title: calEvent.titre,
+              start: calEvent.date,
+              url: 'http://localhost:4200/evenement/' + calEvent.id
+            })
+          }
+          ;
         });
       });
-    })
+    });
 
 
   }
