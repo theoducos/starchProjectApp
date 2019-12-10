@@ -8,8 +8,8 @@
   border: 6px solid #DC3B3B;
 }
 
-hr{
-  border:1px solid grey;
+hr {
+  border: 1px solid grey;
 }
 
 .error {
@@ -17,7 +17,7 @@ hr{
 
 }
 
-.participe{
+.participe {
 
   border: 1px solid grey;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
@@ -27,7 +27,7 @@ hr{
   color: white;
 }
 
-.interet{
+.interet {
 
   border: 1px solid grey;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
@@ -39,10 +39,15 @@ hr{
 }
 
 .participant {
-  border-right:1px solid black;
-  border-left:1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 
-.btn{
-  border-radius:1px;
+.btn {
+  border-radius: 1px;
+}
+
+.avatar {
+  width: 7%;
+  border-radius: 50%;
 }

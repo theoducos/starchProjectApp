@@ -29,7 +29,8 @@ export class OrgaEvenementComponent implements OnInit {
   groupeNull: Groupe = new Groupe();
 
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService,
-              private groupeService: GroupeHttpService,private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) { }
+              private groupeService: GroupeHttpService, private authService: AuthService, private router: Router, formValidatorService: FormValidatorService) {
+  }
 
   save() {
     this.evenementService.save(this.evenement);

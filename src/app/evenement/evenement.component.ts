@@ -23,22 +23,22 @@ export class EvenementComponent implements OnInit {
   utilisateur: Utilisateur = new Utilisateur();
 
   constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService) {
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
-    this.route.params.subscribe(params => {
-      this.utilisateurHttpService.findById(params.id).subscribe(resp => {
-        this.utilisateur = resp;
-        this.utilisateurHttpService.findEntrepriseByUtilisateurId(params.id).subscribe(resp => {
-          this.entreprise = resp;
-          this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
-            this.evenements = resp;
-          });
+
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp;
+      this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+        this.entreprise = resp;
+        this.entrepriseHttpService.findEvenementsByEntreprises(this.entreprise.id).subscribe(resp => {
+          this.evenements = resp;
         });
       });
-    })
+    });
 
 
   }
+
 
 
   ngOnInit() {

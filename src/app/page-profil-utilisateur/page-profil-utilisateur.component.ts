@@ -2,8 +2,6 @@ import {Utilisateur} from "../model/utilisateur";
 import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 import {ActivatedRoute, Router} from '@angular/router';
 import {Component, Input, OnInit} from "@angular/core";
-import {Groupe} from "../model/groupe";
-import {Evenement} from "../model/evenement";
 import {LieuxEvenement} from '../model/lieuxEvenement';
 import {Favoris} from '../model/favoris';
 
@@ -24,23 +22,23 @@ export class PageProfilUtilisateurComponent implements OnInit {
   lieux = Array<LieuxEvenement>();
 
 
-
   constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
 
-    // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
-    this.route.params.subscribe(params=>{
-      this.utilisateurService.findById(params.id).subscribe(resp => {
-          this.utilisateur = resp;
-          this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
-          this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
-          this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
-          this.img = resp;
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+    // this.route.params.subscribe(params=>{
+    this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
+        this.utilisateur = resp;
+        this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
+        this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
+        this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
+        this.img = resp;
 
-        }
-      );
-    });
+      }
+    );
+    // });
 
   }
+
   save() {
     this.utilisateurService.save(this.utilisateur);
     this.router.navigate(['/utilisateur', this.utilisateur.id]);
