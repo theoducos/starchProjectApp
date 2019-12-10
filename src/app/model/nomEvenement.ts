@@ -11,5 +11,5 @@ enum NomEvenement {
   spectacle = 'Spectacle',
   jeuDePiste = 'Jeu_de_piste',
   olympiades = 'Olympiades',
-  virtualEscapeGame = 'Virtual_Escape_Game'
+  virtualEscapeGame = 'Virtual_escape_game'
 }
