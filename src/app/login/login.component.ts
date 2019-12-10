@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           this.utilisateurService.findUtilisateurByIdentifiant(this.model.userid).subscribe(resp => {
             this.utilisateur = resp;
             console.log(this.utilisateur);
-            if (this.utilisateur.mdp == this.model.password) {
+            if (this.utilisateur.mdp == this.model.password && this.utilisateur) {
               localStorage.setItem('isLoggedin', 'true');
               localStorage.setItem('identifiant', this.model.userid);
               localStorage.setItem('id', this.utilisateur.id);

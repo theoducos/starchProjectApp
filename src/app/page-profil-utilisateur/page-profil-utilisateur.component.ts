@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Component, Input, OnInit} from "@angular/core";
 import {LieuxEvenement} from '../model/lieuxEvenement';
 import {Favoris} from '../model/favoris';
+import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http.service';
+import {FavorisHttpService} from '../favoris/favoris-http.service';
 
 @Component({
   selector: 'app-page-profil-utilisateur',
@@ -21,15 +23,20 @@ export class PageProfilUtilisateurComponent implements OnInit {
   types: TypeEvenement;
   lieux = Array<LieuxEvenement>();
 
+  favori: Favoris;
 
-  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
+  lieuxEvenement: LieuxEvenement;
+
+
+  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router, private lieuxEvenementService: LieuxEvenementHttpService, private favorisHttpService: FavorisHttpService) {
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
         this.utilisateur = resp;
         this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
         this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
-        this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
+        // this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
+        this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
         this.img = resp;
 
       }
@@ -37,12 +44,13 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
 
   }
-
-  save() {
-    this.utilisateurService.save(this.utilisateur);
-    this.router.navigate(['/utilisateur', this.utilisateur.id]);
-
-  }
+  //
+  // save() {
+  //   // this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+  //   // this.favori.utilisateur.id = this.utilisateur.id;
+  //   this.favorisHttpService.save(this.favori);
+  //
+  // }
 
   ngOnInit() {
   }
