@@ -29,7 +29,7 @@ export class EvenementDetailComponent implements OnInit {
 
   utilisateursParticipants: any;
 
-  utilisateur: Utilisateur;
+  utilisateur: Utilisateur = new Utilisateur();
 
   commentaires: any;
 

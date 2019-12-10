@@ -1,86 +1,67 @@
-<div class="card" class="card">
-  <div *ngIf="!img"><img [src]="'assets/img/noavatar.jpg'" class="avatar"/></div>
-  <div *ngIf="img"><img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
-                        alt="Avatar" class="avatar"/></div>
-  <h1>{{utilisateur.identifiant}}</h1>
-  <p class="title">{{utilisateur.nom}}</p>
-  <p class="title">{{utilisateur.prenom}}</p>
-  <p>
-    <button type="button" [routerLink]="['/modificationUtilisateur']">Voir/Modifier des informations
-    </button>
-  </p>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="form-style-9">
+      <div *ngIf="!img"><img [src]="'assets/img/noavatar.jpg'" class="avatar"/></div>
+      <div *ngIf="img"><img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
+                            alt="Avatar" class="avatar"/></div>
+      <h1>{{utilisateur.identifiant}}</h1>
+      <h2 class="title">{{utilisateur.nom}}</h2>
+      <h3 class="title">{{utilisateur.prenom}}</h3>
+      <p>
+        <button type="button" [routerLink]="['/modificationUtilisateur']">Voir/Modifier des informations
+        </button>
+      </p>
+    </div>
+  </div>
+  <br>
+
+  <div class="col-8">
+    <div class="form-style-8" style="margin-top: 80px">
+      <br>
+      <h2 style="font-weight: bold; color:black;text-align: center">GROUPES</h2>
+      <div class="form-style-7">
+        <div *ngFor="let groupe of groupes">
+          <p>{{groupe.nom}}
+            <i [routerLink]="['../groupe/'+ groupe.id]" class="fa fa-calendar"></i>
+          </p>
+
+        </div>
+        <br>
+        <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS</h2>
+        <div class="form-style-7">
+          <div *ngFor="let evenement of evenements">
+            <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>
+            </p>
+          </div>
+          <br>
+          <h2 style="font-weight: bold; color:black;text-align: center">FAVORIS</h2>
+          <div class="form-style-6">
+            <div *ngFor="let fav of favoris">
+              <p>{{fav.nomActivite}}
+              </p>
+            </div>
+            <div *ngFor="let fav of favoris">
+              <p>{{fav.nomLieu}}
+              </p>
+            </div>
+            <div>Ajouter un Lieu favoris</div>
+            <i class="fa fa-plus-circle" (click)="save()"></i>
+            <div>
+              <select style="border:2px solid black" [(ngModel)]="utilisateur.favoris">
+                <option value="" selected>Selectionnez un lieu</option>
+                <option *ngFor="let lieu of lieux">{{lieu.nomLieu}}</option>
+              </select>
+            </div>
+            <p>
+              <i class="fa fa-trash"> Supprimer un lieu favoris</i>
+            </p>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<br>
 
-<div class="cardBis">
-  <br>
-  <div style="border: 1px solid black;background: white">
-    <h2 style="font-weight: bold">GROUPES</h2>
 
-    <div *ngFor="let groupe of groupes">
-      <p>{{groupe.nom}}
-        <i class="fa fa-calendar"></i>
-      </p>
-
-    </div>
-  </div>
-  <br>
-  <div style="border: 1px solid black; background: white">
-    <h2 style="font-weight: bold">EVENEMENTS</h2>
-    <div *ngFor="let evenement of evenements">
-      <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>
-      </p>
-    </div>
-  </div>
-  <br>
-  <div style="border: 1px solid black;background: white">
-    <h2 style="font-weight: bold;margin: auto;">FAVORIS</h2>
-    <div *ngFor="let fav of favoris">
-      <p>{{fav.nomActivite}}
-      </p>
-    </div>
-    <div>
-      <button type="button">Supprimer une activité favorite</button>
-    </div>
-    <div>
-      <button type="button">Ajouter une activité favorite</button>
-    </div>
-    <div>
-      <select [(ngModel)]="utilisateur.favoris">
-        <option value="" selected>Selectionnez un évènement</option>
-        <option value="Foot_en_salle">Tournoi Foot en salle</option>
-        <option value="Escape_game">Escape Game</option>
-        <option value="Bowling">Bowling</option>
-        <option value="Laser_game">Laser Game</option>
-        <option value="Musee">Visite privée au Musée</option>
-        <option value="Football">Tournoi Football</option>
-        <option value="Basketball">Tournoi Basketball</option>
-        <option value="Handball">Tournoi Handball</option>
-        <option value="Volleyball">Tournoi Volleyball</option>
-        <option value="Spectacle">Spectacle</option>
-        <option value="Jeu_de_piste">Jeu de piste</option>
-        <option value="Olympiades">Olympiades</option>
-        <option value="Virtual_Escape_Game">Virtual Escape Game</option>
-      </select>
-    </div>
-
-    <div *ngFor="let fav of favoris">
-      <p>{{fav.nomLieu}}
-      </p>
-    </div>
-    <div>
-      <button type="button">Supprimer un lieu favoris</button>
-    </div>
-    <div>
-      <button type="button" (click)="save()">Ajouter un Lieu favoris</button>
-    </div>
-    <div>
-      <select [(ngModel)]="utilisateur.favoris">
-        <option value="" selected>Selectionnez un lieu</option>
-        <option *ngFor="let lieu of lieux">{{lieu.nomLieu}}</option>
-      </select>
-    </div>
-  </div>
-
-</div>

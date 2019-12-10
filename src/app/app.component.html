@@ -11,11 +11,11 @@
     <ul>
       <li><a [routerLink]="['utilisateur']"><i class="fa fa-fw fa-user">
       </i>Profil</a></li>
-      <li><a (click)="disconnect()"><i class="fa fa-power-off"></i> Log
-        Off</a></li>
       <li><a [routerLink]="['calendar']"><i class="fa fa-calendar"></i> Calendar</a></li>
-      <li><a><i class="fa fa-list-ul"></i> Liste</a></li>
+      <li><a [routerLink]="['evenement/list']"><i class="fa fa-list-ul"></i> Liste</a></li>
       <img src="assets/img/logo.PNG" alt="logo" class="logo"/>
+      <li style="float: right"><a href="#" (click)="disconnect()"><i class="fa fa-power-off"></i> Log
+        Off</a></li>
     </ul>
   </div>
 

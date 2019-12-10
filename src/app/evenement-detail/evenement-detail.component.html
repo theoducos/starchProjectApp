@@ -33,7 +33,7 @@
   <div *ngIf="interessesBool">
     <div *ngFor="let util of utilisateursInteresses">
       <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
-        <p><b>{{util.nom}} {{utilisateur.prenom}},   <i
+        <p><b>{{util.prenom}} {{util.nom}},   <i
           class="fa fa-users "></i>  {{groupes.nom}}</b></p>
       </div>
     </div>

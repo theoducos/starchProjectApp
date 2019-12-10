@@ -1,28 +1,35 @@
-<div class="container">
-  <div class="card" class="card">
-    <img [src]="'assets/img/'+groupe.nom+'.jpg'" alt="Avatar" class="avatar"/>
-    <h1>{{groupe.nom}}</h1>
-    <p>
-      <button type="button" class="button">Voir/Modifier des informations</button>
-    </p>
+<div class="row">
+  <div class="col-lg-2">
+    <div class="form-style-9">
+      <img [src]="'assets/img/'+groupe.nom+'.jpg'" alt="Avatar" class="avatar"/>
+      <br>
+      <h2>{{groupe.nom}}</h2>
+      <br>
+      <br>
+      <p>
+        <button type="button" class="button">Voir/Modifier des informations</button>
+      </p>
+    </div>
   </div>
-  <br>
-  <div class="cardBis">
-    <br>
-    <div style="border: 1px solid black;background: white">
-      <h2 style="font-weight: bold">Membres du Groupe</h2>
-      <div *ngFor="let utilisateur of utilisateurs">
-        <p>{{utilisateur.nom}} {{utilisateur.prenom}}</p></div>
-    </div>
-    <br>
-    <div>
-      <button class="buttonBis" style="color: black">Inviter <i class="fa fa-user-plus"></i></button>
-    </div>
-    <br>
+  <div class="col-9">
+    <div class="form-style-8">
+      <br>
+      <div class="form-style-7">
+        <h2 style="font-weight: bold">Membres du Groupe</h2>
+        <div *ngFor="let utilisateur of utilisateurs">
+          <p>{{utilisateur.nom}} {{utilisateur.prenom}}</p></div>
+      </div>
+      <br>
+      <div>
+        <button>Inviter <i class="fa fa-user-plus"></i></button>
+      </div>
+      <br>
 
-    <div>
-      <button type="button" class="buttonBis" style="color: black">Acceder au calendrier du groupe <i class="fa fa-calendar"></i></button>
+      <div>
+        <button class="buttonBis">Acceder au calendrier du groupe <i
+          class="fa fa-calendar"></i></button>
+      </div>
+      <br>
     </div>
-    <br>
   </div>
 </div>
