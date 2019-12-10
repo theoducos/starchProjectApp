@@ -1,6 +1,7 @@
 import {LieuxEvenement} from './lieuxEvenement';
 import {Groupe} from './groupe';
 import {Commentaire} from './commentaire';
+import {EvenementStarch} from './evenementStarch';
 
 export class Evenement {
   id: number;
@@ -18,9 +19,10 @@ export class Evenement {
   groupe: Groupe;
   commentaires: Array<Commentaire>;
   description: string;
+  evenementStarch : EvenementStarch
 
 
-  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOf?: boolean, lieuxEvenement?: LieuxEvenement, description?: string) {
+  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOf?: boolean, lieuxEvenement?: LieuxEvenement, description?: string, evenementStarch?: EvenementStarch) {
     this.id = id;
     this.version = version;
     this.titre = titre;
@@ -34,5 +36,6 @@ export class Evenement {
     this.statutOf = statutOf;
     this.lieuxEvenement = lieuxEvenement;
     this.description = description;
+    this.evenementStarch = evenementStarch
   }
 }

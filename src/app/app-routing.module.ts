@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'nouveauLieu', component: NouveauLieuFormComponent},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
   {path: 'orgaEvenement', component: OrgaEvenementComponent},
-  {path: 'orgaEvenementStarch', component: OrgaEvenementStarchComponent},
+  {path: 'orgaEvenementStarch/:id', component: OrgaEvenementStarchComponent},
   {path: 'evenement/list', component: EvenementComponent},
   {path: 'groupe', component: GroupeComponent},
   {path: 'groupe/:id', component: GroupeDetailComponent},
@@ -37,7 +37,6 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'calendar', component: CalendarComponent}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
