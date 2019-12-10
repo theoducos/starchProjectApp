@@ -23,6 +23,7 @@ export class CalendarComponent implements OnInit {
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
 
+
   calendarEvents = [
     { title: '', start: '', url: '' }
   ];
