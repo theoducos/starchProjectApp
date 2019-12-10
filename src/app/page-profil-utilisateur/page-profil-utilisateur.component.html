@@ -16,9 +16,9 @@
   <br>
 
   <div class="col-8">
-    <div class="form-style-8" style="margin-top: 80px">
+    <div class="form-style-8">
       <br>
-      <h2 style="font-weight: bold; color:black;text-align: center">GROUPES</h2>
+      <h2 style="font-weight: bold; color:black;text-align: center">GROUPES <i class="fa fa-users"></i></h2>
       <div class="form-style-7">
         <div *ngFor="let groupe of groupes">
           <p>{{groupe.nom}}
@@ -27,7 +27,7 @@
         </div>
       </div>
       <br>
-      <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS</h2>
+      <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS <i class="fa fa-beer"></i></h2>
       <div class="form-style-7">
         <div *ngFor="let evenement of evenements">
           <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>

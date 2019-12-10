@@ -50,13 +50,13 @@ button:hover, a:hover {
 
 }
 .form-style-8 {
+  margin-top: 10px;
   max-width:1500px;
   background: #FAFAFA;
   padding: 10px;
-  margin:auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 5px solid #FF9D03;
+  border: 4px solid #FF9D03;
   text-align:center;
   height:auto;
 }
@@ -68,7 +68,7 @@ button:hover, a:hover {
   margin:10px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 4px solid black;
+  border: 3px solid black;
   text-align:center;
   height:auto;
 }
@@ -79,7 +79,11 @@ button:hover, a:hover {
   margin:10px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 4px solid black;
+  border: 3px solid black;
   text-align:center;
   height:auto;
+}
+
+i{
+
 }

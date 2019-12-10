@@ -6,7 +6,6 @@ import {FormGroup} from '@angular/forms';
 import {InscriptionEntrepriseHttpService} from '../inscription-entreprise/inscription-entreprise-http.service';
 import {FormValidatorService} from "../form-validator.service";
 
-// import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'incription-form',
