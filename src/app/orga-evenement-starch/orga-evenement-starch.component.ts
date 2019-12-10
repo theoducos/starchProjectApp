@@ -7,14 +7,18 @@ import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http
 import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {EvenementStarch} from '../model/evenementStarch';
 import {EvenementStarchHttpService} from '../evenement-starch/evenement-starch-http.service';
+import {Adresse} from '../model/adresse';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'orga-evenement-starch',
   templateUrl: './orga-evenement-starch.component.html',
   styleUrls: ['./orga-evenement-starch.component.css']
 })
+
+
 export class OrgaEvenementStarchComponent implements OnInit {
-  evenementStarch: EvenementStarch = new EvenementStarch();
+  evenementStarch: EvenementStarch ;
 
   lieuxEvenements: any;
 
@@ -26,22 +30,30 @@ export class OrgaEvenementStarchComponent implements OnInit {
 
   evenement: Evenement = new Evenement();
 
+  adresse : Adresse = new Adresse();
 
-  constructor(private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService) {
 
-  }
+
+  constructor(private route: ActivatedRoute, private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService) {
+    this.route.params.subscribe(params => {
+      this.evenementStarchService.findById(params.id).subscribe(resp => {
+        this.evenementStarch =resp
+
+        this.evenement.evenementStarch = this.evenementStarch;
+      } )
+  })
+}
 
   save() {
-    this.evenementStarchService.save(this.evenementStarch);
-
+    this.evenementHttpService.save(this.evenement);
+    this.evenement = null;
   }
 
-
   ngOnInit() {
-    this.evenement.lieuxEvenement = this.lieuxEvenement;
-    this.evenement.groupe = this.groupeNull;
-    this.groupeService.findAll().subscribe(resp => this.groupes = resp);
-    this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
+
+    // this.evenement.groupe = this.groupeNull;
+    // this.groupeService.findAll().subscribe(resp => this.groupes = resp);
+
   }
 
 
