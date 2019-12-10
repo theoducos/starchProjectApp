@@ -26,6 +26,7 @@ export class CalendarComponent implements OnInit {
   entreprise: Entreprise = new Entreprise();
   evenement: Evenement = new Evenement();
   utilisateur: Utilisateur = new Utilisateur();
+  img: any;
 
   groupes: Array<Groupe>;
 
@@ -40,10 +41,13 @@ export class CalendarComponent implements OnInit {
 
     this.findWithFilter();
     this.listGroupes();
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp
+    });
 
   }
 
-  findWithFilter(){
+  findWithFilter() {
     this.calendarEvents = [];
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
@@ -60,7 +64,8 @@ export class CalendarComponent implements OnInit {
             start: calEvent.date,
             url: 'http://localhost:4200/evenement/' + calEvent.id
           });
-        };
+        }
+        ;
       });
     });
   }
@@ -68,13 +73,13 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
   }
 
-  resetFilter(){
+  resetFilter() {
     this.searchCriteria = new SearchCriteria();
 
     this.findWithFilter();
   }
 
-  listGroupes(){
+  listGroupes() {
     this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.groupes = resp;
     });

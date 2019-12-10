@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-2">
     <div class="form-style-8">
-      <div class="card" style="text-align: center">
+      <div style="text-align: center">
         <img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
              alt="Avatar" class="avatar"/>
         <h1>{{utilisateur.identifiant}}</h1>
@@ -19,8 +19,6 @@
       </div>
     </div>
   </div>
-</div>
-
 
 <div>
   <p>Les filtres wouhou</p>
@@ -57,3 +55,4 @@
 
 <button (click)="findWithFilter()">Apply filter</button>
 <button (click)="resetFilter()">Reset filter</button>
+</div>
