@@ -2,7 +2,7 @@
 <div class="card-body">
   <div class="form-group">
     <label for="titre">Titre :</label>
-    <input type="text" class="form-control" id="titre" [(ngModel)]="evenement.titre" #titre="ngModel" required>
+    <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="evenement.titre" #titre="ngModel" required>
     <div *ngIf="titre.invalid && (titre.dirty)">
       <div *ngIf="titre.errors.required" class="error">
         Titre de l'activité obligatoire
@@ -94,13 +94,13 @@
     <label for="description">Description :</label>
     <textarea class="form-control" id="description" name="description"></textarea>
   </div>
-<!--  <div class="form-group">-->
-<!--    <label for="groupe">Groupe :</label>-->
-<!--    <select class="form-control" id="groupe" name="groupe" [(ngModel)]="evenement.groupe.id">-->
-<!--      <option value="">Choisir un groupe</option>-->
-<!--      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>-->
-<!--    </select>-->
-<!--  </div>-->
+  <div class="form-group">
+    <label for="groupe">Groupe :</label>
+    <select class="form-control" id="groupe" name="groupe" [(ngModel)]="evenement.groupe.id">
+      <option value="">Choisir un groupe</option>
+      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
+    </select>
+  </div>
   <div>
     <p>Organiser cet événement tout les :</p>
     <div>

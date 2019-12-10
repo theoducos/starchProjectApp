@@ -25,7 +25,6 @@ export class PageProfilUtilisateurComponent implements OnInit {
   constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
-    // this.route.params.subscribe(params=>{
     this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
         this.utilisateur = resp;
         this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
@@ -35,7 +34,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
       }
     );
-    // });
+
 
   }
 
