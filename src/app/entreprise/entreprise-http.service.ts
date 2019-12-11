@@ -19,8 +19,8 @@ export class EntrepriseHttpService {
     this.http.get(this.appConfigService.backend + 'utilisateur').subscribe(resp => this.utilisateur = resp);
   }
 
-  public findAll(): any {
-    return this.utilisateur;
+  findAll(): Observable<any> {
+    return this.http.get(this.appConfigService.backend + 'entreprise');
   }
 
   save(utilisateur: any) {

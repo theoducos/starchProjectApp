@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {Entreprise} from '../model/entreprise';
+import {Utilisateur} from '../model/utilisateur';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class InscriptionEntrepriseHttpService {
 
   deleteBydId(id: number) {
     this.http.delete(this.appConfigService.backend + 'utilisateur/' + id).subscribe(resp => this.load());
+  }
+
+  createAdminEntreprise(utilisateur: Utilisateur){
+
   }
 }
