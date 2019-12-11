@@ -11,7 +11,9 @@
 hr {
   border: 1px solid grey;
 }
-
+.centrer {
+  text-align: center;
+}
 .error {
   color: #a94442;
 
