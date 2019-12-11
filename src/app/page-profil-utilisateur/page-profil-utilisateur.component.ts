@@ -37,7 +37,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
         this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
         this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
         // this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
-        this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
+        // this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
         this.img = resp;
 
       }

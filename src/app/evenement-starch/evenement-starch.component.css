@@ -3,7 +3,8 @@
   background-color: transparent;
   width: 300px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  /*border: 6px solid black;*/
+  box-shadow: 1px 1px 10px #DC3B3B;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -43,7 +44,20 @@
   transform: rotateY(180deg);
 }
 
-.catalogue{
+.catalogue {
+}
 
+.form-style-9 {
+  width: 1000px;
+  height: auto;
+  background: #FAFAFA;
+  padding: 30px;
+  margin: 100px auto;
+  box-shadow: 1px 1px 25px black;
+  border-radius: 10px;
+  border: 4px solid black;
+}
 
+section{
+  margin:20px auto;
 }

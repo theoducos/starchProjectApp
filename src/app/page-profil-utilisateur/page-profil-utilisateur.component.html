@@ -26,9 +26,10 @@
       <div class="form-style-7">
         <div *ngFor="let groupe of groupes">
           <p>{{groupe.nom}}
-            <i [routerLink]="['../groupe/'+ groupe.id]" class="fa fa-calendar"></i>
+            <i [routerLink]="['../groupe/'+ groupe.id]" class="fa fa-user-circle"></i>
           </p>
         </div>
+        <i class="fa fa-plus" [routerLink]="['../creationGroupe']"></i>
       </div>
       <br>
       <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS <i class="fa fa-beer"></i></h2>

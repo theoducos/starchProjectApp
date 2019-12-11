@@ -3,7 +3,7 @@
   background: #FAFAFA;
   padding: 30px;
   margin: 10px auto;
-  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 25px #DC3B3B;
   border-radius: 10px;
   border: 5px solid #DC3B3B;
   height: auto;
@@ -14,9 +14,9 @@
   background: #FAFAFA;
   padding: 30px;
   margin-top: 10px;
-  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 25px #DC3B3B;
   border-radius: 10px;
-  border: 6px solid #DC3B3B;
+  /*border: 4px solid #DC3B3B;*/
   text-align: center;
   height: 850px;
   margin-left: 10px;
