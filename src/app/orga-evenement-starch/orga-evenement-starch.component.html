@@ -31,6 +31,11 @@
           <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
 <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
         </div>
+      <div class="form-group">
+        <label for="heure">Heure de l'événement :</label>
+        <input type="time" class="form-control" id="heure" [(ngModel)]="evenement.heure">
+        <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
+      </div>
         <div class="form-group">
           <label for="lieu">Lieu préexistant:</label>
           <div class="form-control" id="lieu">
