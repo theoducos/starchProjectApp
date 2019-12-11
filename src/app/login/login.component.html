@@ -18,13 +18,13 @@
               <input id="mdp" type="text" [(ngModel)]="model.password" placeholder="Password">
             </div>
             <p *ngIf="erreur" style="color: #DC3B3B">Identifiant ou mot de passe incorrect!</p>
-            <button (click)="validate()" class="form-submit">Login</button>
+            <button (click)="validate()" class="form-submit">S'identifier</button>
           </div>
         </div>
-        <a [routerLink]="['/inscription']" class="signup-image-link"> Create an account</a>
-        <a [routerLink]="['/inscriptionEntreprise']" class="signup-image-link"> Create an entreprise</a>
-        <button (click)="session()">session</button>
-        <button (click)="disconnect()">Disconnect</button>
+        <a [routerLink]="['/inscription']" class="signup-image-link"> Créer un compte</a>
+        <a [routerLink]="['/inscriptionEntreprise']" class="signup-image-link"> Créer un espace entreprise</a>
+        <button (click)="session()">Session</button>
+        <button (click)="disconnect()">Déconnexion</button>
       </div>
 
     </div>
