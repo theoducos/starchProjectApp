@@ -37,11 +37,14 @@ export class EvenementComponent implements OnInit {
   typeEvenement: TypeEvenement;
 
   constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService, private router: Router, private authService: AuthService) {
-
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
     this.findWithFilter();
 
     this.listGroupes();
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp
+    });
 
   }
 
@@ -76,7 +79,7 @@ export class EvenementComponent implements OnInit {
   }
 
   findWithFilter() {
-    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
+
 
     this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.entreprise = resp;
