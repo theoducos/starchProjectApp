@@ -49,10 +49,10 @@
       <div class="form-style-9">
         <h2 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">Liste des Evenements</h2>
         <div *ngFor="let evenement of evenements">
-          <p style="font-weight: bold"><i class="fa fa-glass"></i>{{evenement.titre}}</p>
-          <p><i class="fa fa-clock-o"></i>{{evenement.date}}</p>
+          <p style="font-weight: bold"><i class="fa fa-glass" [routerLink]="['../../evenement/'+evenement.id]"></i>{{evenement.titre}}</p>
+          <p><i class="fa fa-clock-o"></i> {{evenement.date}}</p>
           <!--    <p>{{evenement.nomEvenement}}</p>-->
-          <p>{{evenement.lieuxEvenement?.nomLieu}}</p>
+          <p><i class="fa fa-map-marker"></i> {{evenement.lieuxEvenement?.nomLieu}}</p>
         </div>
       </div>
     </div>

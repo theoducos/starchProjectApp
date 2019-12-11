@@ -35,7 +35,7 @@
       <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS <i class="fa fa-beer"></i></h2>
       <div class="form-style-7">
         <div *ngFor="let evenement of evenements">
-          <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>
+          <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+evenement.id]" class="fa fa-glass"></i>
           </p>
         </div>
         <br>
