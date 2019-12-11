@@ -11,7 +11,9 @@ import {UtilisateurHttpService} from "./utilisateur/utilisateur.http.service";
 export class AppComponent {
   title = 'starchProjectApp';
 
+
   constructor(private authService: AuthService, private route: Router) {
+
   }
 
   disconnect() {

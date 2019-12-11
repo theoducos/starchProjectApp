@@ -37,9 +37,14 @@ export class LoginComponent implements OnInit {
           this.utilisateurService.findUtilisateurByIdentifiant(this.model.userid).subscribe(resp => {
             this.utilisateur = resp;
             console.log(this.utilisateur);
-            if (this.utilisateur.mdp == this.model.password && this.utilisateur) {
+            if (this.utilisateur.mdp == this.model.password && this.utilisateur.admin == true) {
               localStorage.setItem('isLoggedin', 'true');
-              localStorage.setItem('identifiant', this.model.userid);
+              localStorage.setItem('isAdmin', 'true');
+              localStorage.setItem('id', this.utilisateur.id);
+              this.router.navigate(['/utilisateur']);
+            } else if(this.utilisateur.mdp == this.model.password){
+              localStorage.setItem('isLoggedin', 'true');
+              localStorage.setItem('isAdmin', 'false');
               localStorage.setItem('id', this.utilisateur.id);
               this.router.navigate(['/utilisateur']);
             } else {
@@ -60,7 +65,7 @@ export class LoginComponent implements OnInit {
   }
 
   session() {
-    console.log(localStorage.getItem('identifiant'));
+    console.log(localStorage.getItem('isAdmin'));
     console.log(localStorage.getItem('id'));
     console.log(localStorage.getItem('isLoggedin'));
   }

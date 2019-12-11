@@ -37,6 +37,10 @@ export class UtilisateurHttpService {
     }
   }
 
+  createUser(utilisateur: Utilisateur): Observable<any>{
+    return this.http.post(this.appConfigService.backend + '/utilisateur', utilisateur);
+  }
+
 
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id);
