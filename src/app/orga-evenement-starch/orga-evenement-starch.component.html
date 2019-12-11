@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="dtEtHeure">Date et heure :</label>
+      <label for="dtEtHeure">Date de l'événement :</label>
       <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date"
              #dtEtHeure="ngModel" required>
       <div *ngIf="dtEtHeure.invalid">
@@ -25,6 +25,7 @@
         </div>
       </div>
     </div>
+
     <div class="form-group">
       <label for="deadline">Date limite d'inscription :</label>
       <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
@@ -59,63 +60,7 @@
         <label for="description">Description :</label>
         <textarea class="form-control" id="description" disabled="disabled">{{evenementStarch.description}}</textarea>
       </div>
-      <style>
-        .container {
-          display: block;
-          position: relative;
-          padding-left: 35px;
-          margin-bottom: 12px;
-          cursor: pointer;
-          font-size: 18px;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-        }
 
-        .container input {
-          position: absolute;
-          opacity: 0;
-          cursor: pointer;
-        }
-
-        .checkmark {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 23px;
-          width: 23px;
-          background-color: #eee;
-          border-radius: 50%;
-        }
-
-        .container:hover input ~ .checkmark {
-          background-color: #ccc;
-        }
-
-        .container input:checked ~ .checkmark {
-          background-color: #0A3FFF;
-        }
-
-        .checkmark:after {
-          content: "";
-          position: absolute;
-          display: none;
-        }
-
-        .container input:checked ~ .checkmark:after {
-          display: block;
-        }
-
-        .container .checkmark:after {
-          top: 7px;
-          left: 7.2px;
-          width: 9px;
-          height: 9px;
-          border-radius: 50%;
-          background: white;
-        }
-      </style>
       <!--    <p>Récurrence de l'événement :</p>-->
       <!--    <div style="margin-left: 0 ; position: absolute">-->
       <!--    <label class="container">jour-->
