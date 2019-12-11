@@ -34,10 +34,9 @@
       <div style="position:relative; maring-top: 0px; margin-left: 880px " >  <a [routerLink]="['/creationGroupe']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"><u> Create a group</u> </a></div>
       <div style="position: relative; margin-top: 0px; margin-left: 880px  "  >  <a  (click)= "afficherzonedetexte()" style="color: #0A3FFF; font-size: 19px"  > <u> Join a group </u> </a></div>
 
-
       <div *ngIf="afficherinput">
         <div class="col-sm-3" style="position:relative; margin-top: 0px">
-      <input  [(ngModel)]="groupe.codeGroupe" ng-style="myStyle" type="text" class="form-control" id="mytextinput" name="dtEtHeure" placeholder="--Entrez un nom de groupe valide--">
+      <input  [(ngModel)]="groupe.codeGroupe" ng-style="myStyle" type="text" class="form-control" id="mytextinput" name="dtEtHeure" placeholder="--Entrez un nom de groupe valide--" >
         </div>
         <div style="position:relative ; maring-top: -10px; margin-left: 880px " ><a (click)="affichergroupe()" class="btn" style="background: #0A3FFF;color:white"><i class="fa fa-check" ></i></a></div>
         <div *ngIf="groupinexist==true" style="color: #DC3B3B">Entrez un code de groupe valide</div>

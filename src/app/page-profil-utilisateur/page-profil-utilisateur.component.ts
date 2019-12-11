@@ -60,13 +60,16 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
     for(let group of this.allgroupes) {
       if(group.codeGroupe== this.groupe.codeGroupe) {
-        this.groupinexist = false;
+
         this.gestion.groupe = group;
         this.gestion.utilisateur = this.utilisateur;
         this.gestion.gestion="Membre"
         this.gestionservice.save(this.gestion).subscribe(resp =>{
           this.gestion = resp;
           this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
+          this.afficherinput = false;
+          this.groupinexist = false;
+          this.groupe.codeGroupe=""
     //      this.gestionservice.findById(this.gestion.id).subscribe(resp => this.gestion = resp)
         })
       }
