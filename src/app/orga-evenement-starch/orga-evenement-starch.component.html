@@ -1,146 +1,144 @@
-<div class="card-body">
+<div class="form-style-9">
+  <h1 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">ORGANISATION EVENEMENT STARCH</h1>
+  <label for="titre">Titre :</label>
+  <div class="form-control" id="titre" name="titre">
+    {{evenementStarch.titre}}
+  </div>
   <div class="form-group">
-    <div class="form-group">
-      <label for="titre">Titre :</label>
-      <div class="form-control" id="titre" name ="titre">
-      {{evenementStarch.titre}}
-    </div>
+    <label for="nomActivite">Nom activité:</label>
+    <div class="form-control" id="nomActivite">
+      {{evenementStarch.nomEvenement}}
     </div>
     <div class="form-group">
-      <label for="nomActivite">Nom activité:</label>
-      <div  class="form-control" id="nomActivite" >
-    {{evenementStarch.nomEvenement}}
+      <label for="typeActivite">Type d'activité:</label>
+      <div class="form-control" id="typeActivite">
+        {{evenementStarch.typeEvenement}}
+      </div>
     </div>
-      <div class="form-group">
-        <label for="typeActivite">Type d'activité:</label>
-        <div class="form-control" id="typeActivite">
-          {{evenementStarch.typeEvenement}}
+    <div class="form-group">
+      <label for="dtEtHeure">Date et heure :</label>
+      <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date"
+             #dtEtHeure="ngModel" required>
+      <div *ngIf="dtEtHeure.invalid">
+        <div *ngIf="dtEtHeure.errors.required" class="error">
+          Date obligatoire
         </div>
       </div>
-        <div class="form-group">
-          <label for="dtEtHeure">Date et heure :</label>
-          <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date" #dtEtHeure="ngModel" required>
-          <div *ngIf="dtEtHeure.invalid">
-            <div *ngIf="dtEtHeure.errors.required" class="error">
-              Date obligatoire
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="deadline">Date limite d'inscription :</label>
-          <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
-<!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
-        </div>
-      <div class="form-group">
-        <label for="heure">Heure de l'événement :</label>
-        <input type="time" class="form-control" id="heure" [(ngModel)]="evenement.heure">
-        <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
+    </div>
+    <div class="form-group">
+      <label for="deadline">Date limite d'inscription :</label>
+      <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
+      <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
+    </div>
+    <div class="form-group">
+      <label for="heure">Heure de l'événement :</label>
+      <input type="time" class="form-control" id="heure" [(ngModel)]="evenement.heure">
+      <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
+    </div>
+    <div class="form-group">
+      <label for="lieu">Lieu préexistant:</label>
+      <div class="form-control" id="lieu">
+        {{evenementStarch.adresse?.rue }}
+        {{evenementStarch.adresse?.complement }}
+        {{evenementStarch.adresse?.codePostal}}
+        {{evenementStarch.adresse?.ville}}
       </div>
-        <div class="form-group">
-          <label for="lieu">Lieu préexistant:</label>
-          <div class="form-control" id="lieu">
-            {{evenementStarch.adresse?.rue }}
-            {{evenementStarch.adresse?.complement }}
-            {{evenementStarch.adresse?.codePostal}}
-            {{evenementStarch.adresse?.ville}}
-          </div>
-          <div class="form-group">
-            <label for="prix">Prix :</label>
-            <div class="form-control" id="prix">
-              {{evenementStarch.prixStarch}}
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="nbParticipants">Nombre de participants :</label>
-            <div class="form-control" id="nbParticipants">
-              {{evenementStarch.nbParticipantMax}}
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="description">Description :</label>
-            <textarea class="form-control" id="description" disabled="disabled">{{evenementStarch.description}}</textarea>
-          </div>
-    <style>
-      .container {
-        display: block ;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        font-size: 18px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+      <div class="form-group">
+        <label for="prix">Prix :</label>
+        <div class="form-control" id="prix">
+          {{evenementStarch.prixStarch}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nbParticipants">Nombre de participants :</label>
+        <div class="form-control" id="nbParticipants">
+          {{evenementStarch.nbParticipantMax}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea class="form-control" id="description" disabled="disabled">{{evenementStarch.description}}</textarea>
+      </div>
+      <style>
+        .container {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 12px;
+          cursor: pointer;
+          font-size: 18px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
 
-      .container input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-      }
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
 
-      .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 23px;
-        width: 23px;
-        background-color: #eee;
-        border-radius: 50%;
-      }
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 23px;
+          width: 23px;
+          background-color: #eee;
+          border-radius: 50%;
+        }
 
-      .container:hover input ~ .checkmark {
-        background-color: #ccc;
-      }
+        .container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
 
-      .container input:checked ~ .checkmark {
-        background-color: #0A3FFF;
-      }
+        .container input:checked ~ .checkmark {
+          background-color: #0A3FFF;
+        }
 
-      .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
 
-      .container input:checked ~ .checkmark:after {
-        display: block;
-      }
-      .container .checkmark:after {
-        top: 7px;
-        left: 7.2px;
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: white;
-      }
-    </style>
-<!--    <p>Récurrence de l'événement :</p>-->
-<!--    <div style="margin-left: 0 ; position: absolute">-->
-<!--    <label class="container">jour-->
-<!--      <input type="radio"  name="radio" value="Daily" [(ngModel)]="evenement.recurrence">-->
-<!--      <span class="checkmark"></span>-->
-<!--    </label>-->
-<!--    <label class="container">semaine-->
-<!--      <input type="radio" name="radio"  value="Weekly" [(ngModel)]="evenement.recurrence">-->
-<!--      <span class="checkmark"></span>-->
-<!--    </label>-->
-<!--    <label class="container">mois-->
-<!--      <input type="radio" name="radio"  value="Monthly" [(ngModel)]="evenement.recurrence">-->
-<!--      <span class="checkmark"></span>-->
-<!--    </label>-->
-<!--    </div>-->
-  </div>
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        .container .checkmark:after {
+          top: 7px;
+          left: 7.2px;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          background: white;
+        }
+      </style>
+      <!--    <p>Récurrence de l'événement :</p>-->
+      <!--    <div style="margin-left: 0 ; position: absolute">-->
+      <!--    <label class="container">jour-->
+      <!--      <input type="radio"  name="radio" value="Daily" [(ngModel)]="evenement.recurrence">-->
+      <!--      <span class="checkmark"></span>-->
+      <!--    </label>-->
+      <!--    <label class="container">semaine-->
+      <!--      <input type="radio" name="radio"  value="Weekly" [(ngModel)]="evenement.recurrence">-->
+      <!--      <span class="checkmark"></span>-->
+      <!--    </label>-->
+      <!--    <label class="container">mois-->
+      <!--      <input type="radio" name="radio"  value="Monthly" [(ngModel)]="evenement.recurrence">-->
+      <!--      <span class="checkmark"></span>-->
+      <!--    </label>-->
+      <!--    </div>-->
+    </div>
     <div class="btn-group btn-group-lg float-right">
-            <a class="btn btn-success" (click)="save()">
-              <i class="fa fa-check"></i>
-            </a>
-            <a class="btn btn-warning">
-              <i class="fa fa-undo"></i>
-            </a>
-          </div>
-</div>
+      <a class="btn" style="background: #0A3FFF;color:white">
+        <i class="fa fa-check" (click)="save()" [routerLink]="['/utilisateur/']"></i>
+      </a>
+      <a class="btn" style="background: #DC3B3B;color: white">
+        <i class="fa fa-undo" [routerLink]="['..']"></i>
+      </a>
+    </div>
   </div>
 </div>
-

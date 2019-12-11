@@ -1,15 +1,36 @@
 .form-style-9 {
-  max-width: 450px;
+  /*max-width: 450px;*/
+  /*background: #FAFAFA;*/
+  /*padding: 30px;*/
+  /*margin: 50px auto;*/
+  /*box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);*/
+  /*border-radius: 10px;*/
+  /*border: 6px solid #DC3B3B;*/
+  width: 1000px;
   background: #FAFAFA;
   padding: 30px;
-  margin: 50px auto;
-  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  margin: 30px auto;
+  box-shadow: 1px 1px 25px #DC3B3B;
   border-radius: 10px;
-  border: 6px solid #DC3B3B;
+  border: 2px solid #DC3B3B;
+  height: auto;
 }
 
-hr{
-  border:1px solid grey;
+.form-style-8 {
+  max-width: 600px;
+  background: #FAFAFA;
+  padding: 30px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 25px #DC3B3B;
+  border-radius: 10px;
+  border: 2px solid #DC3B3B;
+  text-align: center;
+  height: 850px;
+  margin-left: 10px;
+}
+
+hr {
+  border: 1px solid grey;
 }
 
 .error {
@@ -17,7 +38,7 @@ hr{
 
 }
 
-.participe{
+.participe {
 
   border: 1px solid grey;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
@@ -27,7 +48,7 @@ hr{
   color: white;
 }
 
-.interet{
+.interet {
 
   border: 1px solid grey;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.35);
@@ -39,10 +60,26 @@ hr{
 }
 
 .participant {
-  border-right:1px solid black;
+  border-right: 1px solid black;
 }
 
-.btn{
-  border-radius:1px;
+.btn {
+  border-radius: 1px;
 }
 
+.select {
+
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+button {
+  border-color: #DC3B3B;
+  outline: 0;
+  color: white;
+  background-color: #DC3B3B;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+}
