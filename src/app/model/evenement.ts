@@ -3,6 +3,7 @@ import {Groupe} from './groupe';
 import {Commentaire} from './commentaire';
 import {EvenementStarch} from './evenementStarch';
 import {Entreprise} from './entreprise';
+import {Time} from '@angular/common';
 
 export class Evenement {
   id: number;
@@ -22,10 +23,10 @@ export class Evenement {
   description: string;
   evenementStarch : EvenementStarch;
   entreprise: Entreprise;
-  heure: Date;
+  heure: Time;
 
 
-  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOf?: boolean, lieuxEvenement?: LieuxEvenement, description?: string, evenementStarch?: EvenementStarch, entreprise?: Entreprise, heure?: Date) {
+  constructor(id?: number, version?: number, titre?: string, date?: Date, prix?: number, nbParticipantMax?: number, deadline?: Date, recurrence?: Recurrence, typeEvenement?: TypeEvenement, nomEvenement?: NomEvenement, statutOf?: boolean, lieuxEvenement?: LieuxEvenement, description?: string, evenementStarch?: EvenementStarch, entreprise?: Entreprise, heure?: Time) {
     this.id = id;
     this.version = version;
     this.titre = titre;

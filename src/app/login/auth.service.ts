@@ -11,5 +11,6 @@ export class AuthService {
     localStorage.setItem('isLoggedin','false');
     localStorage.removeItem('identifiant');
     localStorage.removeItem('id');
+    localStorage.removeItem('isAdmin');
   }
 }

@@ -1,7 +1,6 @@
 <div class="form-style-9">
   <h1 style="color: black;font-weight: bold;text-align: center;margin-bottom: 30px">ORGANISATION</h1>
   <form #orgaForm="ngForm" name="orgaForm">
-    <ul>
       <label for="titre">Titre :</label>
       <input type="text" class="form-control" id="titre" name="titre"
              [(ngModel)]="evenement.titre" #titre="ngModel" required>
@@ -43,7 +42,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="dtEtHeure">Date et heure :</label>
+        <label for="dtEtHeure">Date de l'événement :</label>
         <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date"
                #dtEtHeure="ngModel" required>
         <div *ngIf="dtEtHeure.invalid">
@@ -52,6 +51,12 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="heure">Heure de l'événement :</label>
+        <input type="time" class="form-control" id="heure" name="heure" [(ngModel)]="evenement.heure">
+      </div>
+
       <div class="form-group">
         <label for="deadline">Date limite d'inscription :</label>
         <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="evenement.deadline"
@@ -63,9 +68,10 @@
         </div>
       </div>
 
+
       <div class="form-group">
         <label for="lieu">Lieu préexistant:</label>
-        <select class="form-control" id="lieu" name="lieu" [(ngModel)]="evenement.lieuxEvenement.id" #lieu="ngModel"
+        <select class="form-control" id="lieu" name="lieu" [(ngModel)]="lieuxEvenement.id" #lieu="ngModel"
                 required>
           <option value="">Lieu pré existant</option>
           <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
@@ -78,10 +84,10 @@
       </div>
       <p>OU</p>
       <div class="form-group">
-        <Label>Ajouter un nouveau lieu
+        <p>Ajouter un nouveau lieu
           <button style="background-color: #F1EEEE; border:1px solid black; border-radius: 8px;"
                   class="fa fa-home fa-2x" [routerLink]="['../nouveauLieu']"></button>
-        </Label>
+        </p>
       </div>
       <div class="form-group">
         <label for="prix">Prix :</label>
@@ -93,8 +99,12 @@
           </div>
         </div>
       </div>
+    <div>
+      <label for="nbParticipants">Nombre de participants max :</label>
+      <input type="number" class="form-control" name="nbParticipants" id="nbParticipants" [(ngModel)]="evenement.nbParticipantMax">
     </div>
-  </div>
+
+
   <div class="form-group">
     <label for="description">Description :</label>
     <textarea class="form-control" id="description" name="description"></textarea>
@@ -123,7 +133,6 @@
 <!--          <label for="mois">Mois</label>-->
 <!--        </div>-->
 <!--      </div>-->
-    </ul>
   </form>
   <div class="btn-group btn-group-lg float-right">
     <a class="btn" style="background: #0A3FFF;color:white">
@@ -134,4 +143,5 @@
     </a>
   </div>
   <button (click)="session()">Session</button>
+
 </div>
