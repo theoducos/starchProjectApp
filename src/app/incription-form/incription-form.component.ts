@@ -8,7 +8,6 @@ import {FormValidatorService} from "../form-validator.service";
 import {Router} from '@angular/router';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 
-// import {FormValidatorService} from '../form-validator.service';
 
 @Component({
   selector: 'incription-form',

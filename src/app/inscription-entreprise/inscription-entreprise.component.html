@@ -153,9 +153,12 @@
     *Obligatoire
   </form>
   <div class="btn-group btn-group-lg float-right">
-    <button style="background: #0A3FFF;font-weight: bold;color: white" class="btn" (click)="save()">Créer
-      <i
-        class="fa fa-angle-double-right"></i></button>
+    <a class="btn" style="background: #0A3FFF;color:white">
+      <i class="fa fa-check" (click)="save()" [routerLink]="['/utilisateur/']"></i>
+    </a>
+    <a class="btn" style="background: #DC3B3B;color: white">
+      <i class="fa fa-undo" [routerLink]="['../login']"></i>
+    </a>
   </div>
 </div>
 

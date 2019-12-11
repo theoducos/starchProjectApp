@@ -6,8 +6,8 @@
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   border: 6px solid #FF9D03;
-  text-align:center;
-  height:850px;
+  text-align: center;
+  height: 850px;
   margin-left: 10px;
 }
 
@@ -49,37 +49,40 @@ button:hover, a:hover {
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
 
 }
+
 .form-style-8 {
-  max-width:1500px;
+  margin-top: 10px;
+  max-width: 1500px;
   background: #FAFAFA;
   padding: 10px;
-  margin:auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 5px solid #FF9D03;
-  text-align:center;
-  height:auto;
+  border: 4px solid #FF9D03;
+  text-align: center;
+  height: auto;
 }
 
 .form-style-7 {
   max-width: 1000px;
   background: #FAFAFA;
   padding: 30px;
-  margin:10px auto;
+  margin: 10px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 4px solid black;
-  text-align:center;
-  height:auto;
+  border: 3px solid black;
+  text-align: center;
+  height: auto;
 }
+
 .form-style-6 {
   max-width: 1000px;
   background: #FAFAFA;
   padding: 30px;
-  margin:10px auto;
+  margin: 10px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
-  border: 4px solid black;
-  text-align:center;
-  height:auto;
+  border: 3px solid black;
+  text-align: center;
+  height: auto;
 }
+

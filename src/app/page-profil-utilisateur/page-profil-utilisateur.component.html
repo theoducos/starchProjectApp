@@ -11,14 +11,18 @@
         <button type="button" [routerLink]="['/modificationUtilisateur']">Voir/Modifier des informations
         </button>
       </p>
+      <div *ngIf="utilisateur.admin==true">
+        <button type="button" [routerLink]="['/orgaEvenementStarch']">Organiser un événement entreprise
+        </button>
+      </div>
     </div>
   </div>
   <br>
 
   <div class="col-8">
-    <div class="form-style-8" style="margin-top: 80px">
+    <div class="form-style-8">
       <br>
-      <h2 style="font-weight: bold; color:black;text-align: center">GROUPES</h2>
+      <h2 style="font-weight: bold; color:black;text-align: center">GROUPES <i class="fa fa-users"></i></h2>
       <div class="form-style-7">
         <div *ngFor="let groupe of groupes">
           <p>{{groupe.nom}}
@@ -27,7 +31,7 @@
         </div>
       </div>
       <br>
-      <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS</h2>
+      <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS <i class="fa fa-beer"></i></h2>
       <div class="form-style-7">
         <div *ngFor="let evenement of evenements">
           <p>{{evenement.titre}}<i [routerLink]="['../evenement/'+ evenement.id]" class="fa fa-check"></i>
@@ -35,24 +39,24 @@
         </div>
         <br>
       </div>
-<!--      <h2 style="font-weight: bold; color:black;text-align: center">FAVORIS</h2>-->
-<!--      <div class="form-style-6">-->
-<!--        <div *ngFor="let fav of favoris">-->
-<!--          <p>{{fav.lieuxFavoris?.nomLieu}}</p>-->
-<!--        </div>-->
-<!--        <div>Ajouter un Lieu favoris</div>-->
-<!--        <i class="fa fa-plus-circle" (click)="save()"></i>-->
-<!--        <div>-->
-<!--          <select style="border:2px solid black" [(ngModel)]="favori.lieuxFavoris.id">-->
-<!--            <option value="" selected>Selectionnez un lieu</option>-->
-<!--            <option *ngFor="let lieu of lieux" [value]="lieu.id">{{lieu.nomLieu}}</option>-->
-<!--          </select>-->
-<!--        </div>-->
-<!--        <p>-->
-<!--          <i class="fa fa-trash"> Supprimer un lieu favoris</i>-->
-<!--        </p>-->
-<!--        <br>-->
-<!--      </div>-->
+      <!--      <h2 style="font-weight: bold; color:black;text-align: center">FAVORIS</h2>-->
+      <!--      <div class="form-style-6">-->
+      <!--        <div *ngFor="let fav of favoris">-->
+      <!--          <p>{{fav.lieuxFavoris?.nomLieu}}</p>-->
+      <!--        </div>-->
+      <!--        <div>Ajouter un Lieu favoris</div>-->
+      <!--        <i class="fa fa-plus-circle" (click)="save()"></i>-->
+      <!--        <div>-->
+      <!--          <select style="border:2px solid black" [(ngModel)]="favori.lieuxFavoris.id">-->
+      <!--            <option value="" selected>Selectionnez un lieu</option>-->
+      <!--            <option *ngFor="let lieu of lieux" [value]="lieu.id">{{lieu.nomLieu}}</option>-->
+      <!--          </select>-->
+      <!--        </div>-->
+      <!--        <p>-->
+      <!--          <i class="fa fa-trash"> Supprimer un lieu favoris</i>-->
+      <!--        </p>-->
+      <!--        <br>-->
+      <!--      </div>-->
     </div>
 
   </div>

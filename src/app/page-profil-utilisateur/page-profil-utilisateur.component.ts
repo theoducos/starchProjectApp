@@ -6,6 +6,7 @@ import {LieuxEvenement} from '../model/lieuxEvenement';
 import {Favoris} from '../model/favoris';
 import {LieuxEvenementHttpService} from '../lieux-evenement/lieux-evenement-http.service';
 import {FavorisHttpService} from '../favoris/favoris-http.service';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'app-page-profil-utilisateur',
@@ -28,7 +29,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
   lieuxEvenement: LieuxEvenement;
 
 
-  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router, private lieuxEvenementService: LieuxEvenementHttpService, private favorisHttpService: FavorisHttpService) {
+  constructor(private utilisateurService: UtilisateurHttpService, private route: ActivatedRoute, private router: Router, private lieuxEvenementService: LieuxEvenementHttpService, private favorisHttpService: FavorisHttpService,private authService: AuthService) {
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
@@ -43,6 +44,11 @@ export class PageProfilUtilisateurComponent implements OnInit {
     );
 
 
+  }
+
+  disconnect() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
   //
   // save() {

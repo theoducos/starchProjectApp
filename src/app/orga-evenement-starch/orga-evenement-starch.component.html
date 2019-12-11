@@ -2,29 +2,24 @@
   <div class="form-group">
     <div class="form-group">
       <label for="titre">Titre :</label>
-      <input type="text" class="form-control" id="titre" [(ngModel)]="evenementStarch.titre" #titre="ngModel" required>
-      <div *ngIf="titre.invalid && (titre.dirty)">
-        <div *ngIf="titre.errors.required" class="error">
-          Titre de l'activité obligatoire
-        </div>
-      </div>
+      <div class="form-control" id="titre" name ="titre">
+      {{evenementStarch.titre}}
+    </div>
     </div>
     <div class="form-group">
       <label for="nomActivite">Nom activité:</label>
-      <div class="form-control" id="nomActivite">
-        {{evenementStarch.nomEvenement}}
-      </div>
+      <div  class="form-control" id="nomActivite" >
+    {{evenement.evenementStarch.nomEvenement}}
     </div>
       <div class="form-group">
         <label for="typeActivite">Type d'activité:</label>
         <div class="form-control" id="typeActivite">
-          {{evenementStarch.typeEvenement}}
+          {{evenement.evenementStarch.typeEvenement}}
         </div>
       </div>
         <div class="form-group">
           <label for="dtEtHeure">Date et heure :</label>
-          <input type="date" class="form-control" id="dtEtHeure" [(ngModel)]="evenement.date" #dtEtHeure="ngModel"
-                 required>
+          <input type="date" class="form-control" id="dtEtHeure" name="dtEtHeure" [(ngModel)]="evenement.date" #dtEtHeure="ngModel" required>
           <div *ngIf="dtEtHeure.invalid">
             <div *ngIf="dtEtHeure.errors.required" class="error">
               Date obligatoire
@@ -33,64 +28,106 @@
         </div>
         <div class="form-group">
           <label for="deadline">Date limite d'inscription :</label>
-          <div type="date" class="form-control" id="deadline">
+          <input type="date" class="form-control" id="deadline" [(ngModel)]="evenement.deadline">
 <!--            A fixed (Algo?) 2semaines avant la date de l'évenement presectionné ci-dessus.........-->
-          </div>
         </div>
-
         <div class="form-group">
           <label for="lieu">Lieu préexistant:</label>
-          <div class="form-control" id="lieu" [(ngModel)]="evenement.lieuxEvenement.id">
-            {{evenement.lieuxEvenement.nomLieu}}
-            {{evenement.lieuxEvenement.adresse.rue}}
-            {{evenement.lieuxEvenement.adresse.complement}}
-            {{evenement.lieuxEvenement.adresse.codePostal}}
-            {{evenement.lieuxEvenement.adresse.ville}}
+          <div class="form-control" id="lieu">
+            {{evenement.evenementStarch.adresse.rue }}
+            {{evenement.evenementStarch.adresse.complement }}
+            {{evenement.evenementStarch.adresse.codePostal}}
+            {{evenement.evenementStarch.adresse.ville}}
           </div>
-        </div>
           <div class="form-group">
             <label for="prix">Prix :</label>
             <div class="form-control" id="prix">
-              {{evenementStarch.prixStarch}}
+              {{evenement.evenementStarch.prixStarch}}
             </div>
           </div>
           <div class="form-group">
             <label for="nbParticipants">Nombre de participants :</label>
             <div class="form-control" id="nbParticipants">
-              {{evenementStarch.nbParticipantMax}}
+              {{evenement.evenementStarch.nbParticipantMax}}
             </div>
           </div>
           <div class="form-group">
             <label for="description">Description :</label>
-            <textarea class="form-control" id="description"></textarea>
+            <textarea class="form-control" id="description" disabled="disabled">{{evenement.evenementStarch.description}}</textarea>
           </div>
-          <!--  <div class="form-group">-->
-          <!--    <label for="groupe">Groupe :</label>-->
-          <!--    <select class="form-control" id="groupe" [(ngModel)]="evenement.groupe.id">-->
-          <!--      <option value="">Choisir un groupe</option>-->
-          <!--      <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>-->
-          <!--    </select>-->
-          <!--  </div>-->
-          <div>
-            <p>Organiser cet événement tout les :</p>
-            <div>
-              <input type="radio" id="jour" name="recurrence" value="jour"
-                     checked [(ngModel)]="evenement.recurrence">
-              <label for="jour">Jours</label>
-            </div>
-            <div>
-              <input type="radio" id="semaine" name="recurrence" value="semaine" [(ngModel)]="evenement.recurrence">
-              <label for="semaine">Semaine</label>
-            </div>
+    <style>
+      .container {
+        display: block ;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-            <div>
-              <input type="radio" id="mois" name="recurrence" value="mois" [(ngModel)]="evenement.recurrence">
-              <label for="mois">Mois</label>
-            </div>
-          </div>
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
 
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 23px;
+        width: 23px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
 
-          <div class="btn-group btn-group-lg float-right">
+      .container:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+
+      .container input:checked ~ .checkmark {
+        background-color: #0A3FFF;
+      }
+
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .container .checkmark:after {
+        top: 7px;
+        left: 7.2px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: white;
+      }
+    </style>
+    <p>Récurrence de l'événement :</p>
+    <div style="margin-left: 0 ; position: absolute">
+    <label class="container">jour
+      <input type="radio"  name="radio" value="Daily" [(ngModel)]="evenement.recurrence">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">semaine
+      <input type="radio" name="radio"  value="Weekly" [(ngModel)]="evenement.recurrence">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">mois
+      <input type="radio" name="radio"  value="Monthly" [(ngModel)]="evenement.recurrence">
+      <span class="checkmark"></span>
+    </label>
+    </div>
+  </div>
+    <div class="btn-group btn-group-lg float-right">
             <a class="btn btn-success" (click)="save()">
               <i class="fa fa-check"></i>
             </a>
@@ -98,6 +135,7 @@
               <i class="fa fa-undo"></i>
             </a>
           </div>
+</div>
+  </div>
+</div>
 
-        </div>
-      </div>

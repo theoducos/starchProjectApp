@@ -12,6 +12,7 @@ import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {SearchCriteria} from '../model/searchCriteria';
 import {Groupe} from '../model/groupe';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'app-calendar',
@@ -36,7 +37,7 @@ export class CalendarComponent implements OnInit {
     {title: '', start: '', url: ''}
   ];
 
-  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router, private http: HttpClient, private appConfigService: AppConfigService) {
+  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router, private http: HttpClient, private appConfigService: AppConfigService, private authService: AuthService) {
 
 
     this.findWithFilter();

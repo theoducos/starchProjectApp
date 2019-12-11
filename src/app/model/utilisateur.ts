@@ -15,7 +15,7 @@ export class Utilisateur {
   telephone: string;
   mdp: string;
   admin: boolean;
-  entreprise: Entreprise
+  entreprise: Entreprise;
   groupes: Array<Groupe>;
   evenements: Array<Evenement>;
   favoris: Array<Favoris>;
@@ -33,7 +33,7 @@ export class Utilisateur {
     this.telephone = telephone;
     this.mdp = mdp;
     this.admin = admin;
-    this.entreprise = entreprise
+    this.entreprise = entreprise;
     this.groupes = groupes;
     this.evenements = evenements;
     this.favoris = favoris;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Evenement} from '../model/evenement';
 import {EvenementHttpService} from './evenement-http.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {Groupe} from '../model/groupe';
 import {Entreprise} from '../model/entreprise';
@@ -12,6 +12,7 @@ import {log} from 'util';
 import {SearchCriteria} from '../model/searchCriteria';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
+import {AuthService} from "../login/auth.service";
 
 @Component({
   selector: 'evenement',
@@ -35,7 +36,7 @@ export class EvenementComponent implements OnInit {
   nomEvenement: NomEvenement;
   typeEvenement: TypeEvenement;
 
-  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService) {
+  constructor(private evenementHttpService: EvenementHttpService, private route: ActivatedRoute, private entrepriseHttpService: EntrepriseHttpService, private utilisateurHttpService: UtilisateurHttpService, private http: HttpClient, private appConfigService: AppConfigService, private router: Router, private authService: AuthService) {
 
 
     this.findWithFilter();
@@ -44,7 +45,10 @@ export class EvenementComponent implements OnInit {
 
   }
 
-
+  disconnect() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   ngOnInit() {
 
@@ -83,14 +87,14 @@ export class EvenementComponent implements OnInit {
 
   }
 
-  resetFilter(){
+  resetFilter() {
     this.searchCriteria = new SearchCriteria();
 
     this.findWithFilter();
   }
 
-  listGroupes(){
-   this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+  listGroupes() {
+    this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
       this.groupes = resp;
     });
   }
