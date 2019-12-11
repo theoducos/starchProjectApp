@@ -16,8 +16,8 @@
   <div *ngFor="let evenement of evenements">
     <p>{{evenement.titre}}</p>
     <p>{{evenement.date}}</p>
-    <p>{{evenement.nomEvenement}}</p>
-    <p>{{evenement.lieuxEvenement}}</p>
+<!--    <p>{{evenement.nomEvenement}}</p>-->
+    <p>{{evenement.lieuxEvenement?.nomLieu}}</p>
 
   </div>
 
