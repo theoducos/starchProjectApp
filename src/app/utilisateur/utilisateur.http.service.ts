@@ -57,7 +57,7 @@ export class UtilisateurHttpService {
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/favoris');
   }
 
-  findEntrepriseByUtilisateurId(id:number): any{
+  findEntrepriseByUtilisateurId(id:number): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'utilisateur/' + id + '/entreprise');
   }
 

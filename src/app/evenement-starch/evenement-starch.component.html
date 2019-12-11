@@ -13,7 +13,7 @@
           <h2>{{event.titre}}</h2>
           <p class="price">{{event.prixStarch}} euros</p>
           <p>{{event.description}}</p>
-          <button [routerLink]="['/orgaEvenement']">Réserver</button>
+          <button [routerLink]="['/orgaEvenementStarch', event.id]">Réserver</button>
         </div>
       </div>
     </div>

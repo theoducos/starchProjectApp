@@ -9,6 +9,10 @@ import {EvenementStarch} from '../model/evenementStarch';
 import {EvenementStarchHttpService} from '../evenement-starch/evenement-starch-http.service';
 import {Adresse} from '../model/adresse';
 import {ActivatedRoute} from '@angular/router';
+import {Utilisateur} from '../model/utilisateur';
+import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
+import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
+import {Entreprise} from '../model/entreprise';
 
 @Component({
   selector: 'orga-evenement-starch',
@@ -18,11 +22,13 @@ import {ActivatedRoute} from '@angular/router';
 
 
 export class OrgaEvenementStarchComponent implements OnInit {
-  evenementStarch: EvenementStarch ;
+  evenementStarch: EvenementStarch = new EvenementStarch();
 
   lieuxEvenements: any;
 
   lieuxEvenement : LieuxEvenement = new LieuxEvenement();
+
+  entreprise: Entreprise = new Entreprise();
 
   groupes: any;
 
@@ -32,21 +38,38 @@ export class OrgaEvenementStarchComponent implements OnInit {
 
   adresse : Adresse = new Adresse();
 
+  utilisateur: Utilisateur = new Utilisateur();
 
 
-  constructor(private route: ActivatedRoute, private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService) {
+
+  constructor(private route: ActivatedRoute, private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService, private utilisateurHttpService: UtilisateurHttpService) {
+    this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.route.params.subscribe(params => {
       this.evenementStarchService.findById(params.id).subscribe(resp => {
-        this.evenementStarch =resp
+        this.evenementStarch =resp;
 
-        this.evenement.evenementStarch = this.evenementStarch;
-      } )
-  })
+      } );
+  });
 }
 
   save() {
-    this.evenementHttpService.save(this.evenement);
-    this.evenement = null;
+    this.evenement.titre = this.evenementStarch.titre;
+    this.evenement.nomEvenement = this.evenementStarch.nomEvenement;
+    this.evenement.typeEvenement = this.evenementStarch.typeEvenement;
+    this.evenement.prix = this.evenementStarch.prixStarch;
+    this.evenement.nbParticipantMax = this.evenementStarch.nbParticipantMax;
+    this.evenement.description = this.evenementStarch.description;
+    this.evenement.evenementStarch = this.evenementStarch;
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp;
+      console.log(this.utilisateur);
+      this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+        this.entreprise = resp;
+        this.evenement.entreprise = this.entreprise;
+        this.evenementHttpService.save(this.evenement);
+      });
+    });
+
   }
 
   ngOnInit() {

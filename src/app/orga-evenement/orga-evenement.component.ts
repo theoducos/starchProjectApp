@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {FormValidatorService} from '../form-validator.service';
 import {Utilisateur} from '../model/utilisateur';
+import {Entreprise} from '../model/entreprise';
 
 @Component({
   selector: 'orga-evenement',
@@ -20,6 +21,7 @@ export class OrgaEvenementComponent implements OnInit {
 
   utilisateur: Utilisateur = new Utilisateur();
   evenement: Evenement = new Evenement();
+  entreprise: Entreprise = new Entreprise();
 
   lieuxEvenements: any;
 
@@ -27,22 +29,39 @@ export class OrgaEvenementComponent implements OnInit {
 
   groupes: Array<Groupe>;
 
-  groupeNull: Groupe = new Groupe();
+  groupe: Groupe = new Groupe();
 
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService,
               private groupeService: GroupeHttpService, private authService: AuthService, private router: Router, formValidatorService: FormValidatorService,
               private utilisateurHttpService: UtilisateurHttpService) {
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
-    this.evenement.lieuxEvenement = this.lieuxEvenement;
-    this.evenement.groupe = this.groupeNull;
+    // this.evenement.lieuxEvenement = this.lieuxEvenement;
+    // this.evenement.groupe = this.groupe;
     this.utilisateurHttpService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
     this.lieuxEvenementService.findAll().subscribe(resp => this.lieuxEvenements = resp);
 
   }
 
   save() {
-    this.evenementService.save(this.evenement);
+    this.evenement.lieuxEvenement = this.lieuxEvenement;
+
+    if (this.groupe.id != null) {
+      this.groupeService.findById(this.groupe.id).subscribe(resp => {
+        this.groupe = resp;
+        this.evenement.groupe = this.groupe;
+      });
+    }
+
+    this.utilisateurHttpService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp;
+      this.utilisateurHttpService.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {
+        this.entreprise = resp;
+        this.evenement.entreprise = this.entreprise;
+        this.evenementService.save(this.evenement);
+        this.router.navigate(['/utilisateur']);
+      });
+    });
   }
 
   ngOnInit() {
@@ -50,7 +69,7 @@ export class OrgaEvenementComponent implements OnInit {
   }
 
   session() {
-    console.log(localStorage.getItem("identifiant"));
+    console.log(localStorage.getItem('identifiant'));
     this.authService.logout();
     this.router.navigate(['/login']);
   }
