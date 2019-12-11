@@ -6,9 +6,9 @@
       <h2>{{groupe.nom}}</h2>
       <br>
       <br>
-      <p>
-        <button type="button" class="button">Voir/Modifier des informations</button>
-      </p>
+<!--      <p>-->
+<!--        <button type="button" class="button" [routerLink]="['/modificationEntreprise/'+groupe.id]">Voir/Modifier des informations</button>-->
+<!--      </p>-->
     </div>
   </div>
   <div class="col-9">
@@ -19,12 +19,13 @@
         <div *ngFor="let utilisateur of utilisateurs">
           <p>{{utilisateur.nom}} {{utilisateur.prenom}}</p></div>
       </div>
-      <br>
-      <div>
-        <button>Inviter <i class="fa fa-user-plus"></i></button>
-      </div>
-      <br>
+      <!--      <br>-->
+      <!--      <div>-->
+      <!--        <button>Inviter <i class="fa fa-user-plus"></i></button>-->
+      <!--      </div>-->
+      <!--      <br>-->
 
+      <br><br>
       <div>
         <button class="buttonBis">Acceder au calendrier du groupe <i
           class="fa fa-calendar"></i></button>
