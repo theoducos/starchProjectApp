@@ -18,9 +18,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class CreationGroupeComponent implements OnInit {
 
   groupe: Groupe = new Groupe();
+  entreprise: Entreprise = new Entreprise();
   utilisateur: Utilisateur = new Utilisateur();
 
-  entreprise: Entreprise;
 
   groupes: Array<Groupe>;
 
