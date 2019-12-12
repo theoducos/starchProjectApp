@@ -13,12 +13,12 @@
   </div>
   <hr>
   <div *ngIf="evenement.evenementStarch!=null">
-    <p style="font-weight: bold;font-size: x-large">Lieu de l'événement:</p> <i
-    class="fa fa-map-marker fa-2x"></i> {{evenement.evenementStarch.adresse.ville}}
+    <p style="font-weight: bold;font-size: x-large">Lieu de l'événement:</p>
+    <i class="fa fa-map-marker fa-2x"></i> {{evenement.evenementStarch.adresse?.rue}}, {{evenement.evenementStarch.adresse?.codePostal}}, {{evenement.evenementStarch.adresse?.ville}}
   </div>
   <div *ngIf="evenement.lieuxEvenement!=null">
     <p style="font-weight: bold;font-size: x-large">Lieu de l'événement:</p> <i
-    class="fa fa-map-marker fa-2x"></i> {{evenement.lieuxEvenement.adresse.ville}}
+    class="fa fa-map-marker fa-2x"></i> {{evenement.lieuxEvenement.adresse.rue}}, {{evenement.lieuxEvenement.adresse.codePostal}}, {{evenement.lieuxEvenement.adresse.ville}}
   </div>
   <hr>
   <div class="centrer" data-toggle="modal" data-target="#myModal" >
