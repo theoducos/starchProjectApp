@@ -63,7 +63,7 @@
   <div>
     <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
     <textarea [(ngModel)]="commentaire.commentaire"></textarea>
-    <button class="fa fa-share" (click)="saveCommentaire()"></button>
+   <br> <i class="fa fa-share fa-2x" (click)="saveCommentaire()"></i>
     <hr>
     <button (click)="listCommentaires()"><i class="fa fa-comments"></i>Commentaires</button>
     <div *ngIf="commentaireBool==true">

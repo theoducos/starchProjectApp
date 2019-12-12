@@ -18,8 +18,11 @@ export class NouveauLieuFormComponent implements OnInit {
 
 
   save() {
-    this.lieuxEvenementService.save(this.lieuxEvenement);
-    this.router.navigate(['orgaEvenement']);
+    this.lieuxEvenementService.create(this.lieuxEvenement).subscribe(resp => {
+      this.lieuxEvenement = resp;
+      this.router.navigate(['orgaEvenement']);
+    });
+
   }
 
   constructor(private lieuxEvenementService: LieuxEvenementHttpService, private router: Router) {
