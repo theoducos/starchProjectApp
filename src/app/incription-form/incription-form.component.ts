@@ -7,7 +7,7 @@ import {InscriptionEntrepriseHttpService} from '../inscription-entreprise/inscri
 import {FormValidatorService} from "../form-validator.service";
 import {Router} from '@angular/router';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
-import {FileUploader} from "ng2-file-upload";
+// import {FileUploader} from "ng2-file-upload";
 import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 
 @Component({

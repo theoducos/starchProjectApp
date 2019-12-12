@@ -17,13 +17,9 @@ import {Gestion} from '../model/gestion';
 export class CreationGroupeComponent implements OnInit {
 
   groupe: Groupe = new Groupe();
-  groupe: Groupe = new Groupe;
   entreprise: Entreprise = new Entreprise();
   utilisateur: Utilisateur = new Utilisateur();
 
-  utilisateur: Utilisateur = new Utilisateur();
-
-  entreprise: Entreprise;
 
   groupes: Array<Groupe>;
 
