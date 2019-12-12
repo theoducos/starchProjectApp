@@ -179,11 +179,17 @@ export class EvenementDetailComponent implements OnInit {
   }
 
   saveCommentaire() {
-    this.commentaire.evenement = this.evenement;
-    this.commentaireService.save(this.commentaire).subscribe(resp => {
-      this.listCommentaires();
-      this.commentaire.commentaire = "";
-    });
+    this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
+      this.utilisateur = resp;
+      this.commentaire.utilisateur = this.utilisateur;
+      this.commentaire.evenement = this.evenement;
+      this.commentaireService.save(this.commentaire).subscribe(resp => {
+        this.listCommentaires();
+        this.commentaire.commentaire = "";
+      });
+
+    })
+
   }
 
   // saveParticipation(iduser = this.utilisateur.id) {
