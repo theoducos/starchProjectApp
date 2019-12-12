@@ -8,7 +8,7 @@ import {GroupeHttpService} from '../groupe/groupe-http.service';
 import {EvenementStarch} from '../model/evenementStarch';
 import {EvenementStarchHttpService} from '../evenement-starch/evenement-starch-http.service';
 import {Adresse} from '../model/adresse';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Utilisateur} from '../model/utilisateur';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
@@ -42,7 +42,7 @@ export class OrgaEvenementStarchComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService, private utilisateurHttpService: UtilisateurHttpService) {
+  constructor(private route: ActivatedRoute, private evenementStarchService: EvenementStarchHttpService, private lieuxEvenementService: LieuxEvenementHttpService, private groupeService: GroupeHttpService, private evenementHttpService: EvenementHttpService, private utilisateurHttpService: UtilisateurHttpService, private router: Router) {
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.route.params.subscribe(params => {
       this.evenementStarchService.findById(params.id).subscribe(resp => {
@@ -67,6 +67,7 @@ export class OrgaEvenementStarchComponent implements OnInit {
         this.entreprise = resp;
         this.evenement.entreprise = this.entreprise;
         this.evenementHttpService.save(this.evenement);
+        this.router.navigate(['calendar']);
       });
     });
 
