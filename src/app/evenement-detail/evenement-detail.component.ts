@@ -78,9 +78,19 @@ export class EvenementDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.evenementService.findById(params.id).subscribe(resp => {
         this.evenement = resp;
+
+      // this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
+      //   this.utilisateur = resp;
+      //   this.utilisateurService.findParticipationByUtilisateurAndEvent(this.utilisateur.id, this.evenement.id).subscribe(resp => {
+      //     this.participation = resp;});
+      //   });
+
+
         this.evenementService.findUtilisateursParticipants(params.id).subscribe(resp => {
           this.utilisateursParticipants = resp;
           this.nbparticipants = this.utilisateursParticipants.length;
+
+
 
           // this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => {
           //   this.groupesUtilisateurParticipants = resp;
@@ -98,6 +108,28 @@ export class EvenementDetailComponent implements OnInit {
           //   this.groupesUtilisateurInteresses = resp;
           // })
         })
+      });
+
+    });
+
+
+    this.route.params.subscribe(params => {
+      this.evenementService.findById(params.id).subscribe(resp => {
+        this.evenement = resp;
+        console.log(this.evenement);
+
+        this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
+          this.utilisateur = resp;
+          console.log(this.utilisateur)
+          this.utilisateurService.findParticipationByUtilisateurAndEvent(this.utilisateur.id, this.evenement.id).subscribe(resp => {
+            if(resp != null){
+              this.participation = resp;
+            }
+            console.log(this.participation);
+          });
+        });
+
+
       });
 
     });
@@ -362,6 +394,8 @@ export class EvenementDetailComponent implements OnInit {
 
         });
       } else {
+
+        console.log(this.participation);
 
         this.participation.utilisateur = this.utilisateur;
         this.participation.evenement = this.evenement;
