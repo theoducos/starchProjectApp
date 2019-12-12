@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
               <label for="mdp"><i class="fa fa-lock"></i></label>
-              <input id="mdp" type="text" [(ngModel)]="model.password" placeholder="Password">
+              <input id="mdp" type="password" [(ngModel)]="model.password" placeholder="Password">
             </div>
             <p *ngIf="erreur" style="color: #DC3B3B">Identifiant ou mot de passe incorrect!</p>
             <button (click)="validate()" class="form-submit">S'identifier</button>
