@@ -37,6 +37,10 @@ export class GestionHttpHttpService {
     }
   }
 
+  create(gest: Gestion): Observable<any>{
+    return this.http.post(this.appConfigService.backend + 'gestion', gest);
+  }
+
   findById(id: number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'gestion/' + id);
   }

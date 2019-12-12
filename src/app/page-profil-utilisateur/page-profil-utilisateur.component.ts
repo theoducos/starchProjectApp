@@ -63,7 +63,7 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
         this.gestion.groupe = group;
         this.gestion.utilisateur = this.utilisateur;
-        this.gestion.gestion="Membre"
+        this.gestion.typeGestion="Membre";
         this.gestionservice.save(this.gestion).subscribe(resp =>{
           this.gestion = resp;
           this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
