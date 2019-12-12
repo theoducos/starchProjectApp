@@ -6,7 +6,7 @@
       <li style="font-weight: bold;font-size: large">Utilisateur</li>
       <li>
         <input type="text" class="field-style field-full align-none" id="identifiant" name="identifiant"
-               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*" required #identifiant="ngModel">
+               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*" required #identifiant="ngModel" (ngModelChange)="console.log('dfkfdkdf');">
         <div *ngIf="identifiant.invalid && (identifiant.dirty)"
              class="error">
           <div *ngIf="identifiant.errors.required" class="error">

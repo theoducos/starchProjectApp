@@ -2,7 +2,7 @@
   <div class="col-lg-2">
     <div class="form-style-8">
       <div style="text-align: center">
-        <img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
+        <img [src]="'http://localhost:8080/downloadFile/'+this.utilisateur.identifiant+'.jpg'"
              alt="Avatar" class="avatar"/>
         <h1>{{utilisateur.identifiant}}</h1>
         <p class="title">{{utilisateur.nom}}</p>
