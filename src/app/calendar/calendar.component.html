@@ -35,7 +35,6 @@
       </select><br>
       <label for="groupe">Groupes</label><br>
       <select id="groupe" class="select" [(ngModel)]="searchCriteria.idGroupe">
-        <option [value]="null" selected>Groupe</option>
         <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.nom}}</option>
       </select>
       <div>

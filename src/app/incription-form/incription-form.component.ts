@@ -50,47 +50,52 @@ export class IncriptionFormComponent implements OnInit {
           }
         };
         if(this.isExist == false && this.entrepriseExist == true){
-          this.utilisateur.entreprise = this.entreprise;
-          this.utilisateurService.createUser(this.utilisateur).subscribe(resp => {
-            this.utilisateur = resp;
-            if (this.photo != null) {
-              let formData: FormData = new FormData();
-              formData.append('file', this.photo, this.utilisateur.identifiant + ".jpg");
-              let headers = new HttpHeaders();
-              /** In Angular 5, including the header Content-Type can invalidate your request */
-              headers.append('Content-Type', 'multipart/form-data');
-              headers.append('Accept', 'application/json');
-              this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
-                .subscribe(resp => {
-                    console.log('success');
-                  },
-                  error => console.log(error)
-                );
-            } else{
-              let formData: FormData = new FormData();
-              formData.append('file', "default.jpg");
-              let headers = new HttpHeaders();
-              /** In Angular 5, including the header Content-Type can invalidate your request */
-              headers.append('Content-Type', 'multipart/form-data');
-              headers.append('Accept', 'application/json');
-              this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
-                .subscribe(resp => {
-                    console.log('success');
-                  },
-                  error => console.log(error)
-                );
-            }
+          this.entrepriseHttpService.findByCode(this.entreprise.codeEntreprise).subscribe(resp => {
+            this.entreprise = resp;
+
+            this.utilisateur.entreprise = this.entreprise;
+            this.utilisateurService.createUser(this.utilisateur).subscribe(resp => {
+              this.utilisateur = resp;
+              if (this.photo != null) {
+                let formData: FormData = new FormData();
+                formData.append('file', this.photo, this.utilisateur.identifiant + ".jpg");
+                let headers = new HttpHeaders();
+                /** In Angular 5, including the header Content-Type can invalidate your request */
+                headers.append('Content-Type', 'multipart/form-data');
+                headers.append('Accept', 'application/json');
+                this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
+                  .subscribe(resp => {
+                      console.log('success');
+                    },
+                    error => console.log(error)
+                  );
+              } else{
+                let formData: FormData = new FormData();
+                formData.append('file', "default.jpg");
+                let headers = new HttpHeaders();
+                /** In Angular 5, including the header Content-Type can invalidate your request */
+                headers.append('Content-Type', 'multipart/form-data');
+                headers.append('Accept', 'application/json');
+                this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
+                  .subscribe(resp => {
+                      console.log('success');
+                    },
+                    error => console.log(error)
+                  );
+              }
 
 
-            localStorage.setItem('isLoggedin', 'true');
-            localStorage.setItem('isAdmin', 'false');
-            localStorage.setItem('id', String(this.utilisateur.id));
-            this.router.navigate(['utilisateur']);
-          })
+              localStorage.setItem('isLoggedin', 'true');
+              localStorage.setItem('isAdmin', 'false');
+              localStorage.setItem('id', String(this.utilisateur.id));
+              this.router.navigate(['utilisateur']);
+            })
+
+          });
+
         } else if (this.entrepriseExist != true) {
           this.entrepriseExist = false;
-        }
-        ;
+        };
       });
 
 

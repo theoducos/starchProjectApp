@@ -182,6 +182,7 @@ export class EvenementDetailComponent implements OnInit {
     this.commentaire.evenement = this.evenement;
     this.commentaireService.save(this.commentaire).subscribe(resp => {
       this.listCommentaires();
+      this.commentaire.commentaire = "";
     });
   }
 

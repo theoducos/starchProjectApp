@@ -39,6 +39,10 @@ export class EntrepriseHttpService {
     return this.http.get(this.appConfigService.backend + 'entreprise/' + id + '/evenements');
   }
 
+  findByCode(codeEntreprise : string): Observable<any>{
+    return this.http.get(this.appConfigService.backend + 'entreprise/code/' + codeEntreprise);
+  }
+
 
 
 }
