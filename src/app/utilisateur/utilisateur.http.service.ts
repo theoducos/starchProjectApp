@@ -29,11 +29,12 @@ export class UtilisateurHttpService {
     return this.http.get(this.appConfigService.backend + 'utilisateur');
   }
 
-  save(utilisateur: Utilisateur) {
+  save(utilisateur: Utilisateur): Observable<any>{
     if (utilisateur.id) {
-      this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load());
+      return this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur);
+
     } else {
-      this.http.post(this.appConfigService.backend + '/utilisateur', utilisateur).subscribe(resp => this.load());
+      return this.http.post(this.appConfigService.backend + '/utilisateur', utilisateur);
     }
   }
 

@@ -5,6 +5,7 @@ import {ModificationEntrepriseHttpService} from '../modification-entreprise/modi
 import {ActivatedRoute, Router} from '@angular/router';
 import {Utilisateur} from '../model/utilisateur';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
+import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 
 @Component({
   selector: 'app-modification-utilisateur',
@@ -13,8 +14,8 @@ import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 })
 export class ModificationUtilisateurComponent implements OnInit {
 
-
-  utilisateur: Utilisateur = new Utilisateur();
+entreprise: Entreprise =new Entreprise();
+ utilisateur: Utilisateur = new Utilisateur();
 
   constructor(private utilisateurhttpservice: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
   this.utilisateur.id = localStorage.getItem('id') as unknown as number;
@@ -22,14 +23,21 @@ export class ModificationUtilisateurComponent implements OnInit {
     // this.route.params.subscribe(params => {
       this.utilisateurhttpservice.findById(this.utilisateur.id).subscribe(resp => {
           this.utilisateur = resp;
+        console.log(this.utilisateur);
+        this.utilisateurhttpservice.findEntrepriseByUtilisateurId(this.utilisateur.id).subscribe(resp => {this.entreprise =resp; console.log(this.entreprise);
+
         }
+
       );
-    // });
+   });
   }
 
   save() {
-    this.utilisateurhttpservice.save(this.utilisateur);
-    this.router.navigate(['/utilisateur', this.utilisateur.id]);
+    this.utilisateur.entreprise =this.entreprise;
+    this.utilisateurhttpservice.save(this.utilisateur).subscribe(resp=> {
+      this.utilisateur=resp;
+      this.router.navigate(['utilisateur']);
+    });
 
   }
 
