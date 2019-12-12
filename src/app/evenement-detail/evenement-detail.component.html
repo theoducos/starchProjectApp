@@ -50,11 +50,13 @@
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
   <hr>
-  <div style="color: #42A948; font-weight: bold"><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p>
+  <div style="color: #42A948; font-weight: bold">
+    <p *ngIf="evenement.statutOf==true else elseBlock"> Inscription Ouverte!</p>
+    <ng-template #elseBlock>
+      <div style="color:#DC3B3B ; font-weight: bold">Else template</div>
+    </ng-template>
   </div>
-  <ng-template #elseBlock>
-    <div style="color:#DC3B3B ; font-weight: bold">Else template</div>
-  </ng-template>
+
   <hr>
   <div>
     <p style="font-weight: bold;font-size: x-large"> Description :</p>
@@ -72,7 +74,7 @@
   <div>
     <p style="font-weight: bold;font-size: x-large">Ajouter un commentaire : </p>
     <textarea [(ngModel)]="commentaire.commentaire"></textarea>
-    <button class="fa fa-share" (click)="saveCommentaire()"></button>
+   <br> <i class="fa fa-share fa-2x" (click)="saveCommentaire()"></i>
     <hr>
     <button (click)="listCommentaires()"><i class="fa fa-comments"></i>Commentaires</button>
     <div *ngIf="commentaireBool==true">

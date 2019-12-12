@@ -44,7 +44,8 @@ import {ParticipationHttpService} from './participation/participation-http.servi
 import {UtilisateurHttpService} from './utilisateur/utilisateur.http.service';
 import { CalendarComponent } from './calendar/calendar.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
-
+import {FileUploadModule} from "ng2-file-upload";
+// import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import {FullCalendarModule} from '@fullcalendar/angular';
     MustMatchDirective,
     ParticipationComponent,
     CalendarComponent,
+    // FileSelectDirective
   ],
 
   imports: [
@@ -79,7 +81,8 @@ import {FullCalendarModule} from '@fullcalendar/angular';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    HttpClientModule
 
   ],
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService,

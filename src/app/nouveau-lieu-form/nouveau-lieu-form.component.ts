@@ -4,6 +4,7 @@ import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 import {LieuxEvenement} from "../model/lieuxEvenement";
 import {LieuxEvenementHttpService} from "../lieux-evenement/lieux-evenement-http.service";
 import {Adresse} from "../model/adresse";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nouveau-lieu-form',
@@ -17,11 +18,14 @@ export class NouveauLieuFormComponent implements OnInit {
 
 
   save() {
-    this.lieuxEvenementService.save(this.lieuxEvenement);
+    this.lieuxEvenementService.create(this.lieuxEvenement).subscribe(resp => {
+      this.lieuxEvenement = resp;
+      this.router.navigate(['orgaEvenement']);
+    });
 
   }
 
-  constructor(private lieuxEvenementService: LieuxEvenementHttpService) {
+  constructor(private lieuxEvenementService: LieuxEvenementHttpService, private router: Router) {
   }
 
   ngOnInit() {
