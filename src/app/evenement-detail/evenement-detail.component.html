@@ -81,15 +81,12 @@
 </div>
 
 <div class="container">
-  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog  modal-lg">
 
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
 
-          <!--          class="modal-title"-->
 
           <div style="position: relative ; margin-left: 50px"><h4>Participant(e)</h4></div>
           <div style="position: relative ; margin-left: 10px"><i class="fa fa-users fa-2x"></i></div>
@@ -106,21 +103,14 @@
           <div>
             <div *ngIf="participantBool" style="position: relative ; float: left; width: 50%; text-align: center">
               <div *ngFor="let utilisateur of utilisateursParticipants">
-                <!--      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">-->
                 <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}</b></p>
-                <!--          <i-->
-                <!--         class="fa fa-users"></i>  {{groupes.nom}}</b></p>-->
-                <!--      </div>-->
               </div>
             </div>
           </div>
           <div style="position: relative ; float:right;  width: 50%; text-align: center">
             <div *ngIf="interessesBool">
               <div *ngFor="let util of utilisateursInteresses">
-                <!--      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">-->
                 <p><b>{{util.prenom}} {{util.nom}}</b></p>
-                <!--          <i class="fa fa-users "></i>  {{groupes.nom}}</b></p>-->
-                <!--      </div>-->
               </div>
             </div>
           </div>

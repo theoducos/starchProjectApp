@@ -20,20 +20,28 @@ import {ParticipationService} from './participation.service';
 })
 export class EvenementDetailComponent implements OnInit {
 
+
+  utilisateursInteresses: Array<Utilisateur>;
+  utilisateursParticipants: Array<Utilisateur>;
+
+  participantBool: boolean = false;
+  interessesBool: boolean = false;
+
+  isParticipant: boolean;
+  isInteresse: boolean;
+
+  participation: Participation = new Participation();
+  utilisateur: Utilisateur = new Utilisateur();
+
+
   evenement: Evenement = new Evenement();
 
   commentaire: Commentaire = new Commentaire();
 
-  participation: Participation = new Participation();
+
   lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
-  utilisateursInteresses: any;
 
-  typeParticipation : TypeParticipation.participant;
-
-  utilisateursParticipants: Array<Utilisateur>;
-
-  utilisateur: Utilisateur = new Utilisateur();
 
   commentaires: Array<Commentaire>;
 
@@ -41,23 +49,9 @@ export class EvenementDetailComponent implements OnInit {
 
   nbparticipants: number;
 
-  participationparutilisateur: any;
-  allparticipationofcurentevenet: any;
-
-  participations: Array<Participation>;
-
-
-  groupesUtilisateurParticipants: any;
-  groupesUtilisateurInteresses: any;
-  groupesUtilisateurInteressesListe: any;
-  groupesUtilisateurParticipantsListe: any;
   id: number;
 
-  participantBool: boolean = false;
-  interessesBool: boolean = false;
 
-  isParticipant: boolean;
-  isInteresse: boolean;
 
   @Output()
   childEvent = new EventEmitter();
@@ -72,7 +66,9 @@ export class EvenementDetailComponent implements OnInit {
   }
 
 
-  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService, private utilisateurService: UtilisateurHttpService, private participantService: ParticipationHttpService, private router: Router, private authService: AuthService, private participationService: ParticipationService) {
+  constructor(private evenementService: EvenementHttpService, private route: ActivatedRoute, private commentaireService: CommentaireHttpService,
+              private utilisateurService: UtilisateurHttpService, private participantService: ParticipationHttpService,
+              private router: Router, private authService: AuthService, private participationService: ParticipationService) {
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
 
     this.route.params.subscribe(params => {
@@ -174,12 +170,7 @@ export class EvenementDetailComponent implements OnInit {
     this.participantBool = false;
     this.interessesBool = true;
     this.evenementService.findUtilisateursInteresses(this.evenement.id).subscribe(resp => this.utilisateursInteresses = resp);
-    // console.log(this.utilisateursInteresses)
-    // for (let lesutilisateurs of this.utilisateursInteresses) {
-    //   this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurInteressesListe = resp);
-    // }
   }
-
   listParticipant() {
     this.interessesBool = false;
     this.participantBool = true;
@@ -187,10 +178,6 @@ export class EvenementDetailComponent implements OnInit {
       this.utilisateursParticipants = resp;
       this.nbparticipants = this.utilisateursParticipants.length;
     });
-    // console.log(this.utilisateursParticipants)
-    // for (let lesutilisateurs of this.utilisateursParticipants) {
-    //   this.utilisateurService.findGroupeByUtilisateurId(lesutilisateurs.id).subscribe(resp => this.groupesUtilisateurParticipantsListe = resp);
-    // }
   }
 
   listAll() {
