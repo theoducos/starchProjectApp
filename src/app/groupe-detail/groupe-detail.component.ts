@@ -36,7 +36,6 @@ export class GroupeDetailComponent implements OnInit {
       this.groupeService.findById(params.id).subscribe(resp => {
         this.groupe = resp;
         this.groupeService.findUtilisateursByGroupeId(this.groupe.id).subscribe(resp => this.utilisateurs = resp);
-        this.img = resp;
 
       });
     });

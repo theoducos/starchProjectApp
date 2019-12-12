@@ -27,7 +27,6 @@ export class CreationGroupeHttpService {
     } else {
       this.http.post(this.appConfigService.backend + '/groupe', groupe).subscribe(resp => this.load());
     }
-    // console.log(this.http.put(this.appConfigService.backend + 'utilisateur/' + utilisateur.id, utilisateur).subscribe(resp => this.load()));
   }
 
   create(group: Groupe): Observable<any>{

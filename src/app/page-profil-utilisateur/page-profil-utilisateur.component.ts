@@ -43,13 +43,11 @@ export class PageProfilUtilisateurComponent implements OnInit {
 
     this.utilisateur.id = localStorage.getItem('id') as unknown as number;
     this.utilisateurService.findById(this.utilisateur.id).subscribe(resp => {
-      this.utilisateur = resp;
-      this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
-      this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
-      // this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
-      this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
-      this.img = resp;
-      this.groupeservice.findAll().subscribe(resp => this.allgroupes = resp)
+        this.utilisateur = resp;
+        this.utilisateurService.findGroupeByUtilisateurId(this.utilisateur.id).subscribe(resp => this.groupes = resp);
+        this.utilisateurService.findEvenementByUtilisateurId(this.utilisateur.id).subscribe(resp => this.evenements = resp);
+        // this.utilisateurService.findFavorisByUtilisateurId(this.utilisateur.id).subscribe(resp => this.favoris = resp);
+        // this.lieuxEvenementService.findAll().subscribe(resp => this.lieux = resp);
 
     })
   }

@@ -12,7 +12,7 @@
           </div>
         </div>
         <div *ngIf="isExist == true">
-          <p >L'identifiant existe déjà</p>
+          <p>L'identifiant existe déjà</p>
         </div>
       </li>
       <li>
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div *ngIf="entrepriseExist == false">
-          <p >Ce code entreprise n'existe pas</p>
+          <p>Ce code entreprise n'existe pas</p>
         </div>
       </li>
     </ul>
@@ -92,6 +92,22 @@
       <i class="fa fa-undo" [routerLink]="['../login']"></i>
     </a>
   </div>
+
+<!--  <p style="font-weight: bold">Choisir sa photo de profil</p>-->
+<!--  <input type="file" ng2FileSelect [uploader]="uploader"/>-->
+
+<!--  <ul>-->
+<!--    <li *ngFor="let item of uploader.queue">-->
+<!--      <strong>{{ item?.file?.name }}</strong>-->
+<!--      <button type="button" class="btn btn-success btn-xs"-->
+<!--              (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">-->
+<!--        <span class="glyphicon glyphicon-upload"></span> Upload-->
+<!--      </button>-->
+<!--    </li>-->
+
+<!--  </ul>-->
+<p>Choisir sa photo de profil:</p>
+  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".jpg">
 
 
 </div>

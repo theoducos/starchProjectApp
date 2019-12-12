@@ -13,12 +13,12 @@
             Identifiant obligatoire
           </div>
         </div>
-        <div *ngIf="isExist == true">
+        <div *ngIf="isExist === true">
           <p>Cet identifiant existe déjà</p>
         </div>
       </li>
       <li>
-        <input type="text" class="field-style field-full align-none" id="mdp" [(ngModel)]="utilisateur.mdp"
+        <input type="password" class="field-style field-full align-none" id="mdp" [(ngModel)]="utilisateur.mdp"
                placeholder="Mot de Passe*" name="mdp" required #mdp="ngModel" minlength="4">
         <div *ngIf="mdp.invalid && (mdp.dirty)"
              class="error">
@@ -31,7 +31,7 @@
         </div>
       </li>
       <li>
-        <input type="text" class="field-style field-full align-none" id="confirmation"
+        <input type="password" class="field-style field-full align-none" id="confirmation"
                [(ngModel)]="utilisateur.confirmation"
                placeholder="Confirmation*" name="confirmation" required #confirmation="ngModel">
         <div *ngIf="confirmation.invalid && (confirmation.dirty) "
@@ -70,6 +70,8 @@
             Prénom obligatoire
           </div>
         </div>
+        <p>Choisir sa photo de profil:</p><input type="file" (change)="fileChange($event)" placeholder="Upload file"
+                                                 accept=".jpg">
       </li>
       <li style="font-weight: bold;font-size: large">Entreprise</li>
       <li>

@@ -15,7 +15,7 @@ import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 export class ModificationUtilisateurComponent implements OnInit {
 
 entreprise: Entreprise =new Entreprise();
- utilisateur: Utilisateur = new Utilisateur();
+utilisateur: Utilisateur = new Utilisateur();
 
   constructor(private utilisateurhttpservice: UtilisateurHttpService, private route: ActivatedRoute, private router: Router) {
   this.utilisateur.id = localStorage.getItem('id') as unknown as number;

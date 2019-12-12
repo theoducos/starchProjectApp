@@ -73,6 +73,15 @@ export class UtilisateurHttpService {
   findParticipationByUtilisateurAndEvent(iduser: number, idevent : number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/'+ iduser +  '/evenement/'+ idevent+ '/participation');
   }
-
+// sendFile(file:File){
+//
+//   const url = 'http://localhost:4200/utilisateur';
+//   const formData: FormData = new FormData();
+//   formData.append('file', file, file.name);
+//   return this.httpClient
+//     .post(url, formData, { headers:  })
+//     .map(() => { return true; })
+//     .catch((e) => this.handleError(e));
+// }
 
 }
