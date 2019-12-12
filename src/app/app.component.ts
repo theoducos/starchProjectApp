@@ -12,12 +12,13 @@ export class AppComponent {
   title = 'starchProjectApp';
 
 
-  constructor(private authService: AuthService, private route: Router) {
+
+  constructor(private authService: AuthService, private router: Router) {
 
   }
 
   disconnect() {
     this.authService.logout();
-    this.route.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
 }
