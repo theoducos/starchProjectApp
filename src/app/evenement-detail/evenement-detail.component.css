@@ -45,6 +45,11 @@ hr {
   border-left: 1px solid black;
 }
 
+.participant2 {
+
+  border-left: 2px solid black;
+}
+
 .btn {
   border-radius: 1px;
 }
@@ -52,6 +57,17 @@ hr {
 .avatar {
   width: 7%;
   border-radius: 50%;
+}
+.barre {
+  display: inline;
+  border-right:1px solid white;
+}
+
+.vertical-line{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: 0 10px;
+  height: 40px;
 }
 
 

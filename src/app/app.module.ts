@@ -46,7 +46,6 @@ import { CalendarComponent } from './calendar/calendar.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import { GestionComponent } from './gestion/gestion.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +80,8 @@ import { GestionComponent } from './gestion/gestion.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    FullCalendarModule
+    FullCalendarModule,
+    HttpClientModule
 
   ],
   providers: [EvenementHttpService, AppConfigService, GroupeHttpService, LieuxEvenementHttpService,

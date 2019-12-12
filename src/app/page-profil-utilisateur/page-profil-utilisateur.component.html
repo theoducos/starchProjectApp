@@ -1,8 +1,7 @@
 <div class="row">
   <div class="col-lg-3">
     <div class="form-style-9">
-      <div *ngIf="!img"><img [src]="'assets/img/noavatar.jpg'" class="avatar"/></div>
-      <div *ngIf="img"><img [src]="'assets/img/'+utilisateur.identifiant+'.jpg'"
+      <div ><img [src]="'http://localhost:8080/downloadFile/'+this.utilisateur.identifiant+'.jpg'"
                             alt="Avatar" class="avatar"/></div>
       <h1>{{utilisateur.identifiant}}</h1>
       <h2 class="title">{{utilisateur.nom}}</h2>
@@ -31,8 +30,8 @@
         </div>
 <!--        <i class="fa fa-plus" [routerLink]="['../creationGroupe']"></i>-->
       </div>
-      <div style="position:relative; maring-top: 0px; margin-left: 880px " >  <a [routerLink]="['/creationGroupe']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"><u> Create a group</u> </a></div>
-      <div style="position: relative; margin-top: 0px; margin-left: 880px  "  >  <a  (click)= "afficherzonedetexte()" style="color: #0A3FFF; font-size: 19px"  > <u> Join a group </u> </a></div>
+      <div style="position:relative; maring-top: 0px; margin-left: 880px " >  <a [routerLink]="['/creationGroupe']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"><u> Créer un groupe</u> </a></div>
+      <div style="position: relative; margin-top: 0px; margin-left: 880px  "  >  <a  (click)= "afficherzonedetexte()" style="color: #0A3FFF; font-size: 19px"  > <u> Joindre un groupe </u> </a></div>
 
       <div *ngIf="afficherinput">
         <div class="col-sm-3" style="position:relative; margin-top: 0px">
@@ -50,7 +49,7 @@
         </div>
         <br>
       </div>
-      <div style="position: relative; maring-top: 0px; margin-left: 898px " >  <a [routerLink]="['/calendar']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"> <u> Join an Event </u> </a></div>
+      <div style="position: relative; maring-top: 0px; margin-left: 898px " >  <a [routerLink]="['/calendar']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"> <u> Rejoindre un événement </u> </a></div>
       <!--      <h2 style="font-weight: bold; color:black;text-align: center">FAVORIS</h2>-->
       <!--      <div class="form-style-6">-->
       <!--        <div *ngFor="let fav of favoris">-->
