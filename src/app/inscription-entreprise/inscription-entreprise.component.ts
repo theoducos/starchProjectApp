@@ -6,6 +6,7 @@ import {Utilisateur} from '../model/utilisateur';
 import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {EntrepriseHttpService} from '../entreprise/entreprise-http.service';
 import {Router} from '@angular/router';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 // import {FormValidatorService} from '../form-validator.service';
 
 @Component({
@@ -16,7 +17,15 @@ import {Router} from '@angular/router';
 export class InscriptionEntrepriseComponent implements OnInit {
 
 
-  constructor(private entrepriseHttpService: EntrepriseHttpService, private utilisateurService: UtilisateurHttpService, private router: Router) { }
+  constructor(private entrepriseHttpService: EntrepriseHttpService, private utilisateurService: UtilisateurHttpService, private router: Router, private http: HttpClient ) { }
+
+  fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      this.photo = fileList[0];
+
+    }
+  }
 
   @Input("current")
   adresse : Adresse = new Adresse();
@@ -29,6 +38,7 @@ export class InscriptionEntrepriseComponent implements OnInit {
 
   isExist: boolean;
   entrepriseExist: boolean;
+  photo:File;
 
   save(){
     this.isExist = false;
@@ -44,6 +54,33 @@ export class InscriptionEntrepriseComponent implements OnInit {
 
       this.entrepriseHttpService.findAll().subscribe(resp => {
         this.entreprises = resp;
+        if (this.photo != null) {
+          let formData: FormData = new FormData();
+          formData.append('file', this.photo, this.utilisateur.identifiant + ".jpg");
+          let headers = new HttpHeaders();
+          /** In Angular 5, including the header Content-Type can invalidate your request */
+          headers.append('Content-Type', 'multipart/form-data');
+          headers.append('Accept', 'application/json');
+          this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
+            .subscribe(resp => {
+                console.log('success');
+              },
+              error => console.log(error)
+            );
+        } else{
+          let formData: FormData = new FormData();
+          formData.append('file', "default.jpg");
+          let headers = new HttpHeaders();
+          /** In Angular 5, including the header Content-Type can invalidate your request */
+          headers.append('Content-Type', 'multipart/form-data');
+          headers.append('Accept', 'application/json');
+          this.http.post('http://localhost:8080/uploadFile', formData, {headers: headers})
+            .subscribe(resp => {
+                console.log('success');
+              },
+              error => console.log(error)
+            );
+        }
         for(let ent of this.entreprises){
           if(ent.codeEntreprise == this.utilisateur.entreprise.codeEntreprise){
             this.entrepriseExist = true;

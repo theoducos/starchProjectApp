@@ -6,14 +6,14 @@
       <li style="font-weight: bold;font-size: large">Utilisateur</li>
       <li>
         <input type="text" class="field-style field-full align-none" id="identifiant" name="identifiant"
-               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*" required #identifiant="ngModel" (ngModelChange)="console.log('dfkfdkdf');">
+               [(ngModel)]="utilisateur.identifiant " placeholder="Identifiant*" required #identifiant="ngModel">
         <div *ngIf="identifiant.invalid && (identifiant.dirty)"
              class="error">
           <div *ngIf="identifiant.errors.required" class="error">
             Identifiant obligatoire
           </div>
         </div>
-        <div *ngIf="isExist === true" >
+        <div *ngIf="isExist === true">
           <p>Cet identifiant existe déjà</p>
         </div>
       </li>
@@ -70,6 +70,8 @@
             Prénom obligatoire
           </div>
         </div>
+        <p>Choisir sa photo de profil:</p><input type="file" (change)="fileChange($event)" placeholder="Upload file"
+                                                 accept=".jpg">
       </li>
       <li style="font-weight: bold;font-size: large">Entreprise</li>
       <li>
