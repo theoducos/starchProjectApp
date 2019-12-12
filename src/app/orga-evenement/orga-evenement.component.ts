@@ -11,6 +11,7 @@ import {UtilisateurHttpService} from '../utilisateur/utilisateur.http.service';
 import {FormValidatorService} from '../form-validator.service';
 import {Utilisateur} from '../model/utilisateur';
 import {Entreprise} from '../model/entreprise';
+import {Adresse} from '../model/adresse';
 
 @Component({
   selector: 'orga-evenement',
@@ -25,11 +26,15 @@ export class OrgaEvenementComponent implements OnInit {
 
   lieuxEvenements: Array<LieuxEvenement>;
 
+  adresse: Adresse = new Adresse();
+
   lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
   groupes: Array<Groupe>;
 
   groupe: Groupe = new Groupe();
+
+
 
   constructor(private evenementService: EvenementHttpService, private lieuxEvenementService: LieuxEvenementHttpService,
               private groupeService: GroupeHttpService, private authService: AuthService, private router: Router, formValidatorService: FormValidatorService,
@@ -65,9 +70,12 @@ export class OrgaEvenementComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.lieuxEvenement.adresse = this.adresse;
   }
 
+  saveLieux() {
+    this.lieuxEvenementService.save(this.lieuxEvenement);
+  }
 
 
 }
