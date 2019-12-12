@@ -161,6 +161,17 @@ export class EvenementDetailComponent implements OnInit {
     // }
   }
 
+  listAll() {
+    this.participantBool = true;
+    this.interessesBool = true;
+    this.evenementService.findUtilisateursInteresses(this.evenement.id).subscribe(resp => this.utilisateursInteresses = resp);
+    this.evenementService.findUtilisateursParticipants(this.evenement.id).subscribe(resp => {
+      this.utilisateursParticipants = resp;
+      this.nbparticipants = this.utilisateursParticipants.length;
+    });
+
+  }
+
 
   listCommentaires() {
     this.commentaireBool = true;

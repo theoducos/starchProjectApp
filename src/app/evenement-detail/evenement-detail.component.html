@@ -7,8 +7,8 @@
   <hr>
   <div align="center">
     <div class="btn-group btn-group-sm">
-      <button class="participe" (click)="jeParticipe()">Participe <i class="fa fa-check"></i></button>
-      <button class=" interet" (click)="jeSuisInteresse()">Intéressé(e) <i class="fa fa-star"></i></button>
+      <button class="participe" (click)="jeParticipe()" (click)="jeSuisInteresse()">Participe <i class="fa fa-check"></i></button>
+      <button class=" interet" (click)="jeSuisInteresse()"  (click)="jeParticipe()">Intéressé(e) <i class="fa fa-star"></i></button>
     </div>
   </div>
   <hr>
@@ -18,9 +18,9 @@
   </div>
   <hr>
   <div class="centrer" data-toggle="modal" data-target="#myModal">
-    <a class="btn participant" (click)="listParticipant()">Participant(e)s<i
+    <a class="btn participant" (click)="listAll()"  >Participant(e)s<i
       class="fa fa-users fa-2x"></i></a>
-    <a class="btn participant" (click)="listInteresse()">Intéressé(e)s<i class="fa fa-star-o fa-2x"></i></a>
+    <a class="btn participant" (click)="listAll()" >Intéressé(e)s<i class="fa fa-star-o fa-2x"></i></a>
   </div>
 
   <hr>
@@ -99,8 +99,8 @@
           </div>
         <div class="modal-body" >
 
-          <div style="position: relative ; margin-left: 20px"   >
-          <div *ngIf="participantBool">
+          <div    >
+          <div *ngIf="participantBool" style="position: relative ; margin-left: 20px ;float: left; width: 50%">
             <div *ngFor="let utilisateur of utilisateursParticipants">
               <!--      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">-->
               <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}</b></p>
@@ -110,7 +110,7 @@
             </div>
           </div>
           </div>
-          <div style="position: relative ; margin-left: 60px"   >
+          <div style="position: relative ; margin-left: 275px; width: 50% "    >
           <div *ngIf="interessesBool">
             <div *ngFor="let util of utilisateursInteresses">
               <!--      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">-->
