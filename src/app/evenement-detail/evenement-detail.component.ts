@@ -403,7 +403,10 @@ export class EvenementDetailComponent implements OnInit {
 
         this.participationService.create(this.participation).subscribe(resp => {
           this.participation = resp;
-
+          this.evenementService.findUtilisateursParticipants(this.evenement.id).subscribe(resp => {
+            this.utilisateursParticipants = resp;
+            this.nbparticipants = this.utilisateursParticipants.length;
+          });
           this.listInteresse();
         });
       }
