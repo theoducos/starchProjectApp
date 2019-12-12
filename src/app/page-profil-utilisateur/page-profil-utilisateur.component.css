@@ -71,3 +71,8 @@ button:hover, a:hover {
 }
 
 
+
+.verticalLine {
+  border-left: thick solid black;
+}
+

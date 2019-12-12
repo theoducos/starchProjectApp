@@ -17,28 +17,12 @@
     class="fa fa-map-marker fa-2x"></i> {{evenement.lieuxEvenement?.nomLieu}}
   </div>
   <hr>
-  <div class="centrer">
+  <div class="centrer" data-toggle="modal" data-target="#myModal">
     <a class="btn participant" (click)="listParticipant()">Participant(e)s<i
       class="fa fa-users fa-2x"></i></a>
     <a class="btn participant" (click)="listInteresse()">Intéressé(e)s<i class="fa fa-star-o fa-2x"></i></a>
   </div>
-  <div *ngIf="participantBool">
-    <div *ngFor="let utilisateur of utilisateursParticipants">
-<!--      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">-->
-      <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}</b></p>
-<!--          <i-->
-<!--         class="fa fa-users"></i>  {{groupes.nom}}</b></p>-->
-<!--      </div>-->
-    </div>
-  </div>
-  <div *ngIf="interessesBool">
-    <div *ngFor="let util of utilisateursInteresses">
-<!--      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">-->
-      <p><b>{{util.prenom}} {{util.nom}}</b></p>
-<!--          <i class="fa fa-users "></i>  {{groupes.nom}}</b></p>-->
-<!--      </div>-->
-    </div>
-  </div>
+
   <hr>
   <div><p style="font-weight: bold;font-size: x-large">Prix:</p>
     {{evenement.prix}} <i class="fa fa-euro"></i>
@@ -88,6 +72,64 @@
         <p>{{com.commentaire}}</p>
       </div>
     </div>
-
   </div>
 </div>
+
+
+
+
+
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+<!--          class="modal-title"-->
+
+        <div style="position: relative ; margin-left: 20px"   ><h4>Participant(e)</h4></div><div style="position: relative ; margin-left: 10px"><i class="fa fa-users fa-2x"></i></div>  <span style="position: relative ; margin-left: 37px" class="vertical-line"></span>
+          <div style="position: relative; margin-left: 30px"><h4>Intéressé(e)s</h4></div><div style="position: relative ; margin-left: 10px"><i class="fa fa-star-o fa-2x"></i></div>
+          <div style="position: relative; margin-top: -15px"> <button type="button" class="close" data-dismiss="modal">&times;</button></div>
+
+          </div>
+        <div class="modal-body" >
+
+          <div style="position: relative ; margin-left: 20px"   >
+          <div *ngIf="participantBool">
+            <div *ngFor="let utilisateur of utilisateursParticipants">
+              <!--      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">-->
+              <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}</b></p>
+              <!--          <i-->
+              <!--         class="fa fa-users"></i>  {{groupes.nom}}</b></p>-->
+              <!--      </div>-->
+            </div>
+          </div>
+          </div>
+          <div style="position: relative ; margin-left: 60px"   >
+          <div *ngIf="interessesBool">
+            <div *ngFor="let util of utilisateursInteresses">
+              <!--      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">-->
+              <p><b>{{util.prenom}} {{util.nom}}</b></p>
+              <!--          <i class="fa fa-users "></i>  {{groupes.nom}}</b></p>-->
+              <!--      </div>-->
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
