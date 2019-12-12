@@ -69,7 +69,7 @@ export class UtilisateurHttpService {
     return this.http.get(this.appConfigService.backend + 'utilisateur/'+ id + '/participation');
   }
 
-  findParticipationByUtilisateurAndEvent(iduser: number, idevent : number) {
+  findParticipationByUtilisateurAndEvent(iduser: number, idevent : number): Observable<any> {
     return this.http.get(this.appConfigService.backend + 'utilisateur/'+ iduser +  '/evenement/'+ idevent+ '/participation');
   }
 

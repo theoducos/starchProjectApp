@@ -7,8 +7,8 @@
   <hr>
   <div align="center">
     <div class="btn-group btn-group-sm">
-      <button class="participe" (click)="saveParticipation()">Participe <i class="fa fa-check"></i></button>
-      <button class=" interet" (click)="saveInteret()">Intéressé(e) <i class="fa fa-star"></i></button>
+      <button class="participe" (click)="jeParticipe()">Participe <i class="fa fa-check"></i></button>
+      <button class=" interet" (click)="jeSuisInteresse()">Intéressé(e) <i class="fa fa-star"></i></button>
     </div>
   </div>
   <hr>
@@ -24,18 +24,19 @@
   </div>
   <div *ngIf="participantBool">
     <div *ngFor="let utilisateur of utilisateursParticipants">
-      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">
-        <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}, <i
-          class="fa fa-users"></i>  {{groupes.nom}}</b></p>
-      </div>
+<!--      <div *ngFor="let groupes of groupesUtilisateurParticipantsListe">-->
+      <p><b>{{utilisateur.prenom}} {{utilisateur.nom}}</b></p>
+<!--          <i-->
+<!--         class="fa fa-users"></i>  {{groupes.nom}}</b></p>-->
+<!--      </div>-->
     </div>
   </div>
   <div *ngIf="interessesBool">
     <div *ngFor="let util of utilisateursInteresses">
-      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">
-        <p><b>{{util.prenom}} {{util.nom}}, <i
-          class="fa fa-users "></i>  {{groupes.nom}}</b></p>
-      </div>
+<!--      <div *ngFor="let groupes of groupesUtilisateurInteressesListe">-->
+      <p><b>{{util.prenom}} {{util.nom}}</b></p>
+<!--          <i class="fa fa-users "></i>  {{groupes.nom}}</b></p>-->
+<!--      </div>-->
     </div>
   </div>
   <hr>
@@ -49,13 +50,19 @@
   <div>
     {{nbparticipants}}/{{evenement.nbParticipantMax}} participants
   </div>
-  <hr>
-  <div style="color: #42A948; font-weight: bold"><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p>
+  <div *ngIf="evenement.nbParticipantMax-nbparticipants>0">
+    <p style="color: #42A948">L'événement est ouvert</p>
   </div>
-  <ng-template #elseBlock>
-    <div style="color:#DC3B3B ; font-weight: bold">Else template</div>
-  </ng-template>
-  <hr>
+  <div *ngIf="evenement.nbParticipantMax-nbparticipants <=0">
+    <p style="color: #DC3B3B">L'événement est fermé</p>
+  </div>
+<!--  <hr>-->
+<!--  <div style="color: #42A948; font-weight: bold"><p *ngIf="evenement.statutOf  else elseBlock"> Inscription Ouverte!</p>-->
+<!--  </div>-->
+<!--  <ng-template #elseBlock>-->
+<!--    <div style="color:#DC3B3B ; font-weight: bold">Else template</div>-->
+<!--  </ng-template>-->
+<!--  <hr>-->
   <div>
     <p style="font-weight: bold;font-size: x-large"> Description :</p>
     <div>
