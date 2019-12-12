@@ -6,7 +6,7 @@
   /*box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);*/
   /*border-radius: 10px;*/
   /*border: 6px solid #DC3B3B;*/
-  width: 1000px;
+  width: 1500px;
   background: #FAFAFA;
   padding: 30px;
   margin: 30px auto;
@@ -15,6 +15,14 @@
   border: 2px solid #DC3B3B;
   height: auto;
 }
+
+.avatar {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #DC3B3B;
+  border-radius: 50%;
+}
+
 
 .form-style-8 {
   max-width: 600px;
