@@ -23,10 +23,13 @@
           Code du Groupe obligatoire
         </div>
       </div>
+      <div *ngIf="isExist == true">
+        <p style="color: #DC3B3B">Ce code groupe existe déjà</p>
+      </div>
     </div>
   </form>
   <div class="btn-group btn-group-lg float-right"><a class="btn" style="background: #0A3FFF;color:white">
-    <i class="fa fa-check" (click)="save()" [routerLink]="['../groupe/', groupe.id]"></i></a>
+    <i class="fa fa-check" (click)="save()"></i></a>
     <a class="btn" style="background: #FF9D03;color: white">
       <i class="fa fa-ban" [routerLink]="['../utilisateur']"></i>
     </a>

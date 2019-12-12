@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {LieuxEvenement} from "../model/lieuxEvenement";
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,8 @@ export class LieuxEvenementHttpService {
       .subscribe(resp => this.lieuxEvenements = resp);
   }
 
-  findAll(): any{
-    return this.http.get(this.appConfigService.backend + 'lieuxevenement/');
+  findAll(): Observable<any>{
+    return this.http.get(this.appConfigService.backend + 'lieuxevenement');
   }
 
   save(lieuxEvenement: LieuxEvenement) {

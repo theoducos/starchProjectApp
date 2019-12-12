@@ -49,6 +49,7 @@ export class IncriptionFormComponent implements OnInit {
           }
         };
         if(this.isExist == false && this.entrepriseExist == true){
+          this.utilisateur.entreprise = this.entreprise;
           this.utilisateurService.createUser(this.utilisateur).subscribe(resp => {
             this.utilisateur = resp;
             localStorage.setItem('isLoggedin', 'true');

@@ -12,7 +12,6 @@
       <label for="nomActivite">Nom activité:</label>
       <select class="form-control" name="nomActivite" id="nomActivite" [(ngModel)]="evenement.nomEvenement"
               #nomActivite="ngModel" required>
-        <option value="">Activité</option>
         <option value="Foot_en_salle">Foot en salle</option>
         <option value="Escape_game">Escape game</option>
         <option value="Bowling">Bowling</option>
@@ -29,7 +28,6 @@
         <label for="typeActivite">Type d'activité:</label>
         <select class="form-control" id="typeActivite" name="typeActivite" [(ngModel)]="evenement.typeEvenement"
                 #typeActivite="ngModel" required>
-          <option value="">Type</option>
           <option value="Bar_restaurant">Bar Restaurant</option>
           <option value="Culturel">Culturel</option>
           <option value="Sportif">Sportif</option>
@@ -73,7 +71,6 @@
         <label for="lieu">Lieu préexistant:</label>
         <select class="form-control" id="lieu" name="lieu" [(ngModel)]="lieuxEvenement.id" #lieu="ngModel"
                 required>
-          <option value="">Lieu pré existant</option>
           <option *ngFor="let lieu of lieuxEvenements" [value]="lieu.id">{{lieu.nomLieu}}</option>
         </select>
         <div *ngIf="lieu.invalid">
@@ -112,7 +109,6 @@
   <div class="form-group">
     <label for="groupe">Groupe :</label>
     <select class="form-control" id="groupe" name="groupe" [(ngModel)]="groupe.id">
-      <option value="">Choisir un groupe</option>
       <option *ngFor="let group of groupes" [value]="group.id">{{group.nom}}</option>
     </select>
   </div>
@@ -136,12 +132,11 @@
   </form>
   <div class="btn-group btn-group-lg float-right">
     <a class="btn" style="background: #0A3FFF;color:white">
-      <i class="fa fa-check" (click)="save()" [routerLink]="['/utilisateur/']"></i>
+      <i class="fa fa-check" (click)="save()"></i>
     </a>
-    <a class="btn" style="background: #DC3B3B;color: white">
-      <i class="fa fa-undo" [routerLink]="['..']"></i>
+    <a class="btn" style="background: #DC3B3B;color: white" [routerLink]="['../utilisateur']">
+      <i class="fa fa-undo" ></i>
     </a>
   </div>
-  <button (click)="session()">Session</button>
 
 </div>
