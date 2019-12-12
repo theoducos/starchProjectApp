@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {AppConfigService} from "../app-config.service";
 import {Utilisateur} from "../model/utilisateur";
 import {Groupe} from "../model/groupe";
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class CreationGroupeHttpService {
     }
   }
 
-  create(groupe: Groupe): Observable<any> {
-    return this.http.post(this.appConfigService.backend + '/groupe', groupe);
+  create(group: Groupe): Observable<any>{
+    return this.http.post(this.appConfigService.backend + 'groupe', group);
   }
 }

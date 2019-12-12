@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AppConfigService} from '../app-config.service';
 import {Commentaire} from '../model/commentaire';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class CommentaireHttpService {
     this.load();
   }
 
-  save(commentaire: Commentaire){
-    this.http.post(this.appConfigService.backend + 'commentaire/', commentaire).subscribe(resp => this.load());
+  save(commentaire: Commentaire): Observable<any>{
+    return this.http.post(this.appConfigService.backend + 'commentaire/', commentaire);
   }
 
   load() {

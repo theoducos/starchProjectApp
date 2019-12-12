@@ -4,6 +4,7 @@ import {Entreprise} from './entreprise';
 import {Evenement} from "./evenement";
 import {Favoris} from "./favoris";
 import {Participation} from './participation';
+import {Gestion} from './gestion';
 
 export class Utilisateur {
   id: number;
@@ -17,13 +18,15 @@ export class Utilisateur {
   admin: boolean;
   entreprise: Entreprise;
   groupes: Array<Groupe>;
+  groupe : Groupe
   evenements: Array<Evenement>;
   favoris: Array<Favoris>;
   confirmation: string =null;
   participation : Array<Participation>;
+  gestion : Array<Gestion>;
 
 
-  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise, groupes?: Array<Groupe>, evenements?: Array<Evenement>, favoris?: Array<Favoris>, participation?: Array<Participation> ){
+  constructor(id?: number, version?: number, nom?: string, prenom?: string, email?: string, identifiant?: string, telephone?: string, mdp?: string, admin?: boolean, entreprise?: Entreprise, groupes?: Array<Groupe>, evenements?: Array<Evenement>, favoris?: Array<Favoris>, participation?: Array<Participation>, groupe?: Groupe, gestion?:Array<Gestion>){
     this.id = id;
     this.version = version;
     this.nom = nom;
@@ -38,6 +41,8 @@ export class Utilisateur {
     this.evenements = evenements;
     this.favoris = favoris;
     this.participation = participation;
+    this.groupe = groupe
+    this.gestion = gestion
 
   }
 }

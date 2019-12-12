@@ -70,24 +70,24 @@
       </li>
       <li>
         <input type="text" name="code" id="code" class="field-style field-full align-none"
-               [(ngModel)]="utilisateur.entreprise.codeEntreprise" required #code="ngModel"
-               placeholder="Code Entreprise*"/>
-        <div *ngIf="code.invalid && (code.dirty)"
-             class="error">
-          <div *ngIf="code.errors.required">
-            Code Entreprise obligatoire
-          </div>
-        </div>
+               [(ngModel)]="entreprise.codeEntreprise" disabled
+               />
+<!--        <div *ngIf="code.invalid && (code.dirty)"-->
+<!--             class="error">-->
+<!--          <div *ngIf="code.errors.required">-->
+<!--            Code Entreprise obligatoire-->
+<!--          </div>-->
+<!--        </div>-->
       </li>
     </ul>
     *Obligatoire
   </form>
   <div class="btn-group btn-group-lg float-right">
-    <a class="btn" style="background: #0A3FFF;color:white" (click)="save()" [routerLink]="['/utilisateur/']"><i
+    <a class="btn" style="background: #0A3FFF;color:white" (click)="save()" ><i
       class="fa fa-check"></i>
     </a>
     <a class="btn" style="background: #FF9D03;color: white">
-      <i class="fa fa-undo" [routerLink]="['../utilisateur']"></i>
+      <i class="fa fa-undo" [routerLink]="['/utilisateur/']"></i>
     </a>
   </div>
 </div>

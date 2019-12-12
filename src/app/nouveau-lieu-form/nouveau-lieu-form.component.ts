@@ -4,7 +4,7 @@ import {UtilisateurHttpService} from "../utilisateur/utilisateur.http.service";
 import {LieuxEvenement} from "../model/lieuxEvenement";
 import {LieuxEvenementHttpService} from "../lieux-evenement/lieux-evenement-http.service";
 import {Adresse} from "../model/adresse";
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nouveau-lieu-form',

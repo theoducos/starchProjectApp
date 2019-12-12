@@ -1,12 +1,20 @@
+import {Groupe} from './groupe';
+import {Utilisateur} from './utilisateur';
+
 export class Gestion {
   id: number;
   version: number;
-  gestion: TypeGestion;
+  typeGestion: string;
+  groupe : Groupe;
+  utilisateur : Utilisateur;
 
 
-  constructor(id?: number, version?: number, gestion?: TypeGestion) {
+  constructor(id?: number, version?: number, typeGestion?: string, groupe?: Groupe, utilisateur?: Utilisateur) {
     this.id = id;
     this.version = version;
-    this.gestion = gestion;
+    this.typeGestion = typeGestion;
+    this.utilisateur = utilisateur;
+    this.groupe = groupe;
+
   }
 }

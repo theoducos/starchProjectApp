@@ -4,7 +4,7 @@ import {Evenement} from './evenement';
 export class Participation {
   id: number;
   version: number;
-  type: TypeParticipation;
+  type: string;
   utilisateur : Utilisateur;
   evenement : Evenement;
 

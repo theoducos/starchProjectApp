@@ -18,8 +18,8 @@
   </div>
   <br>
 
-  <div class="col-8">
-    <div class="form-style-8">
+  <div class="col-8" >
+    <div class="form-style-8" style="position: relative">
       <br>
       <h2 style="font-weight: bold; color:black;text-align: center">GROUPES <i class="fa fa-users"></i></h2>
       <div class="form-style-7">
@@ -28,7 +28,17 @@
             <i [routerLink]="['../groupe/'+ groupe.id]" class="fa fa-user-circle"></i>
           </p>
         </div>
-        <i class="fa fa-plus" [routerLink]="['../creationGroupe']"></i>
+<!--        <i class="fa fa-plus" [routerLink]="['../creationGroupe']"></i>-->
+      </div>
+      <div style="position:relative; maring-top: 0px; margin-left: 880px " >  <a [routerLink]="['/creationGroupe']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"><u> Créer un groupe</u> </a></div>
+      <div style="position: relative; margin-top: 0px; margin-left: 880px  "  >  <a  (click)= "afficherzonedetexte()" style="color: #0A3FFF; font-size: 19px"  > <u> Joindre un groupe </u> </a></div>
+
+      <div *ngIf="afficherinput">
+        <div class="col-sm-3" style="position:relative; margin-top: 0px">
+      <input  [(ngModel)]="groupe.codeGroupe" ng-style="myStyle" type="text" class="form-control" id="mytextinput" name="dtEtHeure" placeholder="--Entrez un nom de groupe valide--" >
+        </div>
+        <div style="position:relative ; maring-top: -10px; margin-left: 880px " ><a (click)="affichergroupe()" class="btn" style="background: #0A3FFF;color:white"><i class="fa fa-check" ></i></a></div>
+        <div *ngIf="groupinexist==true" style="color: #DC3B3B">Entrez un code de groupe valide</div>
       </div>
       <br>
       <h2 style="font-weight: bold; color:black;text-align: center">EVENEMENTS <i class="fa fa-beer"></i></h2>
@@ -39,6 +49,7 @@
         </div>
         <br>
       </div>
+      <div style="position: relative; maring-top: 0px; margin-left: 898px " >  <a [routerLink]="['/calendar']" class="signup-image-link" style="color: #0A3FFF; font-size: 19px"> <u> Rejoindre un événement </u> </a></div>
       <!--      <h2 style="font-weight: bold; color:black;text-align: center">FAVORIS</h2>-->
       <!--      <div class="form-style-6">-->
       <!--        <div *ngFor="let fav of favoris">-->
@@ -58,8 +69,8 @@
       <!--        <br>-->
       <!--      </div>-->
     </div>
-
   </div>
+
 </div>
 
 

@@ -23,7 +23,7 @@ export class OrgaEvenementComponent implements OnInit {
   evenement: Evenement = new Evenement();
   entreprise: Entreprise = new Entreprise();
 
-  lieuxEvenements: any;
+  lieuxEvenements: Array<LieuxEvenement>;
 
   lieuxEvenement: LieuxEvenement = new LieuxEvenement();
 
@@ -68,11 +68,6 @@ export class OrgaEvenementComponent implements OnInit {
 
   }
 
-  session() {
-    console.log(localStorage.getItem('identifiant'));
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 
 
 }

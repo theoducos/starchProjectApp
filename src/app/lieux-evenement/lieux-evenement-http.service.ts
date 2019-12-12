@@ -21,8 +21,8 @@ export class LieuxEvenementHttpService {
       .subscribe(resp => this.lieuxEvenements = resp);
   }
 
-  findAll(): any{
-    return this.http.get(this.appConfigService.backend + 'lieuxevenement/');
+  findAll(): Observable<any>{
+    return this.http.get(this.appConfigService.backend + 'lieuxevenement');
   }
 
   save(lieuxEvenement: LieuxEvenement) {

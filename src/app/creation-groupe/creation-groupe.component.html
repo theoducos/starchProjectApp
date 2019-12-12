@@ -23,6 +23,9 @@
           Code du Groupe obligatoire
         </div>
       </div>
+      <div *ngIf="isExist == true">
+        <p style="color: #DC3B3B">Ce code groupe existe déjà</p>
+      </div>
     </div>
   </form>
   <div class="btn-group btn-group-lg float-right"><a (click)="save()" class="btn" style="background: #0A3FFF;color:white">

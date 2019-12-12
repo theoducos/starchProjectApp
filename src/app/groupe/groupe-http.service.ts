@@ -21,7 +21,7 @@ export class GroupeHttpService {
       .subscribe(resp => this.groupes = resp);
   }
 
-  findAll(): any{
+  findAll(): Observable<any>{
     return this.http.get(this.appConfigService.backend + 'groupe/');
   }
 
