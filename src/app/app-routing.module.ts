@@ -17,26 +17,27 @@ import {AuthGuard} from './login/auth.guard';
 import {CreationGroupeComponent} from './creation-groupe/creation-groupe.component';
 import {OrgaEvenementStarchComponent} from './orga-evenement-starch/orga-evenement-starch.component';
 import {CalendarComponent} from './calendar/calendar.component';
+import {AuthService} from './login/auth.service';
 
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
-  {path: 'inscription', component: IncriptionFormComponent, },
-  {path: 'nouveauLieu', component: NouveauLieuFormComponent},
+  {path: 'inscription', component: IncriptionFormComponent},
+  {path: 'nouveauLieu', component: NouveauLieuFormComponent, canActivate: [AuthGuard]},
   {path: 'inscriptionEntreprise', component: InscriptionEntrepriseComponent},
-  {path: 'orgaEvenement', component: OrgaEvenementComponent},
-  {path: 'orgaEvenementStarch/:id', component: OrgaEvenementStarchComponent},
-  {path: 'evenement/list', component: EvenementComponent},
-  {path: 'groupe', component: GroupeComponent},
-  {path: 'groupe/:id', component: GroupeDetailComponent},
-  {path: 'utilisateur', component: PageProfilUtilisateurComponent},
-  {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent},
-  {path: 'evenement/:id', component: EvenementDetailComponent},
-  {path: 'evenementstarch', component: EvenementStarchComponent},
-  {path: 'modificationUtilisateur', component: ModificationUtilisateurComponent},
-  {path: 'creationGroupe', component: CreationGroupeComponent},
+  {path: 'orgaEvenement', component: OrgaEvenementComponent, canActivate: [AuthGuard]},
+  {path: 'orgaEvenementStarch/:id', component: OrgaEvenementStarchComponent, canActivate: [AuthGuard]},
+  {path: 'evenement/list', component: EvenementComponent, canActivate: [AuthGuard]},
+  {path: 'groupe', component: GroupeComponent, canActivate: [AuthGuard]},
+  {path: 'groupe/:id', component: GroupeDetailComponent, canActivate: [AuthGuard]},
+  {path: 'utilisateur', component: PageProfilUtilisateurComponent, canActivate: [AuthGuard]},
+  {path: 'modificationEntreprise/:id', component: ModificationEntrepriseComponent, canActivate: [AuthGuard]},
+  {path: 'evenement/:id', component: EvenementDetailComponent, canActivate: [AuthGuard]},
+  {path: 'evenementstarch', component: EvenementStarchComponent, canActivate: [AuthGuard]},
+  {path: 'modificationUtilisateur', component: ModificationUtilisateurComponent, canActivate: [AuthGuard]},
+  {path: 'creationGroupe', component: CreationGroupeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'calendar', component: CalendarComponent}
+  {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]}
 ];
 
 
